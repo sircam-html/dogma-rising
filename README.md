@@ -1,1 +1,1 @@
-# Landing page for Dogma Rising Private Server
+# Dogma Rising Private Server (landing page)
