@@ -66,6 +66,15 @@ footer {
     margin-bottom: 10px;
 }
 
+/* STICKY IMPORTANT */
+.news-post.important {
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    border: 1px solid #4CAF50;
+    box-shadow: 0 0 15px rgba(76,175,80,0.3);
+}
+
 /* COLLAPSIBLE */
 .news-content {
     max-height: 120px;
@@ -90,36 +99,9 @@ footer {
     color: #66ff88;
 }
 
-/* PAGINATION */
-.next-page {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-    max-width: 120px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.next-page a {
-    color: #ffffff;
-    font-size: 32px;
-    opacity: 0.7;
-}
-
-.next {
-    animation: slideRight 1.5s infinite;
-}
-
-.prev {
-    animation: slideLeft 1.5s infinite;
-}
-
-@keyframes slideRight {
-    50% { transform: translateX(6px); }
-}
-
-@keyframes slideLeft {
-    50% { transform: translateX(-6px); }
+/* HIDDEN POSTS */
+.hidden-post {
+    display: none;
 }
 </style>
 </head>
@@ -147,8 +129,8 @@ footer {
 <p>Stay informed with the latest changes, announcements and server updates.</p>
 </div>
 
-<!-- LARGE POST -->
-<div class="news-post">
+<!-- IMPORTANT POST (UNCHANGED CONTENT) -->
+<div class="news-post important">
 <div class="news-date">March 29, 2026 | LostMyLeg</div>
 <h3>Scheduled Maintenance Announcement</h3>
 
@@ -190,7 +172,7 @@ Thank you for your understanding and have a nice Sunday!
 <span class="read-more-btn">Read more</span>
 </div>
 
-<!-- ORIGINAL POSTS (UNCHANGED STRUCTURE, ONLY WRAPPED) -->
+<!-- NORMAL POSTS -->
 <div class="news-post">
 <div class="news-date">March 28, 2026 | Jared</div>
 <h3> Surprise! Leg applied a hotfix.</h3>
@@ -223,7 +205,7 @@ That’s it and back to my break 🙂
 <span class="read-more-btn">Read more</span>
 </div>
 
-<div class="news-post">
+<div class="news-post hidden-post">
 <div class="news-date">March 20, 2026 | LostMyLeg</div>
 <h3>Small change regarding the HC-Reward</h3>
 
@@ -240,7 +222,7 @@ That’s it 🙂
 <span class="read-more-btn">Read more</span>
 </div>
 
-<div class="news-post">
+<div class="news-post hidden-post">
 <div class="news-date">March 15, 2026 | LostMyLeg</div>
 <h3>Optimizations</h3>
 
@@ -256,12 +238,6 @@ Have a great one
 <span class="read-more-btn">Read more</span>
 </div>
 
-<!-- PAGINATION -->
-<div class="next-page">
-<a class='prev' href='/news'><i class="fa fa-angle-left"></i></a>
-<a class='next' href='/news-2'><i class="fa fa-angle-right"></i></a>
-</div>
-
 </div>
 
 <footer>
@@ -273,7 +249,11 @@ Have a great one
 </footer>
 
 <script>
-document.querySelectorAll('.news-post').forEach(post => {
+const posts = document.querySelectorAll('.news-post');
+const hiddenPosts = document.querySelectorAll('.hidden-post');
+
+/* READ MORE + AUTO HIDE */
+posts.forEach(post => {
     const content = post.querySelector('.news-content');
     const button = post.querySelector('.read-more-btn');
 
@@ -283,25 +263,29 @@ document.querySelectorAll('.news-post').forEach(post => {
 
     button.addEventListener('click', function () {
         content.classList.toggle('expanded');
-
-        this.textContent =
-            content.classList.contains('expanded')
-            ? "Show less"
-            : "Read more";
+        this.textContent = content.classList.contains('expanded') ? "Show less" : "Read more";
     });
 });
 
-(function() {
-    const path = window.location.pathname;
+/* AUTO LOAD */
+let loaded = 0;
 
-    if (path.includes("news.html") || path.endsWith("/news")) {
-        document.querySelector('.prev')?.style.setProperty("visibility", "hidden");
+function loadMore() {
+    for (let i = 0; i < 2; i++) {
+        if (hiddenPosts[loaded]) {
+            hiddenPosts[loaded].style.display = "block";
+            loaded++;
+        }
     }
+}
 
-    if (path.includes("news-2")) {
-        document.querySelector('.next')?.style.setProperty("visibility", "hidden");
+window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+        loadMore();
     }
-})();
+});
+
+loadMore();
 </script>
 
 </body>
