@@ -19,8 +19,10 @@
 
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
-  <!-- FIX: remove click feel + pointer hand -->
+  <!-- GLOBAL FIXES -->
   <style>
+
+    /* ❌ remove click / hand cursor */
     .portfolio-item,
     .portfolio-item .thumb,
     .portfolio-item .image,
@@ -33,10 +35,27 @@
       cursor: default;
     }
 
-    /* keep hover visually but not clickable */
-    .portfolio-item .thumb:hover {
-      transform: none !important;
+    /* 🟦 TABLET FIX: 3 IMAGES INLINE */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .full-screen-portfolio .col-md-4 {
+        width: 33.3333% !important;
+        float: left;
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+      }
     }
+
+    /* 📱 MOBILE STACK */
+    @media (max-width: 767px) {
+      .full-screen-portfolio .col-md-4 {
+        width: 100% !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -55,7 +74,7 @@
     </div>
   </nav>
 
-  <!-- HERO VIDEO -->
+  <!-- HERO -->
   <div id="video-container">
     <div class="video-overlay"></div>
 
@@ -64,8 +83,7 @@
         <h1>Welcome to <em>Dogma Rising</em></h1>
 
         <p>
-          — Where progression feels earned, not endless. Faster leveling,
-          rebalanced XP, and a server built for players who value quality over the grind.
+          — Where progression feels earned, not endless. Faster leveling, rebalanced XP, and a server built for quality gameplay.
         </p>
 
         <p><strong>DOWNLOAD NOW</strong></p>
@@ -94,13 +112,9 @@
             <div class="hover-effect">
               <div class="hover-content">
                 <h1>The <em>Progression</em></h1>
-                <p>
-                  Reworked level curve that's more forgiving, letting players
-                  advance naturally without repetitive dungeon farming.
-                </p>
+                <p>Reworked level curve that's more forgiving, letting players advance naturally without repetitive dungeon farming.</p>
               </div>
             </div>
-
             <div class="image">
               <img src="img/progression.webp" alt="Progression">
             </div>
@@ -115,13 +129,9 @@
             <div class="hover-effect">
               <div class="hover-content">
                 <h1>The <em>Balanced EXP</em></h1>
-                <p>
-                  Functional EXP ring and consistent progression from quests,
-                  events, and exploration rewards.
-                </p>
+                <p>Functional EXP ring and consistent progression from quests, events, and exploration rewards.</p>
               </div>
             </div>
-
             <div class="image">
               <img src="img/chimera-s1.webp" alt="EXP System">
             </div>
@@ -136,13 +146,9 @@
             <div class="hover-effect">
               <div class="hover-content">
                 <h1>The <em>Content</em></h1>
-                <p>
-                  Balanced monster scaling and challenging endgame without
-                  artificial grind walls.
-                </p>
+                <p>Balanced monster scaling and challenging endgame without artificial grind walls.</p>
               </div>
             </div>
-
             <div class="image">
               <img src="img/the-content.webp" alt="Content">
             </div>
@@ -160,21 +166,14 @@
     </div>
   </footer>
 
-  <!-- DISCORD BUTTON -->
-  <div class="popup-icon">
-    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">
-      <img src="img/discord-contact.webp" alt="Discord">
-    </a>
-  </div>
-
-  <!-- MENU + SERVER STATUS RESTORED -->
+  <!-- MENU + SERVER STATUS -->
   <section class="overlay-menu">
     <div class="container">
       <div class="main-menu">
         <ul>
           <li><a href="https://dogmarising.netlify.app/">Home</a></li>
-          <li><a href="https://dogmarising.netlify.app/news.html">Latest info</a></li>
-          <li><a href="https://dogmarising.netlify.app/contact.html">Contact form</a></li>
+          <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
+          <li><a href='https://dogmarising.netlify.app/contact'>Contact form</a></li>
           <li><a href="http://ddon.wikidot.com/" target="_blank">Wiki (external link)</a></li>
         </ul>
 
