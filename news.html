@@ -119,18 +119,23 @@ footer {
 
 <body>
 
+<!-- NAV -->
 <nav>
-<div class="logo">
-<a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
-</div>
+    <div class="logo">
+        <a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
+    </div>
+    <div class="menu-icon">
+        <span></span>
+    </div>
 </nav>
 
+<!-- HEADING -->
 <div class="page-heading">
-<div class="container">
-<div class="heading-content">
-<h1>Latest<em> info</em></h1>
-</div>
-</div>
+    <div class="container">
+        <div class="heading-content">
+          <h1>Latest<em> info</em></h1>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -166,6 +171,7 @@ Thank you for your understanding and have a nice Sunday!
 </div>
 <span class="read-more-btn">Read more</span>
 </div>
+
 
 <!-- OTHER POSTS -->
 <div class="news-post">
@@ -220,12 +226,13 @@ Have a great one</p>
 
 </div>
 
+<!-- FOOTER -->
 <footer>
-<div class="container-fluid">
-<div class="col-md-12">
-<p>© 2026 Dogma Rising | All rights reserved.</p>
-</div>
-</div>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <p>© 2026 Dogma Rising | All rights reserved.</p>
+        </div>
+    </div>
 </footer>
 
 <!-- DISCORD BUTTON -->
@@ -287,7 +294,6 @@ Have a great one</p>
         </div>
     </div>
 </section>
-    
 
 <script>
 const posts = document.querySelectorAll('.news-post');
@@ -334,6 +340,30 @@ loadBtn.addEventListener('click', () => {
 if (hiddenPosts.length === 0) {
     loadBtn.style.display = "none";
 }
+</script>
+
+
+<!-- SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- AUTO HIDE SCRIPT -->
+<script>
+(function() {
+    const path = window.location.pathname;
+
+    if (path.includes("news.html") || path.endsWith("/news")) {
+        const prev = document.querySelector('.prev');
+        if (prev) prev.style.visibility = "hidden";
+    }
+
+    if (path.includes("news-2")) {
+        const next = document.querySelector('.next');
+        if (next) next.style.visibility = "hidden";
+    }
+})();
 </script>
 
 </body>
