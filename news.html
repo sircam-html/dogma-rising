@@ -66,7 +66,7 @@ footer {
     margin-bottom: 10px;
 }
 
-/* IMPORTANT STICKY */
+/* IMPORTANT */
 .news-post.important {
     position: sticky;
     top: 20px;
@@ -98,6 +98,22 @@ footer {
 .read-more-btn:hover {
     color: #66ff88;
 }
+
+/* LOAD MORE BUTTON */
+#loadMoreBtn {
+    background:#4CAF50;
+    border:none;
+    padding:12px 25px;
+    color:white;
+    font-weight:600;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#loadMoreBtn:hover {
+    background:#5edc6a;
+}
 </style>
 </head>
 
@@ -125,7 +141,7 @@ footer {
 </div>
 
 <!-- IMPORTANT POST -->
-<div class="news-post">
+<div class="news-post important">
 <div class="news-date">March 29, 2026 | LostMyLeg</div>
 <h3>Scheduled Maintenance Announcement</h3>
 <div class="news-content">
@@ -157,7 +173,7 @@ Thank you for your understanding and have a nice Sunday!
 <h3> Surprise! Leg applied a hotfix.</h3>
 <div class="news-content">
 <p>No restart required, just reload the area.<br><br>
-• Reworked all Bloodbane Isle Dungeons<br><br>
+• Reworked all Bloodbane Isle Dungeons according to the area lists spot info<br><br>         
 That's all! Have a good day!</p>
 </div>
 <span class="read-more-btn">Read more</span>
@@ -167,9 +183,9 @@ That's all! Have a good day!</p>
 <div class="news-date">March 25, 2026 | LostMyLeg</div>
 <h3>Scheduled Server-Restart every Friday!</h3>
 <div class="news-content">
-<p>Additionally to the scheduled restart announcement.<br><br>
-• No more surprise restarts<br>
-• Fixed weekly restart<br><br>
+<p>Additionally to the scheduled Server restart announcement.<br><br>            
+• No more surprise restarts (except technical issues)<br>
+• A fixed restart day and time once a week<br><br>
 That’s it 🙂</p>
 </div>
 <span class="read-more-btn">Read more</span>
@@ -179,8 +195,8 @@ That’s it 🙂</p>
 <div class="news-date">March 20, 2026 | LostMyLeg</div>
 <h3>Small change regarding the HC-Reward</h3>
 <div class="news-content">
-<p>• HC reward now account-wide<br><br>
-• Cosmetic only<br><br>
+<p>• The HC Overlord reward is now account-wide<br><br>
+• Reward will be sent via Item-Post<br><br>
 That’s it 🙂</p>
 </div>
 <span class="read-more-btn">Read more</span>
@@ -190,12 +206,17 @@ That’s it 🙂</p>
 <div class="news-date">March 15, 2026 | LostMyLeg</div>
 <h3>Optimizations</h3>
 <div class="news-content">
-<p>• Readded clan quests<br>
-• Rookie ring back<br><br>
+<p>• Readded the High Difficulty Clan Quests!<br>
+• The Rookies ring is rewarded again<br><br>
 Have a great one</p>
 </div>
 <span class="read-more-btn">Read more</span>
-</div>    
+</div>
+
+<!-- LOAD MORE BUTTON -->
+<div style="text-align:center; margin-top:30px;">
+<button id="loadMoreBtn">Load More</button>
+</div>
 
 </div>
 
@@ -209,9 +230,10 @@ Have a great one</p>
 
 <script>
 const posts = document.querySelectorAll('.news-post');
+const loadBtn = document.getElementById('loadMoreBtn');
 
 const VISIBLE_COUNT = 5;
-const LOAD_COUNT = 2;
+const LOAD_COUNT = 3;
 
 let hiddenPosts = [];
 let loaded = 0;
@@ -235,22 +257,22 @@ posts.forEach((post, index) => {
     }
 });
 
-function loadMore() {
+loadBtn.addEventListener('click', () => {
     for (let i = 0; i < LOAD_COUNT; i++) {
         if (hiddenPosts[loaded]) {
             hiddenPosts[loaded].style.display = "block";
             loaded++;
         }
     }
-}
 
-window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
-        loadMore();
+    if (loaded >= hiddenPosts.length) {
+        loadBtn.style.display = "none";
     }
 });
 
-loadMore();
+if (hiddenPosts.length === 0) {
+    loadBtn.style.display = "none";
+}
 </script>
 
 </body>
