@@ -1,319 +1,265 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Latest News</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Latest News</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/fontAwesome.css">
-    <link rel="stylesheet" href="css/light-box.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/fontAwesome.css">
+<link rel="stylesheet" href="css/light-box.css">
+<link rel="stylesheet" href="css/templatemo-style.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
-        body {
-            background-color: #313131;
-            color: #ffffff;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
+body {
+    background-color: #313131;
+    color: #ffffff;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
 
-        .container {
-            padding: 60px 15px;
-        }
+.container {
+    padding: 60px 15px;
+}
 
-        footer {
-            background-color: #262626;
-            border-top: 1px solid #1f1f1f;
-            padding: 20px 0;
-            margin-top: auto;
-        }
+footer {
+    background-color: #262626;
+    border-top: 1px solid #1f1f1f;
+    padding: 20px 0;
+    margin-top: auto;
+}
 
-        footer p {
-            margin: 0;
-        }
+.news-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        .container-fluid {
-            padding: 0;
-        }
+.news-post {
+    background: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    border: 1px solid #1f1f1f;
+    transition: 0.3s;
+}
 
-        .news-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.news-post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
 
-        .news-header h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+.news-date {
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-bottom: 10px;
+}
 
-        .news-header p {
-            color: #aaaaaa;
-            font-size: 16px;
-        }
+/* COLLAPSIBLE */
+.news-content {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
 
-        .news-post {
-            background: #2a2a2a;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            border: 1px solid #1f1f1f;
-            transition: 0.3s;
-        }
+.news-content.expanded {
+    max-height: 2000px;
+}
 
-        .news-post:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-        }
+.read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4CAF50;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
 
-        .news-post h3 {
-            margin-top: 0;
-            color: #ffffff;
-        }
+.read-more-btn:hover {
+    color: #66ff88;
+}
 
-        .news-date {
-            font-size: 13px;
-            color: #aaaaaa;
-            margin-bottom: 10px;
-        }
+/* PAGINATION */
+.next-page {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    max-width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        .news-post p {
-            color: #dddddd;
-        }
+.next-page a {
+    color: #ffffff;
+    font-size: 32px;
+    opacity: 0.7;
+}
 
-        /* ===== PAGINATION (UPDATED) ===== */
-        .next-page {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 40px;
-            max-width: 120px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.next {
+    animation: slideRight 1.5s infinite;
+}
 
-        .next-page a {
-            color: #ffffff;
-            font-size: 32px;
-            text-decoration: none;
-            opacity: 0.7;
-            transition: 0.3s;
-        }
+.prev {
+    animation: slideLeft 1.5s infinite;
+}
 
-        .next-page a:hover {
-            opacity: 1;
-        }
+@keyframes slideRight {
+    50% { transform: translateX(6px); }
+}
 
-        .next {
-            animation: slideRight 1.5s infinite;
-        }
-
-        .prev {
-            animation: slideLeft 1.5s infinite;
-        }
-
-        @keyframes slideRight {
-            0%,100% { transform: translateX(0); }
-            50% { transform: translateX(6px); }
-        }
-
-        @keyframes slideLeft {
-            0%,100% { transform: translateX(0); }
-            50% { transform: translateX(-6px); }
-        }
-    </style>
+@keyframes slideLeft {
+    50% { transform: translateX(-6px); }
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-    <div class="logo">
-        <a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
-    </div>
-    <div class="menu-icon">
-        <span></span>
-    </div>
+<div class="logo">
+<a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
+</div>
 </nav>
 
-<!-- HEADING -->
 <div class="page-heading">
-    <div class="container">
-        <div class="heading-content">
-          <h1>Latest<em> info</em></h1>
-        </div>
-    </div>
+<div class="container">
+<div class="heading-content">
+<h1>Latest<em> info</em></h1>
+</div>
+</div>
 </div>
 
-<!-- NEWS CONTENT -->
 <div class="container">
 
-    <div class="news-header">
-        <h1>Updates, News and Events</h1>
-        <p>Stay informed with the latest changes, announcements and server updates.</p>
-    </div>
-    
-        <div class="news-post">
-        <div class="news-date">March 28, 2026 | Jared</div>
-        <h3> Surprise! Leg applied a hotfix.</h3>
-        <p> 
-             No restart required, just reload the area.<br><br>
-           • Reworked all Bloodbane Isle Dungeons according to the area lists spot info<br><br>         
+<div class="news-header">
+<h1>Updates, News and Events</h1>
+<p>Stay informed with the latest changes.</p>
+</div>
 
-              That's all! Have a good day!
-        </p>
-      </div>
+<!-- LARGE TEST POST -->
+<div class="news-post">
+<div class="news-date">March 29, 2026 | System</div>
+<h3>Scheduled Maintenance Announcement</h3>
 
-    <div class="news-post">
-        <div class="news-date">March 25, 2026 | LostMyLeg</div>
-        <h3>Scheduled Server-Restart every Friday!</h3>
-        <p>
-        Additionally to the scheduled Server restart announcement.<br><br>            
- • No more surprise restarts (except technical issues)<br>
- • A fixed restart day and time once a week<br><br>
- With this I will make sure that you don’t get kicked during a dungeon or BBM run.<br><br>
- That’s it and back to my break 🙂
-        </p>
-    </div>
+<div class="news-content">
+<p>
+There will be a maintenance in 9 hours with an expected downtime of up to 15 minutes.<br><br>
 
-    <div class="news-post">
-        <div class="news-date">March 20, 2026 | LostMyLeg</div>
-        <h3>Small change regarding the HC-Reward</h3>
-        <p>
-            • The HC Overlord reward is now account-wide<br><br>
-            • Command only works on the HC Character that reached all vocations lvl 93<br><br>
-            • Reward will be sent via Item-Post<br><br>
-            The costume is cosmetic only (no stats)<br><br>
-            That’s it 🙂
-        </p>
-    </div>
+I apologize for the unscheduled maintenance!<br>
+I had previously promised scheduled restarts only, however due to limited availability next week I need to push this patch to this Sunday to ensure the best experience for everyone while I am away.<br><br>
 
-    <div class="news-post">
-        <div class="news-date">March 15, 2026 | LostMyLeg</div>
-        <h3>Optimizations</h3>
-        <p>
-           • Readded the High Difficulty Clan Quests!<br>
-           • The Rookies ring is rewarded again for doing the 2nd MSQ<br>
-           • Wilmia Crystals hp nerf readded <br><br>
+<strong>Maintenance Patch Notes:</strong><br><br>
 
-              Have a great one
-        </p>
-    </div>
+<strong>Party fixes!</strong><br><br>
 
-    <!-- PAGINATION -->
-    <div class="next-page">
-        <a href="news.html" class="prev">
-            <i class="fa fa-angle-left"></i>
-        </a>
+• Fixed an issue where the inviter could be kicked from their own party when an invite timed out or was cancelled, requiring both players to relog<br><br>
 
-        <a href="news-2.html" class="next">
-            <i class="fa fa-angle-right"></i>
-        </a>
-    </div>
+• Fixed an issue where re-inviting a player after they disconnected would fail with an error stating a pending invite already existed<br><br>
+
+• Fixed an issue where a party invite slot would remain permanently stuck if the inviter disconnected before the invite expired<br><br>
+
+• Fixed an issue where cancelling an invite that had already expired would cause a server error<br><br>
+
+• Fixed an issue where two players inviting each other simultaneously could result in both ending up in a broken party state.<br><br>
+
+Note: When both players invite each other at the same time, neither will receive an invite popup to accept. You can cancel the pending invitation via the party management menu and invite again normally<br><br>
+
+• Fixed an issue where joining a party while an invite was pending would show the invited player as a ghost member in your party UI<br><br>
+
+• Fixed an issue where a pending invitee who declined or timed out remained visible as a ghost party member to existing members<br><br>
+
+• Fixed an issue where a player's pawns remained in the party UI of other members after the player left or disconnected<br><br>
+
+<strong>Known Issues</strong><br><br>
+
+Thank you for your understanding and have a nice Sunday!
+</p>
+</div>
+
+<span class="read-more-btn">Read more</span>
+</div>
+
+<!-- EXISTING POSTS -->
+<div class="news-post">
+<div class="news-date">March 28, 2026 | Jared</div>
+<h3>Surprise! Leg applied a hotfix.</h3>
+<div class="news-content">
+<p>
+No restart required, just reload the area.<br><br>
+• Reworked all Bloodbane Isle Dungeons<br><br>
+That's all! Have a good day!
+</p>
+</div>
+<span class="read-more-btn">Read more</span>
+</div>
+
+<div class="news-post">
+<div class="news-date">March 25, 2026 | LostMyLeg</div>
+<h3>Scheduled Server-Restart every Friday!</h3>
+<div class="news-content">
+<p>
+No more surprise restarts<br>
+Fixed weekly restart<br><br>
+No more dungeon interruptions.
+</p>
+</div>
+<span class="read-more-btn">Read more</span>
+</div>
+
+<div class="news-post">
+<div class="news-date">March 20, 2026</div>
+<h3>HC Reward Change</h3>
+<div class="news-content">
+<p>
+Account-wide reward<br>
+Cosmetic only<br>
+Sent via Item-Post
+</p>
+</div>
+<span class="read-more-btn">Read more</span>
+</div>
+
+<!-- PAGINATION -->
+<div class="next-page">
+<a class='prev' href='/news'><i class="fa fa-angle-left"></i></a>
+<a class='next' href='/news-2'><i class="fa fa-angle-right"></i></a>
+</div>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <p>© 2026 Dogma Rising | All rights reserved.</p>
-        </div>
-    </div>
+<p style="text-align:center;">© 2026 Dogma Rising</p>
 </footer>
 
-<!-- DISCORD BUTTON -->
-<div class="popup-icon">
-    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">
-        <img src="https://dogmarising.netlify.app/img/discord-contact.webp" alt="">
-    </a>
-</div>
-
-<!-- MENU -->
-<section class="overlay-menu">
-    <div class="container">
-        <div class="row">
-            <div class="main-menu">
-                <ul>
-                    <li><a href="https://dogmarising.netlify.app/">Home</a></li>
-                    <li><a href="https://dogmarising.netlify.app/news">Latest info</a></li>
-                    <li><a href="https://dogmarising.netlify.app/contact">Contact form</a></li>
-                    <li><a href="http://ddon.wikidot.com/" target="_blank">Wiki (external link)</a></li>
-                </ul>
-
-                <!-- SERVER STATUS -->
-                <div style="display:flex;justify-content:center;align-items:center;padding:20px">
-                    <div style="background:rgba(20,20,25,.98);padding:18px;border-radius:11px;box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;font-size:1rem">
-
-                        <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
-                            <div style="width:11px;height:11px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 9px rgba(76,175,80,.4)"></div>
-                            <h2 style="font-size:1.45rem;font-weight:800;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.9px">
-                                Server Status
-                            </h2>
-                        </div>
-
-                        <div style="color:#eee;margin-bottom:7px;line-height:1.45">
-                            <strong style="color:#fff;font-size:1.1rem">Lobby IP:</strong>
-                            <span style="color:#fff;font-weight:700;font-size:1.15rem">dogmarising.org</span>
-                            |
-                            <strong style="color:#fff;font-size:1.1rem">Port:</strong>
-                            <span style="color:#fff;font-weight:800;font-size:1.3rem">52100</span>
-                        </div>
-
-                        <div style="color:#eee;margin-bottom:14px;line-height:1.45">
-                            <strong style="color:#fff;font-size:1.1rem">DL IP:</strong>
-                            <span style="color:#fff;font-weight:700;font-size:1.15rem">dogmarising.org</span>
-                            |
-                            <strong style="color:#fff;font-weight:800;font-size:1.3rem">52099</strong>
-                        </div>
-
-                        <div style="color:#ccc;font-size:1.1rem;line-height:1.45">
-                            Condition:
-                            <span style="color:#4CAF50;font-weight:800;font-size:1.35rem;text-shadow:0 2px 6px rgba(76,175,80,.4)">
-                                Online
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SCRIPTS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-
-<!-- AUTO HIDE SCRIPT -->
 <script>
+document.querySelectorAll('.read-more-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const content = this.previousElementSibling;
+        content.classList.toggle('expanded');
+        this.textContent = content.classList.contains('expanded') ? "Show less" : "Read more";
+    });
+});
+
 (function() {
     const path = window.location.pathname;
 
     if (path.includes("news.html") || path.endsWith("/news")) {
-        const prev = document.querySelector('.prev');
-        if (prev) prev.style.visibility = "hidden";
+        document.querySelector('.prev')?.style.setProperty("visibility", "hidden");
     }
 
     if (path.includes("news-2")) {
-        const next = document.querySelector('.next');
-        if (next) next.style.visibility = "hidden";
+        document.querySelector('.next')?.style.setProperty("visibility", "hidden");
     }
 })();
 </script>
