@@ -18,87 +18,6 @@
   <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-  <style>
-    .features-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    /* ❌ NO CLICK FEEL ANYMORE */
-    .feature-card {
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-    }
-
-    .feature-card img {
-      width: 100%;
-      transition: transform .5s ease;
-    }
-
-    .feature-card:hover img {
-      transform: scale(1.08);
-    }
-
-    .feature-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.65);
-      opacity: 0;
-      transition: opacity .4s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-    }
-
-    .feature-card:hover .feature-overlay {
-      opacity: 1;
-    }
-
-    .feature-text {
-      color: #fff;
-      transform: translateY(20px);
-      transition: all .4s ease;
-    }
-
-    .feature-card:hover .feature-text {
-      transform: translateY(0);
-    }
-
-    .feature-text h1 {
-      font-size: 30px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .feature-text p {
-      font-size: 17px;
-      opacity: .92;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 1024px) {
-
-      .features-container .col-md-4 {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-
-      .features-container .col-md-4:nth-child(3) {
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-
-      .features-container .col-md-4:nth-child(3) img {
-        height: 340px;
-        object-fit: cover;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -116,7 +35,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO VIDEO -->
   <div id="video-container">
     <div class="video-overlay"></div>
 
@@ -126,13 +45,15 @@
 
         <p>
           — Where progression feels earned, not endless. Faster leveling,
-          rebalanced XP, and a server built for quality over grind.
+          rebalanced XP, and a server built for players who value quality over the grind.
         </p>
 
         <p><strong>DOWNLOAD NOW</strong></p>
 
         <div class="download-icon">
-          <img src="img/download-icon.png" alt="Download">
+          <a href="https://vik1ngfile.site/f/nnwwESC6tS" target="_blank">
+            <img src="img/download-icon.png" alt="Download">
+          </a>
         </div>
       </div>
     </div>
@@ -146,50 +67,73 @@
   <div class="full-screen-portfolio" id="portfolio">
     <div class="container-fluid">
 
-      <div class="features-container">
+      <!-- ITEM 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="portfolio-item">
+          <a href="img/01-the-progression.webp" target="_blank" data-lightbox="image-1">
+            <div class="thumb">
+              <div class="hover-effect">
+                <div class="hover-content">
+                  <h1>The <em>Progression</em></h1>
+                  <p>
+                    Reworked level curve that's more forgiving, letting players
+                    advance naturally without repetitive dungeon farming.
+                  </p>
+                </div>
+              </div>
 
-        <!-- ITEM 1 -->
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-card">
-            <img src="img/progression.webp" alt="Progression">
-
-            <div class="feature-overlay">
-              <div class="feature-text">
-                <h1>The <em>Progression</em></h1>
-                <p>Reworked level curve that's more forgiving, letting players advance naturally.</p>
+              <div class="image">
+                <img src="img/progression.webp" alt="Progression">
               </div>
             </div>
-          </div>
+          </a>
         </div>
+      </div>
 
-        <!-- ITEM 2 -->
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-card">
-            <img src="img/chimera-s1.webp" alt="EXP System">
+      <!-- ITEM 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="portfolio-item">
+          <a href="img/chimera.webp" data-lightbox="image-1">
+            <div class="thumb">
+              <div class="hover-effect">
+                <div class="hover-content">
+                  <h1>The <em>Balanced EXP</em></h1>
+                  <p>
+                    Functional EXP ring and consistent progression from quests,
+                    events, and exploration rewards.
+                  </p>
+                </div>
+              </div>
 
-            <div class="feature-overlay">
-              <div class="feature-text">
-                <h1>Balanced<em>EXP</em></h1>
-                <p>Consistent progression from quests, events, and exploration rewards.</p>
+              <div class="image">
+                <img src="img/chimera-s1.webp" alt="EXP System">
               </div>
             </div>
-          </div>
+          </a>
         </div>
+      </div>
 
-        <!-- ITEM 3 -->
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-card">
-            <img src="img/the-content.webp" alt="Content">
+      <!-- ITEM 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="portfolio-item">
+          <a href="img/02-the-content.webp" target="_blank" data-lightbox="image-1">
+            <div class="thumb">
+              <div class="hover-effect">
+                <div class="hover-content">
+                  <h1>The <em>Content</em></h1>
+                  <p>
+                    Balanced monster scaling and challenging endgame without
+                    artificial grind walls.
+                  </p>
+                </div>
+              </div>
 
-            <div class="feature-overlay">
-              <div class="feature-text">
-                <h1>The <em>Content</em></h1>
-                <p>Challenging endgame without artificial grind walls or forced repetition.</p>
+              <div class="image">
+                <img src="img/the-content.webp" alt="Content">
               </div>
             </div>
-          </div>
+          </a>
         </div>
-
       </div>
 
     </div>
@@ -202,10 +146,82 @@
     </div>
   </footer>
 
-  <!-- DISCORD -->
+  <!-- DISCORD BUTTON -->
   <div class="popup-icon">
-    <img src="img/discord-contact.webp" alt="Discord">
+    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">
+      <img src="img/discord-contact.webp" alt="Discord">
+    </a>
   </div>
+
+  <!-- MENU -->
+  <section class="overlay-menu">
+    <div class="container">
+      <div class="main-menu">
+        <ul>
+          <li><a href="https://dogmarising.netlify.app/">Home</a></li>
+          <li><a href="https://dogmarising.netlify.app/news.html">Latest info</a></li>
+          <li><a href="https://dogmarising.netlify.app/contact.html">Contact form</a></li>
+          <li><a href="http://ddon.wikidot.com/" target="_blank">Wiki (external link)</a></li>
+        </ul>
+
+        <!-- STATUS SERVER ONLINE -->
+        <div style="display:flex;justify-content:center;align-items:center;padding:20px">
+          <div style="background:rgba(20,20,25,.98);padding:18px;border-radius:11px;box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;font-size:1rem">
+
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+              <div style="width:11px;height:11px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 9px rgba(76,175,80,.4)"></div>
+              <h2 style="font-size:1.45rem;font-weight:800;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.9px">
+                Server Status
+              </h2>
+            </div>
+
+            <div style="color:#eee;margin-bottom:7px;line-height:1.45">
+              <strong style="color:#fff;font-size:1.1rem">Lobby IP:</strong>
+              <span style="color:#fff;font-weight:700;font-size:1.15rem">dogmarising.org</span>
+              |
+              <strong style="color:#fff;font-size:1.1rem">Port:</strong>
+              <span style="color:#fff;font-weight:800;font-size:1.3rem">52100</span>
+            </div>
+
+            <div style="color:#eee;margin-bottom:14px;line-height:1.45">
+              <strong style="color:#fff;font-size:1.1rem">DL IP:</strong>
+              <span style="color:#fff;font-weight:700;font-size:1.15rem">dogmarising.org</span>
+              |
+              <strong style="color:#fff;font-size:1.1rem">Port:</strong>
+              <span style="color:#fff;font-weight:800;font-size:1.3rem">52099</span>
+            </div>
+
+            <div style="color:#ccc;font-size:1.1rem;line-height:1.45">
+              Condition:
+              <span style="color:#4CAF50;font-weight:800;font-size:1.35rem;text-shadow:0 2px 6px rgba(76,175,80,.4)">
+                Online
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <style>
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+          }
+        </style>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>');
+  </script>
+
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
