@@ -103,6 +103,16 @@
             50% { opacity: 0.5; }
         }
     </style>
+
+    <!-- NO CLICK -->
+  <style>
+  .no-click {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: underline; /* Keeps link look */
+    color: blue;
+  }
+</style>
 </head>
 
 <body>
@@ -183,7 +193,7 @@
           <li><a href="https://dogmarising.netlify.app/">Home</a></li>
           <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
           <li><a href='https://dogmarising.netlify.app/contact'>Contact form</a></li>
-          <li><a href="#" target="_blank">Interactive map (soon)</a></li>
+          <li><a href="/" class="no-click" >Interactive map (soon™)</a></li>
         </ul>
 
         <!-- SERVER STATUS -->
