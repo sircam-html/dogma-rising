@@ -30,7 +30,7 @@
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            font-size: 1.2rem; /* Increased from 1.1rem - just a little bigger */
+            font-size: 1.2rem;
             line-height: 1.7;
         }
 
@@ -47,7 +47,7 @@
 
         footer p {
             margin: 0;
-            font-size: 1.2rem; /* Matches body */
+            font-size: 1.2rem;
         }
 
         .container-fluid {
@@ -65,21 +65,21 @@
 
         .about-content h2 {
             color: #4CAF50;
-            font-size: 3rem; /* Increased from 2.8rem - just a little bigger */
+            font-size: 3rem;
             margin-bottom: 25px;
             text-align: center;
         }
 
         .about-content h3 {
             color: #66bb6a;
-            font-size: 2.2rem; /* Increased from 2rem */
+            font-size: 2.2rem;
             margin: 30px 0 20px 0;
             border-bottom: 2px solid #4CAF50;
             padding-bottom: 10px;
         }
 
         .about-content p {
-            font-size: 1.35rem; /* Increased from 1.25rem */
+            font-size: 1.35rem;
             line-height: 1.8;
         }
 
@@ -95,12 +95,46 @@
             border-radius: 8px;
             border-left: 4px solid #4CAF50;
             transition: all 0.3s ease;
-            font-size: 1.25rem; /* Increased from 1.15rem */
+            font-size: 1.25rem;
         }
 
         .features-list li:hover {
             background: rgba(76, 175, 80, 0.2);
             transform: translateX(5px);
+        }
+
+        /* HIDDEN FEATURES */
+        .features-list .hidden-feature {
+            display: none;
+        }
+
+        /* SHOW ALL BUTTON */
+        .show-more-btn {
+            background: rgba(102, 187, 106, 0.2);
+            color: #66bb6a;
+            border: 2px solid #66bb6a;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 25px auto 0;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .show-more-btn:hover {
+            background: rgba(102, 187, 106, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
+        }
+
+        .show-more-btn.show-less {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+            border-color: #4CAF50;
         }
 
         .join-steps {
@@ -109,7 +143,7 @@
             border-radius: 8px;
             margin: 20px 0;
             border-left: 4px solid #66bb6a;
-            font-size: 1.3rem; /* Increased from 1.2rem */
+            font-size: 1.3rem;
         }
 
         /* PULSE ANIMATION */
@@ -167,15 +201,34 @@
                 <h3>Key Server Features (2026 Update)</h3>
                 <p>The server is designed to feel more like a traditional single-player Dragon's Dogma experience rather than a "grindy" MMO.</p>
                 
-                <ul class="features-list">
-                    <li><strong>Reduced Grind:</strong> XP gain and leveling curves are significantly more forgiving than the original retail version.</li>
-                    <li><strong>Quality of Life (QoL):</strong> Includes instant crafting (no real-time waiting), expanded storage, and free refills for essential items like green revive gems.</li>
-                    <li><strong>Custom Content:</strong> Recent updates have introduced "Boss Rush" dungeons for endgame players and unique enemy spawns not found in the original game.</li>
-                    <li><strong>English Translation:</strong> Most of the game, including the main story through Season 2, is fully translated into English. Season 3 content is currently being implemented and polished.</li>
+                <ul id="featuresList" class="features-list">
+                    <!-- FIRST 5 VISIBLE FEATURES -->
+                    <li><strong>Rebalanced Crafting Recipes</strong></li>
+                    <li><strong>Elite Enemies!</strong></li>
+                    <li><strong>Additional random loot and gear in chests</strong></li>
+                    <li><strong>More balanced Exp-Progression and exp gain variety</strong> Goblin gives less exp then a Orc as example!</li>
+                    <li><strong>Constant BO progression just by exploring</strong> and not farming the same dungeon all day</li>
+                    
+                    <!-- HIDDEN FEATURES (6-16) -->
+                    <li class="hidden-feature"><strong>Working Exp-Ring</strong>, rewarded for doing the first MSQs</li>
+                    <li class="hidden-feature"><strong>Exp Rings are easy to get</strong> so your Pawns can get some more Exp too!</li>
+                    <li class="hidden-feature"><strong>Exp Ring catchup feature</strong>, level one Vocation to 90 and get 50% more exp with others aslong as the Exp ring is equipped!</li>
+                    <li class="hidden-feature"><strong>PostGame Channel(LvL82+)</strong> where you can farm additional mats for Cosmetics</li>
+                    <li class="hidden-feature"><strong>Rewarding and Challenging Bitterblack-Maze!</strong></li>
+                    <li class="hidden-feature"><strong>Kinoza-Hotsprings Swimsuits Cosmetics-Shop!</strong></li>
+                    <li class="hidden-feature"><strong>Ophelias Adventure-Pass Shop</strong> to spend your hard earned Rift-Crystals! (Login-Stamp Lady)</li>
+                    <li class="hidden-feature"><strong>Endgame Cosmetics grind!</strong></li>
+                    <li class="hidden-feature"><strong>Toggleable Autoloot</strong></li>
+                    <li class="hidden-feature"><strong>Player to Player Trading!</strong></li>
+                    <li class="hidden-feature"><strong>HARDCORE MODE with Roguelike elements</strong></li>
                 </ul>
+                
+                <button id="showMoreBtn" class="show-more-btn" onclick="toggleFeatures()">
+                    Show More Features ↓
+                </button>
 
                 <h3>How to Join</h3>
-                <p>To play on Dogma Rising, you must typically join the community via Discord to access the required files and launcher or download the full 35GB folder with the ready-to-play game from our website.</p>
+                <p>To play on Dogma Rising, you must typically join their community via Discord to access the required files and launcher.</p>
                 
                 <div class="join-steps">
                     <strong>Discord Access:</strong> Most server information and download links are hosted on their <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="color: #4CAF50; font-weight: bold;">Official Discord Server</a>.<br><br>
@@ -212,7 +265,6 @@
         <div class="main-menu">
             <ul>
                 <li><a href="https://dogmarising.netlify.app/">Home</a></li>
-                <li><a href='https://dogmarising.netlify.app/about'>About US</a></li>
                 <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
                 <li><a href='https://dogmarising.netlify.app/contact'>Contact form</a></li>
                 <li><a href="/" class="no-click">Interactive map (soon™)</a></li>
@@ -250,11 +302,34 @@
     </div>
 </section>
 
-<!-- SCRIPTS (UNCHANGED) -->
+<!-- SCRIPTS (UNCHANGED + TOGGLE FUNCTIONALITY) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+function toggleFeatures() {
+    const hiddenFeatures = document.querySelectorAll('.hidden-feature');
+    const btn = document.getElementById('showMoreBtn');
+    
+    if (hiddenFeatures[0].style.display === 'list-item') {
+        // Hide features
+        hiddenFeatures.forEach(feature => {
+            feature.style.display = 'none';
+        });
+        btn.textContent = 'Show More Features ↓';
+        btn.classList.remove('show-less');
+    } else {
+        // Show features
+        hiddenFeatures.forEach(feature => {
+            feature.style.display = 'list-item';
+        });
+        btn.textContent = 'Show Less ↑';
+        btn.classList.add('show-less');
+    }
+}
+</script>
 
 </body>
 </html>
