@@ -19,9 +19,9 @@
     .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 30px rgba(201,168,76,.4)}
     .nav-logo span{color:var(--ash);font-weight:400}
     .nav-links{display:flex;gap:36px;list-style:none}
-    .nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
     .nav-links a:hover{color:var(--gold)}
-    .nav-discord{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
 
     /* HERO */
@@ -210,7 +210,7 @@
 
   <script>
     // Live status
-    const API_URL = 'http://45.84.199.149:8080/status';
+    const API_URL = 'https://api.dogmarising.org/status';
     async function fetchStatus() {
       try {
         const res = await fetch(API_URL);

@@ -19,9 +19,9 @@
     .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 30px rgba(201,168,76,.4)}
     .nav-logo span{color:var(--ash);font-weight:400}
     .nav-links{display:flex;gap:36px;list-style:none}
-    .nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
     .nav-links a:hover{color:var(--gold)}
-    .nav-discord{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
 
     /* HERO BANNER */
@@ -29,7 +29,7 @@
     .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,8,.6),rgba(8,6,8,.75));z-index:1}
     .page-hero-bg{position:absolute;inset:0;display:flex}
     .page-hero-bg img{width:33.333%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.7)}
-    .page-hero-content{position:relative;z-index:2;text-align:center;padding-top:60px}
+    .page-hero-content{position:relative;z-index:2;text-align:center;padding-top:90px}
     .page-hero-content h1{font-family:'Cinzel',serif;font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
     .page-hero-content h1 em{color:var(--gold);font-style:normal}
     .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
@@ -219,7 +219,7 @@ function toggleFeatures() {
 }
 async function fetchStatus() {
   try {
-    const res = await fetch('http://45.84.199.149:8080/status');
+    const res = await fetch('https://api.dogmarising.org/status');
     if (!res.ok) throw new Error();
     const data = await res.json();
     const dot = document.getElementById('status-dot');
