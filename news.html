@@ -24,16 +24,16 @@
     .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
 
-    .page-hero{position:relative;height:320px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,8,.6),rgba(8,6,8,.75));z-index:1}
-    .page-hero-bg{position:absolute;inset:0;display:flex}
-    .page-hero-bg img{width:33.333%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.7)}
-    .page-hero-content{position:relative;z-index:2;text-align:center;padding-top:90px}
-    .page-hero-content h1{font-family:'Cinzel',serif;font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
-    .page-hero-content h1 em{color:var(--gold);font-style:normal}
-    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
+    
+    
+    
+    
+    
+    
+    
+    
 
-    .content-section{padding:100px 24px 60px;flex:1}
+    .content-section{padding:40px 24px 60px;flex:1}
     .news-header{text-align:center;margin-bottom:48px}
     .news-header h2{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:600;color:var(--parchment);margin-bottom:8px;letter-spacing:2px}
     .news-header p{color:var(--ash);font-size:1rem;letter-spacing:1px}
@@ -69,7 +69,12 @@
 
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
     .no-click{pointer-events:none;cursor:default;text-decoration:underline;color:blue}
-  </style>
+  
+    .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
+    .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
+    .page-header h1 em{color:var(--gold);font-style:normal}
+    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
+</style>
 </head>
 <body>
 
@@ -82,16 +87,10 @@
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
 </nav>
 
-<div class="page-hero">
-  <div class="page-hero-bg">
-    <img src="img/chimera.webp" alt="">
-    <img src="img/colossus.webp" alt="">
-    <img src="img/zuhl.webp" alt="">
-  </div>
-  <div class="page-hero-content">
-    <h1>Latest <em>Info</em></h1>
-    <div class="hero-divider"></div>
-  </div>
+<div class="page-header">
+  <h1>Latest <em>Info</em></h1>
+  <div class="hero-divider"></div>
+</div>
 </div>
 
 <div class="content-section">
