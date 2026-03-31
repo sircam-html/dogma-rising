@@ -2,245 +2,237 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Dogma Rising | Private Server</title>
   <meta name="description" content="Dogma Rising is a private server for Dragon's Dogma Online">
-
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/fontAwesome.css">
-  <link rel="stylesheet" href="css/light-box.css">
-  <link rel="stylesheet" href="css/templatemo-style.css">
-
-  <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-  <!-- GLOBAL FIXES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
+    :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
 
-    /* ❌ remove click / hand cursor */
-    .portfolio-item,
-    .portfolio-item .thumb,
-    .portfolio-item .image,
-    .portfolio-item img {
-      cursor: default !important;
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.9) 0%,transparent 100%)}
+    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 30px rgba(201,168,76,.4)}
+    .nav-logo span{color:var(--ash);font-weight:400}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-discord{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord:hover{background:var(--ember);color:#fff}
+
+    /* HERO */
+    .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.35) saturate(.7)}
+    .hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(8,6,8,.7) 100%),linear-gradient(to bottom,rgba(8,6,8,.5) 0%,transparent 30%,transparent 60%,rgba(8,6,8,.95) 100%)}
+    .hero-vignette{position:absolute;inset:0;box-shadow:inset 0 0 120px rgba(8,6,8,.8);pointer-events:none}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;animation:fadeUp 1.4s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .hero-eyebrow{font-family:'Cinzel',serif;font-size:14px;letter-spacing:8px;text-transform:uppercase;color:var(--ember);margin-bottom:20px}
+    .hero-title{font-family:'Cinzel',serif;font-size:clamp(42px,6vw,72px);font-weight:900;line-height:1;color:var(--parchment);text-shadow:0 0 60px rgba(201,168,76,.2),0 2px 4px rgba(0,0,0,.8);margin-bottom:4px;letter-spacing:6px}
+    .hero-title-sub{font-family:'Cinzel',serif;font-size:clamp(26px,3.5vw,52px);font-weight:400;color:var(--gold);letter-spacing:12px;text-transform:uppercase;text-shadow:0 0 40px rgba(201,168,76,.35);margin-bottom:28px}
+    .hero-divider{width:280px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 28px;opacity:.6}
+    .hero-tagline{font-size:26px;font-style:italic;color:var(--ash);max-width:560px;margin:0 auto 28px;line-height:1.6}
+    .hero-status{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:36px}
+    .hero-status-dot{width:9px;height:9px;border-radius:50%;background:#333;transition:all .5s;flex-shrink:0}
+    .hero-status-dot.online{background:#4CAF50;box-shadow:0 0 10px rgba(76,175,80,.7);animation:blink 2s infinite}
+    .hero-status-dot.offline{background:var(--blood)}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero-status-text{font-family:'Cinzel',serif;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--ash)}
+    .hero-status-count{font-family:'Cinzel',serif;font-size:28px;font-weight:900;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.5);transition:all .5s}
+    .hero-status-count.loading{color:#333;text-shadow:none}
+    .hero-cta{display:inline-flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--void);background:linear-gradient(135deg,var(--gold),var(--ember));padding:18px 44px;text-decoration:none;transition:all .3s;box-shadow:0 0 40px rgba(201,168,76,.3)}
+    .hero-cta:hover{box-shadow:0 0 60px rgba(201,168,76,.5);transform:translateY(-2px);color:#fff}
+    .scroll-hint{position:absolute;bottom:40px;left:0;right:0;margin:0 auto;width:fit-content;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.4;animation:fadeUp 2s 1s ease both}
+    .scroll-hint span{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+    .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--ash),transparent);animation:scrollPulse 2s infinite;display:block;margin:0 auto}
+    @keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+    /* FEATURE CARDS */
+    .features-section{display:flex;flex-direction:row}
+    .feature-card{position:relative;flex:1;height:480px;overflow:hidden;cursor:default}
+    .feature-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.65) saturate(.8);transition:filter .5s,transform .5s}
+    .feature-card:hover .feature-card-bg{filter:brightness(1.20) saturate(1);transform:scale(1.04)}
+    .feature-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,6,8,.95) 0%,rgba(8,6,8,.4) 50%,transparent 100%)}
+    .feature-card-content{position:absolute;bottom:0;left:0;right:0;padding:36px 32px;transform:translateY(8px);transition:transform .4s}
+    .feature-card:hover .feature-card-content{transform:translateY(0)}
+    .feature-card-eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:10px}
+    .feature-card-title{font-family:'Cinzel',serif;font-size:22px;font-weight:600;color:var(--parchment);margin-bottom:12px;line-height:1.2}
+    .feature-card-title em{color:var(--gold);font-style:normal}
+    .feature-card-text{font-size:15px;color:var(--ash);line-height:1.6;opacity:0;transform:translateY(10px);transition:opacity .4s .05s,transform .4s .05s}
+    .feature-card:hover .feature-card-text{opacity:1;transform:translateY(0)}
+    .feature-divider{width:40px;height:1px;background:var(--gold);opacity:.5;margin-bottom:12px}
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+
+    /* CONNECT SECTION */
+    .connect-section{padding:80px 24px;text-align:center;border-top:1px solid rgba(201,168,76,.08)}
+    .section-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--ember);margin-bottom:16px}
+    .section-title{font-family:'Cinzel',serif;font-size:clamp(28px,4vw,42px);font-weight:600;color:var(--parchment);margin-bottom:48px;letter-spacing:2px}
+    .connect-grid{display:inline-grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.1)}
+    .connect-cell{background:rgba(8,6,8,.95);padding:32px 48px;text-align:left}
+    .connect-cell-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:8px}
+    .connect-cell-value{font-size:20px;color:var(--parchment)}
+    .connect-cell-value span{color:var(--ash);font-size:15px;margin-left:8px}
+
+    /* DOWNLOAD */
+    .download-section{position:relative;padding:120px 24px;text-align:center}
+    .download-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(139,26,26,.12) 0%,transparent 70%)}
+    .download-btn{display:inline-flex;flex-direction:column;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);border:1px solid rgba(201,168,76,.3);padding:32px 64px;text-decoration:none;transition:all .4s;position:relative}
+    .download-btn .btn-big{font-size:22px;letter-spacing:8px;color:var(--gold)}
+    .download-btn:hover{border-color:var(--gold);background:rgba(201,168,76,.05);box-shadow:0 0 60px rgba(201,168,76,.15)}
+
+    footer{border-top:1px solid rgba(201,168,76,.08);padding:32px 48px;display:flex;align-items:center;justify-content:space-between}
+    .footer-logo{font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash)}
+    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
+    .footer-discord{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;transition:all .3s}
+    .footer-discord:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+
+    @media(max-width:768px){
+      nav{padding:16px 24px}
+      .nav-links,.nav-discord{display:none}
+      .features-section{flex-direction:column}
+      .feature-card{height:320px}
+      .feature-card-text{opacity:1;transform:none}
+      .connect-grid{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:16px;text-align:center}
     }
-
-    .portfolio-item a {
-      pointer-events: none;
-      cursor: default;
-    }
-
-    /* 🟦 TABLET FIX: 3 IMAGES INLINE */
-    @media (max-width: 1024px) and (min-width: 768px) {
-      .full-screen-portfolio .col-md-4 {
-        width: 33.3333% !important;
-        float: left;
-      }
-
-      .portfolio-item img {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-      }
-    }
-
-    /* 📱 MOBILE STACK */
-    @media (max-width: 767px) {
-      .full-screen-portfolio .col-md-4 {
-        width: 100% !important;
-      }
-    }
-
   </style>
-
-  <!-- NO CLICK -->
-  <style>
-  .no-click {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: underline; /* Keeps link look */
-    color: blue;
-  }
-</style>
 </head>
-
 <body>
 
-  <!-- NAV -->
   <nav>
-    <div class="logo">
-      <a href="https://dogmarising.netlify.app/">
-        Dogma<em>Rising</em>
-      </a>
-    </div>
-
-    <div class="menu-icon">
-      <span></span>
-    </div>
+    <a href="/" class="nav-logo">Dogma<span>Rising</span></a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
   </nav>
 
-  <!-- HERO -->
-  <div id="video-container">
-    <div class="video-overlay"></div>
-
-    <div class="video-content">
-      <div class="inner">
-        <h1>Welcome to <em>Dogma Rising</em></h1>
-
-        <p>
-          — Where progression feels earned, not endless. Faster leveling, rebalanced XP, and a server built for players who value quality over the grind.
-        </p>
-
-        <p><strong>DOWNLOAD NOW</strong></p>
-
-        <div class="download-icon">
-          <a href="https://vik1ngfile.site/f/nnwwESC6tS" target="_blank">
-            <img src="img/download-icon.webp" alt="Download">
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <video autoplay loop muted>
+  <section class="hero">
+    <video autoplay loop muted playsinline>
       <source src="https://cdn.jsdelivr.net/gh/sircam-html/dogma-rising@main/videos/intro-frontpage.webm" type="video/webm">
     </video>
-  </div>
-
-  <!-- FEATURES -->
-  <div class="full-screen-portfolio" id="portfolio">
-    <div class="container-fluid">
-
-      <!-- ITEM 1 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="portfolio-item">
-          <div class="thumb">
-            <div class="hover-effect">
-              <div class="hover-content">
-                <h1>The <em>Progression</em></h1>
-                <p>Reworked level curve more forgiving, letting players advance via main quests and natural exploration without re-farming dungeons.</p>
-              </div>
-            </div>
-            <div class="image">
-              <img src="img/zuhl.webp" alt="Progression">
-            </div>
-          </div>
-        </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Dragon's Dogma Online · Private Server</div>
+      <div class="hero-title">DOGMA</div>
+      <div class="hero-title-sub">Rising</div>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Where progression feels earned.<br>A server built for Arisen who want challenge, not chores.</p>
+      <div class="hero-status">
+        <div class="hero-status-dot" id="status-dot"></div>
+        <div class="hero-status-text">Arisen Online:</div>
+        <div class="hero-status-count loading" id="player-count">—</div>
       </div>
-
-      <!-- ITEM 2 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="portfolio-item">
-          <div class="thumb">
-            <div class="hover-effect">
-              <div class="hover-content">
-                <h1>The <em>Balanced EXP</em></h1>
-                <p>Functional EXP ring rewarded from early main story, plus ongoing progression from map events, loot, and currencies found traveling.</p>
-              </div>
-            </div>
-            <div class="image">
-              <img src="img/chimera.webp" alt="EXP System">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ITEM 3 -->
-      <div class="col-md-4 col-sm-6">
-        <div class="portfolio-item">
-          <div class="thumb">
-            <div class="hover-effect">
-              <div class="hover-content">
-                <h1>The <em>Content</em></h1>
-                <p>Balanced enemies spawns and challenging endgame like Bitterblack Maze, avoiding overleveled threats seen in other servers.</p>
-              </div>
-            </div>
-            <div class="image">
-              <img src="img/colossus.webp" alt="Content">
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <a href="https://vik1ngfile.site/f/nnwwESC6tS" target="_blank" class="hero-cta">⚔ Begin Your Journey</a>
     </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container-fluid text-center">
-      <p>© 2026 Dogma Rising | All rights reserved.</p>
+    <div class="scroll-hint">
+      <span>Want to know more?</span>
+      <div class="scroll-line"></div>
     </div>
-  </footer>
+  </section>
 
-  <!-- DISCORD BUTTON -->
-<div class="popup-icon">
-    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">
-        <img src="img/discord-contact.webp" alt="">
-    </a>
-</div>
-  
-  <!-- MENU + SERVER STATUS -->
-  <section class="overlay-menu">
-    <div class="container">
-      <div class="main-menu">
-        <ul>
-          <li><a href='https://dogmarising.netlify.app/about'>About us</a></li>
-          <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
-          <li><a href='https://dogmarising.netlify.app/contact'>Contact form</a></li>
-          <li><a href="/" class="no-click" >Interactive map (soon™)</a></li>
-        </ul>
-
-        <!-- SERVER STATUS -->
-        <div style="display:flex;justify-content:center;align-items:center;padding:20px">
-          <div style="background:rgba(20,20,25,.98);padding:18px;border-radius:11px;box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;font-size:1rem">
-
-            <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
-              <div style="width:11px;height:11px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 9px rgba(76,175,80,.4)"></div>
-              <h2 style="font-size:1.45rem;font-weight:800;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.9px">
-                Server Status
-              </h2>
-            </div>
-
-            <div style="margin-bottom:7px">
-              <strong>Lobby IP:</strong> dogmarising.org | <strong>Port:</strong> 52100
-            </div>
-
-            <div style="margin-bottom:14px">
-              <strong>DL IP:</strong> dogmarising.org | <strong>Port:</strong> 52099
-            </div>
-
-            <div>
-              Condition:
-              <span style="color:#4CAF50;font-weight:800">Online</span>
-            </div>
-
-          </div>
-        </div>
-
-        <style>
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-          }
-        </style>
-
+  <!-- FEATURE CARDS -->
+  <section class="features-section">
+    <div class="feature-card reveal">
+      <div class="feature-card-bg" style="background-image:url('img/zuhl.webp')"></div>
+      <div class="feature-card-overlay"></div>
+      <div class="feature-card-content">
+        <div class="feature-card-eyebrow">Progression</div>
+        <div class="feature-divider"></div>
+        <div class="feature-card-title">The <em>Progression</em></div>
+        <div class="feature-card-text">Reworked level curve more forgiving, letting players advance via main quests and natural exploration without re-farming dungeons.</div>
+      </div>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-card-bg" style="background-image:url('img/chimera.webp')"></div>
+      <div class="feature-card-overlay"></div>
+      <div class="feature-card-content">
+        <div class="feature-card-eyebrow">Experience</div>
+        <div class="feature-divider"></div>
+        <div class="feature-card-title">The <em>Balanced EXP</em></div>
+        <div class="feature-card-text">Functional EXP ring rewarded from early main story, plus ongoing progression from map events, loot, and currencies found traveling.</div>
+      </div>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-card-bg" style="background-image:url('img/colossus.webp')"></div>
+      <div class="feature-card-overlay"></div>
+      <div class="feature-card-content">
+        <div class="feature-card-eyebrow">Endgame</div>
+        <div class="feature-divider"></div>
+        <div class="feature-card-title">The <em>Content</em></div>
+        <div class="feature-card-text">Balanced enemy spawns and challenging endgame like Bitterblack Maze, avoiding overleveled threats seen in other servers.</div>
       </div>
     </div>
   </section>
 
-  <!-- SCRIPTS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <section class="connect-section reveal">
+    <div class="section-eyebrow">Enter Lestania</div>
+    <div class="section-title">Connection Details</div>
+    <div class="connect-grid">
+      <div class="connect-cell">
+        <div class="connect-cell-label">Lobby Server</div>
+        <div class="connect-cell-value">dogmarising.org <span>Port 52100</span></div>
+      </div>
+      <div class="connect-cell">
+        <div class="connect-cell-label">Download Server</div>
+        <div class="connect-cell-value">dogmarising.org <span>Port 52099</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="download-section reveal">
+    <div class="section-eyebrow">Ready to Rise</div>
+    <div class="section-title">Join the Adventure</div>
+    <a href="https://vik1ngfile.site/f/nnwwESC6tS" target="_blank" class="download-btn">
+      <span>Download the Client</span>
+      <span class="btn-big">⚔ PLAY NOW</span>
+      <span>Free to play · No account required</span>
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Dogma Rising</div>
+    <div class="footer-copy">© 2026 Dogma Rising · All rights reserved</div>
+    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="footer-discord">Discord</a>
+  </footer>
+
   <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>');
+    // Live status
+    const API_URL = 'http://45.84.199.149:8080/status';
+    async function fetchStatus() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        const count = document.getElementById('player-count');
+        count.textContent = data.online;
+        count.classList.remove('loading');
+        document.getElementById('status-dot').className = 'hero-status-dot online';
+      } catch(e) {
+        document.getElementById('player-count').textContent = '?';
+        document.getElementById('status-dot').className = 'hero-status-dot offline';
+      }
+    }
+    fetchStatus();
+    setInterval(fetchStatus, 60000);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-
-  <script src="js/vendor/bootstrap.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
 </body>
 </html>

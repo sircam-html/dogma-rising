@@ -1,244 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Contact Us</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/fontAwesome.css">
-    <link rel="stylesheet" href="css/light-box.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-
-        body {
-            background-color: #313131;
-            color: #ffffff;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            padding: 60px 15px;
-        }
-
-        footer {
-            background-color: #262626;
-            border-top: 1px solid #1f1f1f;
-            padding: 20px 0;
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .container-fluid {
-            padding: 0;
-        }
-
-        /* CONTACT FORM */
-        form {
-            background-color: #2b2b2b;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        .form-control {
-            background-color: #1f1f1f;
-            border: 1px solid #3a3a3a;
-            color: #ffffff;
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control::placeholder {
-            color: #aaaaaa;
-        }
-
-        .form-control:focus {
-            background-color: #1f1f1f;
-            border-color: #4CAF50;
-            box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
-            color: #ffffff;
-        }
-
-        /* BUTTON */
-        button[type="submit"] {
-            background: linear-gradient(135deg, #4CAF50, #66bb6a);
-            color: #ffffff !important;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        button[type="submit"]:hover {
-            background: linear-gradient(135deg, #43a047, #5cb85c);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-
-        /* PULSE ANIMATION */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-    </style>
-
-    <!-- NO CLICK -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Dogma Rising</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/templatemo-style.css">
   <style>
-  .no-click {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: underline; /* Keeps link look */
-    color: blue;
-  }
-</style>
-</head>
+    :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;overflow-x:hidden;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
 
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
+    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 30px rgba(201,168,76,.4)}
+    .nav-logo span{color:var(--ash);font-weight:400}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-discord{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord:hover{background:var(--ember);color:#fff}
+
+    .page-hero{position:relative;height:320px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,8,.6),rgba(8,6,8,.75));z-index:1}
+    .page-hero-bg{position:absolute;inset:0;display:flex}
+    .page-hero-bg img{width:33.333%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.7)}
+    .page-hero-content{position:relative;z-index:2;text-align:center;padding-top:60px}
+    .page-hero-content h1{font-family:'Cinzel',serif;font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
+    .page-hero-content h1 em{color:var(--gold);font-style:normal}
+    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
+
+    .content-section{padding:60px 24px;flex:1}
+
+    .contact-card{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.12);padding:48px;position:relative;overflow:hidden}
+    .contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+    .contact-card h2{font-family:'Cinzel',serif;color:var(--gold);font-size:1.6rem;font-weight:600;text-align:center;margin-bottom:8px;letter-spacing:2px}
+    .contact-card .subtitle{text-align:center;color:var(--ash);font-size:1rem;margin-bottom:35px;letter-spacing:1px}
+
+    .form-group{margin-bottom:20px}
+    .form-label{display:block;font-family:'Cinzel',serif;color:var(--ash);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+    .form-control{background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.2);color:var(--parchment);padding:14px 18px;width:100%;font-size:1.05rem;font-family:'Crimson Text',serif;transition:all .3s;border-radius:0}
+    .form-control::placeholder{color:#4a4040}
+    .form-control:focus{background:rgba(0,0,0,.6);border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,168,76,.1);color:var(--parchment);outline:none}
+    textarea.form-control{resize:vertical;min-height:140px}
+
+    .submit-btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold),var(--ember));color:var(--void);border:none;padding:16px;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:10px;box-shadow:0 4px 20px rgba(201,168,76,.2)}
+    .submit-btn:hover{box-shadow:0 8px 30px rgba(201,168,76,.35);transform:translateY(-2px);color:#fff}
+
+    .discord-alt{text-align:center;margin-top:28px;padding-top:24px;border-top:1px solid rgba(201,168,76,.1);color:var(--ash);font-size:1rem}
+    .discord-alt a{color:var(--gold);font-weight:600;text-decoration:none}
+    .discord-alt a:hover{color:var(--ember)}
+
+    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
+
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+    .no-click{pointer-events:none;cursor:default;text-decoration:underline;color:blue}
+  </style>
+</head>
 <body>
 
-<!-- NAV -->
 <nav>
-    <div class="logo">
-        <a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
-    </div>
-    <div class="menu-icon">
-        <span></span>
-    </div>
+  <a href="https://dogmarising.netlify.app/" class="nav-logo">Dogma<span>Rising</span></a>
+  <ul class="nav-links">
+    <li><a href="https://dogmarising.netlify.app/about">About</a></li>
+    <li><a href="https://dogmarising.netlify.app/news">News</a></li>
+  </ul>
+  <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
 </nav>
 
-<!-- PAGE HEADING -->
-<div class="page-heading">
-    <div class="container">
-        <div class="heading-content">
-            <h1>Contact<em> Form</em></h1>
-        </div>
-    </div>
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="img/colossus.webp" alt="">
+    <img src="img/zuhl.webp" alt="">
+    <img src="img/chimera.webp" alt="">
+  </div>
+  <div class="page-hero-content">
+    <h1>Contact <em>Us</em></h1>
+    <div class="hero-divider"></div>
+  </div>
 </div>
 
-<!-- CONTACT FORM -->
-<div class="container">
+<div class="content-section">
+  <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-
-            <h2 style="text-align:center; margin-bottom:25px;">Stay in touch with us</h2>
-
-            <form method="post" name="contact">
-                <input type="hidden" name="form-name" value="contact">
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <input name="name" type="text" class="form-control" placeholder="Your name..." required>
-                    </div>
-
-                    <div class="col-md-12">
-                        <input name="email" type="email" class="form-control" placeholder="Your email..." required>
-                    </div>
-
-                    <div class="col-md-12">
-                        <textarea name="message" rows="6" class="form-control" placeholder="Your message..." required></textarea>
-                    </div>
-
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn">Send Message Now</button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <p>© 2026 Dogma Rising | All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
-<!-- DISCORD BUTTON -->
-<div class="popup-icon">
-    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">
-        <img src="img/discord-contact.webp" alt="">
-    </a>
-</div>
-
-<!-- MENU + SERVER STATUS -->
-  <section class="overlay-menu">
-    <div class="container">
-      <div class="main-menu">
-        <ul>
-          <li><a href="https://dogmarising.netlify.app/">Home</a></li>
-           <li><a href='https://dogmarising.netlify.app/about'>About Us</a></li>
-          <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
-          <li><a href="/" class="no-click" >Interactive map (soon™)</a></li>
-        </ul>
-
-        <!-- SERVER STATUS -->
-        <div style="display:flex;justify-content:center;align-items:center;padding:20px">
-          <div style="background:rgba(20,20,25,.98);padding:18px;border-radius:11px;box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;font-size:1rem">
-
-            <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
-              <div style="width:11px;height:11px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 9px rgba(76,175,80,.4)"></div>
-              <h2 style="font-size:1.45rem;font-weight:800;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.9px">
-                Server Status
-              </h2>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="contact-card">
+          <h2>Stay in Touch</h2>
+          <p class="subtitle">Send us a message and we'll get back to you</p>
+          <form method="post" name="contact">
+            <input type="hidden" name="form-name" value="contact">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input name="name" type="text" class="form-control" placeholder="Enter your name..." required>
             </div>
-
-            <div style="margin-bottom:7px">
-              <strong>Lobby IP:</strong> dogmarising.org | <strong>Port:</strong> 52100
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input name="email" type="email" class="form-control" placeholder="Enter your email..." required>
             </div>
-
-            <div style="margin-bottom:14px">
-              <strong>DL IP:</strong> dogmarising.org | <strong>Port:</strong> 52099
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea name="message" class="form-control" placeholder="Write your message here..." required></textarea>
             </div>
-
-            <div>
-              Condition:
-              <span style="color:#4CAF50;font-weight:800">Online</span>
-            </div>
-
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+          <div class="discord-alt">
+            Prefer a faster response? Join our <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">Discord Server</a> for direct support.
           </div>
         </div>
-
-        <style>
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-          }
-        </style>
-
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-<!-- SCRIPTS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<footer>
+  <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash);">Dogma Rising</div>
+  <div class="footer-copy">© 2026 Dogma Rising | All rights reserved.</div>
+  <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
+</footer>
+
+<div class="popup-icon">
+  <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank"><img src="img/discord-contact.webp" alt=""></a>
+</div>
+
+<section class="overlay-menu">
+  <div class="container">
+    <div class="main-menu">
+      <ul>
+        <li><a href="https://dogmarising.netlify.app/">Home</a></li>
+        <li><a href="https://dogmarising.netlify.app/about">About Us</a></li>
+        <li><a href="https://dogmarising.netlify.app/news">Latest info</a></li>
+        <li><a href="/" class="no-click">Interactive map (soon™)</a></li>
+      </ul>
+      <div style="display:flex;justify-content:center;align-items:center;padding:20px">
+        <div style="background:rgba(8,6,8,.98);padding:18px;border-radius:4px;border:1px solid rgba(201,168,76,.15);box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:'Cinzel',serif;color:var(--parchment);font-size:.85rem">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+            <div id="status-dot" style="width:10px;height:10px;background:#333;border-radius:50%"></div>
+            <h2 style="font-size:1rem;font-weight:900;color:var(--parchment);margin:0;text-transform:uppercase;letter-spacing:3px">Server Status</h2>
+          </div>
+          <div style="margin-bottom:7px;color:var(--ash);font-family:'Crimson Text',serif;font-size:1rem"><strong style="color:var(--parchment)">Lobby:</strong> dogmarising.org | Port 52100</div>
+          <div style="margin-bottom:14px;color:var(--ash);font-family:'Crimson Text',serif;font-size:1rem"><strong style="color:var(--parchment)">DL:</strong> dogmarising.org | Port 52099</div>
+          <div style="font-family:'Crimson Text',serif;font-size:1rem;margin-bottom:4px">Condition: <span id="status-text" style="font-weight:800;color:#333">Checking...</span></div>
+          <div style="font-family:'Crimson Text',serif;font-size:1rem">Players Online: <span id="player-count" style="font-weight:800;color:var(--gold)">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
-
+<script>
+async function fetchStatus(){
+  try{
+    const res=await fetch('http://45.84.199.149:8080/status');
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    const dot=document.getElementById('status-dot');
+    dot.style.background='#4CAF50';dot.style.boxShadow='0 0 9px rgba(76,175,80,.4)';dot.style.animation='pulse 2s infinite';
+    document.getElementById('status-text').style.color='#4CAF50';
+    document.getElementById('status-text').textContent='Online';
+    document.getElementById('player-count').textContent=data.online;
+  }catch(e){
+    document.getElementById('status-dot').style.background='#8b1a1a';
+    document.getElementById('status-text').style.color='#8b1a1a';
+    document.getElementById('status-text').textContent='Offline';
+    document.getElementById('player-count').textContent='—';
+  }
+}
+fetchStatus();setInterval(fetchStatus,60000);
+</script>
 </body>
 </html>
