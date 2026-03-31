@@ -6,7 +6,6 @@
   <title>Contact Us | Dogma Rising</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
   <style>
     :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -64,7 +63,7 @@
     .page-header h1 em{color:var(--gold);font-style:normal}
     .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
     .container{max-width:100% !important;padding:0 48px !important;}
-    .wide-wrap{width:100%;padding:0 48px;}
+    .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 48px;}
 </style>
 </head>
 <body>
@@ -143,10 +142,6 @@
   </div>
 </section>
 
-<script src="js/vendor/jquery-1.11.2.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
 <script>
 async function fetchStatus(){
   try{
@@ -167,5 +162,7 @@ async function fetchStatus(){
 }
 fetchStatus();setInterval(fetchStatus,60000);
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
