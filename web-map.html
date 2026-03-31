@@ -21,13 +21,14 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            height: 100vh;
         }
 
         body {
             background-color: #313131;
             color: #ffffff;
-            overflow-x: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -36,10 +37,12 @@
             padding: 60px 15px;
         }
 
-        /* FULL SCREEN MAP */
+        /* FULL PAGE MAP - LOWER HALF INCH MORE */
         .map-section {
-            padding: 0 !important;
-            margin: -18px 0 20px 0;
+            flex: 1;
+            padding: 37px 0 0 0 !important; /* +12px = half inch more (total ~37px top) */
+            margin: 0;
+            min-height: 0;
             width: 100vw;
             position: relative;
             left: 50%;
@@ -47,39 +50,59 @@
             margin-left: -50vw;
             margin-right: -50vw;
             background: #313131;
+            display: flex;
+            flex-direction: column;
         }
 
-        .map-inner {
-            max-width: 1623px; /* +127px wider (2.5 inches total: ~63px left + 63px right) */
-            margin: 0 auto;
-            padding: 0 5px;
+        .map-header-space {
+            height: 37px; /* Match padding for buffer */
+            flex-shrink: 0;
         }
 
         .map-wrapper {
-            margin-top: -68px;
-            margin-bottom: -20px;
+            flex: 1;
+            padding: 0 !important;
+            margin: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
         }
 
         .map-iframe {
-            width: 100% !important;
-            height: 85vh;
-            max-height: 900px;
+            width: 100vw !important;
+            height: 100% !important;
             border: none;
             display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 0;
         }
 
         .map-title {
-            text-align: center;
-            margin: 10px 0 5px 0;
-            padding-top: 20px;
+            position: absolute;
+            top: 52px; /* +12px lower (half inch more) */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            background: rgba(49,49,49,0.95);
+            padding: 8px 25px;
+            border-radius: 25px;
+            margin: 0;
+            font-size: 1.4rem;
         }
 
         footer {
+            flex-shrink: 0;
             background-color: #262626;
             border-top: 1px solid #1f1f1f;
-            padding: 20px 0;
-            margin-top: auto;
+            padding: 15px 0;
         }
 
         footer p {
@@ -110,8 +133,8 @@
 
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- NAV (kept) -->
+<nav style="flex-shrink: 0;">
     <div class="logo">
         <a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
     </div>
@@ -120,31 +143,21 @@
     </div>
 </nav>
 
-<!-- PAGE HEADING -->
-<div class="page-heading">
-    <div class="container">
-        <div class="heading-content">
-            <h1>Web<em>Map</em></h1>
-        </div>
-    </div>
-</div>
-
-<!-- WIDER FULL-SCREEN MAP -->
+<!-- FULL-PAGE MAP (half inch lower) -->
 <section class="map-section">
-    <div class="map-inner">
-        <h2 class="map-title">Interactive Map</h2>
-        
-        <div class="map-wrapper">
-            <iframe 
-                src="https://edelarrow.github.io/ddo-map-viewer-normal-channels"
-                class="map-iframe"
-                title="Dogma Rising Map Viewer Ch 1-3,5,6">
-            </iframe>
-        </div>
+    <div class="map-header-space"></div>
+    <h2 class="map-title">Interactive Map</h2>
+    
+    <div class="map-wrapper">
+        <iframe 
+            src="https://edelarrow.github.io/ddo-map-viewer-normal-channels"
+            class="map-iframe"
+            title="Dogma Rising Map Viewer Ch 1-3,5,6">
+        </iframe>
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (kept) -->
 <footer>
     <div class="container-fluid">
         <div class="col-md-12">
@@ -160,7 +173,7 @@
     </a>
 </div>
 
-<!-- MENU + SERVER STATUS -->
+<!-- MENU + SERVER STATUS (kept) -->
 <section class="overlay-menu">
     <div class="container">
         <div class="main-menu">
