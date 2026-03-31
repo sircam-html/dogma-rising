@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How To Play | Dogma Rising</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;font-size:18px;overflow-x:hidden;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
+    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold) !important;text-decoration:none !important;text-shadow:0 0 30px rgba(201,168,76,.4)}
+    .nav-logo:hover{color:var(--gold) !important;text-decoration:none !important}
+    .nav-logo span{color:var(--ash);font-weight:400}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord:hover{background:var(--ember);color:#fff}
+
+    .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
+    .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
+    .page-header h1 em{color:var(--gold);font-style:normal}
+    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
+
+    .content-section{padding:40px 0 60px;flex:1;max-width:1000px;margin:0 auto;width:100%;padding-left:48px;padding-right:48px;}
+
+    /* STEP */
+    .step{margin-bottom:60px}
+    .step-header{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,.15)}
+    .step-num{flex-shrink:0;width:42px;height:42px;background:var(--gold);color:var(--void);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:900;font-size:1.1rem}
+    .step-header h2{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;color:var(--parchment);letter-spacing:2px;margin:0}
+    .step p{color:var(--ash);line-height:1.8;margin-bottom:16px}
+    .step strong{color:var(--parchment)}
+
+    /* BOX */
+    .box{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.12);padding:28px 32px;margin-top:16px;position:relative}
+    .box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
+
+    /* DOWNLOAD BUTTON */
+    .dl-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:12px 28px;text-decoration:none;transition:all .3s;margin-top:12px;margin-right:12px}
+    .dl-btn:hover{background:rgba(201,168,76,.1);border-color:var(--gold);color:var(--gold)}
+
+    /* WARNING */
+    .warning-box{background:rgba(139,26,26,.15);border:1px solid rgba(139,26,26,.4);padding:16px 24px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
+    .warning-box .warn-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+    .warning-box p{color:#e0a0a0;font-size:1rem;line-height:1.6;margin:0}
+    .warning-box strong{color:#fff}
+
+    /* STEP IMAGE */
+    .step-img{max-width:100%;border:1px solid rgba(201,168,76,.15);margin-top:16px;display:block}
+
+    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
+
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://dogmarising.netlify.app/" class="nav-logo">Dogma<span>Rising</span></a>
+  <ul class="nav-links">
+    <li><a href="https://dogmarising.netlify.app/about">About</a></li>
+    <li><a href="https://dogmarising.netlify.app/news">News</a></li>
+    <li><a href="https://dogmarising.netlify.app/contact">Contact</a></li>
+  </ul>
+  <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
+</nav>
+
+<div class="page-header">
+  <h1>How To <em>Play</em></h1>
+  <div class="hero-divider"></div>
+</div>
+
+<div class="content-section">
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <h2>Downloading the Game</h2>
+    </div>
+    <p>Download the full game client (~35 GB). Use one of the links below to get started.</p>
+    <div class="warning-box">
+      <div class="warn-icon">⚠️</div>
+      <p><strong>Ad Blocker Highly Recommended</strong> — The download link leads to an external file hosting site. We strongly recommend having an ad blocker like uBlock Origin active before clicking the download link.</p>
+    </div>
+    <div class="box">
+      <p><strong>Full 35GB Client</strong> — Ready to play, everything included.</p>
+      <a href="https://vik1ngfile.site/f/nnwwESC6tS" target="_blank" class="dl-btn">⚔ Download Now</a>
+      <p style="margin-top:20px;"><strong>Launcher Only</strong> — Download the community launcher separately.</p>
+      <a href="https://github.com/D00MK1D/DDON-Launcher/releases" target="_blank" class="dl-btn">⚔ Github Download</a>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <h2>Extracting the Files</h2>
+    </div>
+    <p>After downloading, extract the files using <strong>WinRAR</strong> or <strong>7-Zip</strong>. Windows' built-in extractor does <strong>not</strong> work and will cause errors.</p>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <h2>Starting the Launcher</h2>
+    </div>
+    <p>Open the extracted folder and run <strong>DDO_Launcher.exe</strong> as Administrator (right-click → Run as administrator). Install .NET and DirectX if prompted.</p>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <h2>Configuring the Server</h2>
+    </div>
+    <p>Check that the launcher server settings match the Dogma Rising connection details:</p>
+    <div class="box">
+      <p><strong>Lobby IP:</strong> dogmarising.org &nbsp;|&nbsp; <strong>Port:</strong> 52100</p>
+      <p style="margin-top:10px;"><strong>Download IP:</strong> dogmarising.org &nbsp;|&nbsp; <strong>Port:</strong> 52099</p>
+    </div>
+    <p style="margin-top:16px;">These are usually pre-configured in the Dogma Rising launcher.</p>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <h2>Creating an Account</h2>
+    </div>
+    <p>Register directly inside the launcher. Choose any account ID and password — no email required.</p>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">6</div>
+      <h2>English Patch & Launch</h2>
+    </div>
+    <p>Click the translation icon in the launcher to install the English patch. Once done, click <strong>Login</strong> to start playing.</p>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">7</div>
+      <h2>Starting Your Adventure</h2>
+    </div>
+    <p>Complete the tutorial quests to unlock all game features. Follow the red markers on your map for the main story quests. Welcome to Dogma Rising — your journey begins now.</p>
+    <div class="box">
+      <p>Need help? Join our <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none;">Discord Server</a> for guides, tips, and community support.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash);">Dogma Rising</div>
+  <div class="footer-copy">© 2026 Dogma Rising · All rights reserved</div>
+  <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
+</footer>
+
+</body>
+</html>
