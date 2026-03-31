@@ -70,9 +70,10 @@
 
 <nav>
   <a href="https://dogmarising.netlify.app/" class="nav-logo">Dogma<span>Rising</span></a>
-  <ul class="nav-links">
+    <ul class="nav-links">
     <li><a href="https://dogmarising.netlify.app/about">About</a></li>
     <li><a href="https://dogmarising.netlify.app/news">News</a></li>
+    <li><a href="https://dogmarising.netlify.app/howtoplay">How To Play</a></li>
   </ul>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
 </nav>
@@ -116,6 +117,31 @@
   <div class="footer-copy">© 2026 Dogma Rising | All rights reserved.</div>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
 </footer>
+
+<section class="overlay-menu">
+  <div class="container">
+    <div class="main-menu">
+      <ul>
+        <li><a href="https://dogmarising.netlify.app/">Home</a></li>
+        <li><a href="https://dogmarising.netlify.app/about">About Us</a></li>
+        <li><a href="https://dogmarising.netlify.app/news">Latest info</a></li>
+        <li><a href="/" class="no-click">Interactive map (soon™)</a></li>
+      </ul>
+      <div style="display:flex;justify-content:center;align-items:center;padding:20px">
+        <div style="background:rgba(8,6,8,.98);padding:18px;border-radius:4px;border:1px solid rgba(201,168,76,.15);box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:'Cinzel',serif;color:var(--parchment);font-size:.85rem">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+            <div id="status-dot" style="width:10px;height:10px;background:#333;border-radius:50%"></div>
+            <h2 style="font-size:1rem;font-weight:900;color:var(--parchment);margin:0;text-transform:uppercase;letter-spacing:3px">Server Status</h2>
+          </div>
+          <div style="margin-bottom:7px;color:var(--ash);font-family:'Crimson Text',serif;font-size:1rem"><strong style="color:var(--parchment)">Lobby:</strong> dogmarising.org | Port 52100</div>
+          <div style="margin-bottom:14px;color:var(--ash);font-family:'Crimson Text',serif;font-size:1rem"><strong style="color:var(--parchment)">DL:</strong> dogmarising.org | Port 52099</div>
+          <div style="font-family:'Crimson Text',serif;font-size:1rem;margin-bottom:4px">Condition: <span id="status-text" style="font-weight:800;color:#333">Checking...</span></div>
+          <div style="font-family:'Crimson Text',serif;font-size:1rem">Players Online: <span id="player-count" style="font-weight:800;color:var(--gold)">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
 async function fetchStatus(){

@@ -86,9 +86,10 @@
 
 <nav>
   <a href="https://dogmarising.netlify.app/" class="nav-logo">Dogma<span>Rising</span></a>
-  <ul class="nav-links">
+      <ul class="nav-links">
     <li><a href="https://dogmarising.netlify.app/news">News</a></li>
     <li><a href="https://dogmarising.netlify.app/contact">Contact</a></li>
+    <li><a href="https://dogmarising.netlify.app/howtoplay">How To Play</a></li>
   </ul>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
 </nav>
@@ -127,41 +128,7 @@
           </div>
           <button class="show-more-btn" id="showMoreBtn" onclick="toggleFeatures()">Show More Features ↓</button>
 
-          <h3>How to Join</h3>
-          <p>Hop on Discord to access required files and the launcher — or download the ready-to-play 35 GB complete game folder.</p>
-          <div class="join-box">
-            <strong>Discord Access:</strong> Most server information and download links are in our <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">Official Discord Server</a>.<br><br>
-            <strong>Full 35.31GB Game:</strong> Our top recommended download. <a href="https://vik1ngfile.site/f/nnwwESC6tS" target="_blank">Download Now</a> (external link).<br><br>
-            <strong>Launcher:</strong> Community-made launcher that handles updates, English patches, and server switching. <a href="https://github.com/D00MK1D/DDON-Launcher/releases" target="_blank">Github Download</a> (external link).<br><br>
-            <strong>No VPN Required:</strong> Unlike the original Japanese release, our private servers do not require a VPN.
           </div>
-
-          <h3>How to Install</h3>
-          <p style="margin-bottom:20px;color:var(--ash);">After downloading the 35 GB game folder, follow these steps. For GNU/Linux users, Bottles or Heroic will simplify the process.</p>
-          <div>
-            <div class="install-step">
-              <div class="step-num">1</div>
-              <div class="step-content">
-                <strong>Run the Launcher and Create an Account</strong>
-                <p>Open the extracted folder and run <code>DDO_Launcher.exe</code> as administrator. The launcher will guide you through account creation and update the client.</p>
-              </div>
-            </div>
-            <div class="install-step">
-              <div class="step-num">2</div>
-              <div class="step-content">
-                <strong>Configure Server IP and Ports</strong>
-                <p>Address: <code>dogmarising.org</code> — Server port <code>52100</code>, Download port <code>52099</code>. Usually pre-configured in the launcher.</p>
-              </div>
-            </div>
-            <div class="install-step">
-              <div class="step-num">3</div>
-              <div class="step-content">
-                <strong>Launch the Game</strong>
-                <p>After the launcher finishes updating, click the green Launch button to start Dragon's Dogma Online connected to Dogma Rising.</p>
-              </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -169,7 +136,32 @@
   <div class="nav-logo" style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash);">Dogma Rising</div>
   <div class="footer-copy">© 2026 Dogma Rising | All rights reserved.</div>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
-</footer>  
+</footer>
+
+  <section class="overlay-menu">
+  <div class="container">
+    <div class="main-menu">
+      <ul>
+        <li><a href="https://dogmarising.netlify.app/">Home</a></li>
+        <li><a href="https://dogmarising.netlify.app/news">Latest info</a></li>
+        <li><a href="https://dogmarising.netlify.app/contact">Contact form</a></li>
+        <li><a href="/" class="no-click">Interactive map (soon™)</a></li>
+      </ul>
+      <div style="display:flex;justify-content:center;align-items:center;padding:20px">
+        <div style="background:rgba(8,6,8,.98);padding:18px;border-radius:4px;border:1px solid rgba(201,168,76,.15);box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:'Cinzel',serif;color:var(--parchment);font-size:.85rem">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+            <div id="status-dot" style="width:10px;height:10px;background:#333;border-radius:50%"></div>
+            <h2 style="font-size:1rem;font-weight:900;color:var(--parchment);margin:0;text-transform:uppercase;letter-spacing:3px">Server Status</h2>
+          </div>
+          <div style="margin-bottom:7px;color:var(--ash);font-family:'Crimson Text',serif;font-size:1rem"><strong style="color:var(--parchment)">Lobby:</strong> dogmarising.org | Port 52100</div>
+          <div style="margin-bottom:14px;color:var(--ash);font-family:'Crimson Text',serif;font-size:1rem"><strong style="color:var(--parchment)">DL:</strong> dogmarising.org | Port 52099</div>
+          <div style="font-family:'Crimson Text',serif;font-size:1rem;margin-bottom:4px">Condition: <span id="status-text" style="font-weight:800;color:#333">Checking...</span></div>
+          <div style="font-family:'Crimson Text',serif;font-size:1rem">Players Online: <span id="player-count" style="font-weight:800;color:var(--gold)">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
 function toggleFeatures() {
