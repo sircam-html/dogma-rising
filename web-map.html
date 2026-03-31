@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Contact Us</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/light-box.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background-color: #313131;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            padding: 60px 15px;
+        }
+
+        footer {
+            background-color: #262626;
+            border-top: 1px solid #1f1f1f;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        /* PULSE ANIMATION */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+
+    <!-- NO CLICK -->
+    <style>
+        .no-click {
+            pointer-events: none;
+            cursor: default;
+            text-decoration: underline;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">
+        <a href="https://dogmarising.netlify.app/">Dogma<em>Rising</em></a>
+    </div>
+    <div class="menu-icon">
+        <span></span>
+    </div>
+</nav>
+
+<!-- PAGE HEADING -->
+<div class="page-heading">
+    <div class="container">
+        <div class="heading-content">
+            <h1>Contact<em> Form</em></h1>
+        </div>
+    </div>
+</div>
+
+<!-- INTERACTIVE MAP (replaces the form) -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2 style="text-align:center; margin-bottom:25px;">Interactive Map</h2>
+
+            <iframe 
+                src="https://edelarrow.github.io/ddo-map-viewer-normal-channels"
+                width="100%"
+                height="600px"
+                style="border: none;"
+                title="Dogma Rising Map Viewer Ch 1-3,5,6">
+            </iframe>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <p>© 2026 Dogma Rising | All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- DISCORD BUTTON -->
+<div class="popup-icon">
+    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">
+        <img src="img/discord-contact.webp" alt="">
+    </a>
+</div>
+
+<!-- MENU + SERVER STATUS -->
+<section class="overlay-menu">
+    <div class="container">
+        <div class="main-menu">
+            <ul>
+                <li><a href="https://dogmarising.netlify.app/">Home</a></li>
+                <li><a href='https://dogmarising.netlify.app/about'>About Us</a></li>
+                <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
+                <li><a href="/" class="no-click">Interactive map (soon™)</a></li>
+            </ul>
+
+            <!-- SERVER STATUS -->
+            <div style="display:flex;justify-content:center;align-items:center;padding:20px">
+                <div style="background:rgba(20,20,25,.98);padding:18px;border-radius:11px;box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;font-size:1rem">
+
+                    <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+                        <div style="width:11px;height:11px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 9px rgba(76,175,80,.4)"></div>
+                        <h2 style="font-size:1.45rem;font-weight:800;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.9px">
+                            Server Status
+                        </h2>
+                    </div>
+
+                    <div style="margin-bottom:7px">
+                        <strong>Lobby IP:</strong> dogmarising.org | <strong>Port:</strong> 52100
+                    </div>
+
+                    <div style="margin-bottom:14px">
+                        <strong>DL IP:</strong> dogmarising.org | <strong>Port:</strong> 52099
+                    </div>
+
+                    <div>
+                        Condition:
+                        <span style="color:#4CAF50;font-weight:800">Online</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <style>
+                @keyframes pulse {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: .5; }
+                }
+            </style>
+
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
