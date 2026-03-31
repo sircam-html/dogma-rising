@@ -106,25 +106,6 @@
     }
   </style>
 </head>
-
-<script>
-async function getStatus() {
-  try {
-    const res = await fetch("https://api.dogmarising.org/status");
-    const data = await res.json();
-
-    console.log(data);
-
-    document.getElementById("status").innerText =
-      data.online ? "Server Online" : "Server Offline";
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-getStatus();
-</script>
-  
 <body>
 
   <nav>
@@ -229,7 +210,7 @@ getStatus();
 
   <script>
     // Live status
-    const API_URL = 'https://api.dogmarising.org/status';
+    const API_URL = '/.netlify/functions/status';
     async function fetchStatus() {
       try {
         const res = await fetch(API_URL);

@@ -158,7 +158,7 @@
 <script>
 async function fetchStatus(){
   try{
-    const res=await fetch('https://api.dogmarising.org/status');
+    const res=await fetch('/.netlify/functions/status');
     if(!res.ok)throw new Error();
     const data=await res.json();
     const dot=document.getElementById('status-dot');

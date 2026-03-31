@@ -71,16 +71,6 @@
     .no-click{pointer-events:none;cursor:default;text-decoration:underline;color:blue}
   </style>
 </head>
-
-  <!-- Netlify / Discord player counter -->
-
-    <script>
-        const API_URL = '/.netlify/functions/status';
-        
-        // You can use API_URL here, for example:
-        // fetch(API_URL).then(response => response.json()).then(data => console.log(data));
-    </script>
-  
 <body>
 
 <nav>
@@ -266,7 +256,7 @@ if(hidden.length===0)loadBtn.style.display='none';
 
 async function fetchStatus(){
   try{
-    const res=await fetch('https://api.dogmarising.org/status');
+    const res=await fetch('http://45.84.199.149:8080/status');
     if(!res.ok)throw new Error();
     const data=await res.json();
     const dot=document.getElementById('status-dot');
