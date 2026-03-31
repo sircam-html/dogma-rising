@@ -176,6 +176,67 @@
             text-shadow: none;
         }
 
+        /* INSTALLATION STEPS */
+        .install-steps {
+            background: rgba(76, 175, 80, 0.15);
+            padding: 35px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 5px solid #4CAF50;
+            font-size: 1.45rem;
+            line-height: 1.8;
+            color: #f8f8f8;
+        }
+
+        .install-steps ol {
+            padding-left: 0;
+            margin: 20px 0 0 0;
+            counter-reset: step-counter;
+        }
+
+        .install-steps li {
+            list-style: none;
+            margin: 25px 0;
+            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            position: relative;
+            border-left: 4px solid #66bb6a;
+            counter-increment: step-counter;
+        }
+
+        .install-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -25px;
+            top: 20px;
+            background: #4CAF50;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+        }
+
+        .install-steps code {
+            background: rgba(0,0,0,0.4);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #4CAF50;
+            font-weight: 500;
+        }
+
+        .install-steps strong {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
         /* PULSE ANIMATION */
         @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -271,26 +332,33 @@
                 </div>
 
                 <h3>How to Install</h3>
-                <p style="font-size: 1.35rem; line-height: 1.8;">
-                    After downloading the 35 GB game folder, follow these steps to set up Dragon’s Dogma Online and connect to Dogma Rising.
-                </p>
-
-                <div class="join-steps">
-                    <strong>1. Run the launcher and create an account</strong><br><br>
-                    Open the extracted folder and run <code>ddo_launcher.exe</code> as an administrator (right‑click → “Run as administrator”).<br><br>
-                    The launcher will guide you through account creation (in‑launcher registration) and then update the client if needed.
-
-                    <br><br>
-                    <strong>2. Configure the server IP and ports</strong><br><br>
-                    The Dogma Rising server uses the address: <strong>dogmarising.org</strong> with<br><br>
-                    • Server port: <strong>52100</strong><br>
-                    • Download/patch port: <strong>52099</strong><br><br>
-                    These are usually already configured in the Dogma Rising launcher or instructions; if you ever need to edit them manually, they are the values you need.
-
-                    <br><br>
-                    <strong>3. Launch the game</strong><br><br>
-                    After the launcher finishes downloading and updating, click the green “Launch” (or equivalent) button to start Dragon’s Dogma Online connected to Dogma Rising.
+                <div class="install-steps">
+                    <p style="font-size: 1.35rem; line-height: 1.8; margin-bottom: 25px;">
+                        After downloading the 35 GB game folder, follow these numbered steps to set up Dragon's Dogma Online and connect to Dogma Rising:
+                    </p>
+                    
+                    <ol>
+                        <li>
+                            <strong>Run the launcher and create an account</strong><br><br>
+                            Open the extracted folder and run <code>ddo_launcher.exe</code> as an administrator (right‑click → "Run as administrator").<br><br>
+                            The launcher will guide you through account creation (in‑launcher registration) and then update the client if needed.
+                        </li>
+                        
+                        <li>
+                            <strong>Configure the server IP and ports</strong><br><br>
+                            The Dogma Rising server uses the address: <strong>dogmarising.org</strong> with<br><br>
+                            • Server port: <strong>52100</strong><br>
+                            • Download/patch port: <strong>52099</strong><br><br>
+                            These are usually already configured in the Dogma Rising launcher or instructions; if you ever need to edit them manually, they are the values you need.
+                        </li>
+                        
+                        <li>
+                            <strong>Launch the game</strong><br><br>
+                            After the launcher finishes downloading and updating, click the green "Launch" (or equivalent) button to start Dragon's Dogma Online connected to Dogma Rising.
+                        </li>
+                    </ol>
                 </div>
+
             </div>
 
         </div>
