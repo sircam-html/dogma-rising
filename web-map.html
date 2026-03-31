@@ -16,12 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,700" rel="stylesheet">
 
     <style>
-        /* RESET EVERYTHING THAT CAN CAUSE SHADOW LINES */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            box-shadow: none !important;   /* 🔥 remove ALL shadows */
+            box-shadow: none !important;
         }
 
         *::before,
@@ -58,10 +57,12 @@
             pointer-events: none;
         }
 
+        /* 🔥 MOVED MORE LEFT */
         .menu-icon {
             position: fixed;
             top: 15px;
             right: 20px;
+            transform: translateX(-210px); /* 🔥 increased shift */
             z-index: 10000;
             cursor: pointer;
             pointer-events: auto !important;
@@ -73,7 +74,7 @@
             background: #fff !important;
         }
 
-        /* MAP (force no seam, no shadow) */
+        /* MAP */
         .map-section {
             position: fixed;
             top: 0;
@@ -91,12 +92,11 @@
 
         .map-iframe {
             position: absolute;
-            top: -2px; /* 🔥 overlap to kill shadow seam */
+            top: -2px;
             left: 0;
             width: 100vw;
             height: calc(100% + 4px);
             border: none;
-            display: block;
         }
 
         .map-title {
@@ -111,7 +111,7 @@
             color: #fff;
         }
 
-        /* OVERLAY MENU */
+        /* MENU OVERLAY */
         .overlay-menu {
             z-index: 9000 !important;
         }
@@ -119,6 +119,13 @@
         @keyframes pulse {
             0%,100%{opacity:1;}
             50%{opacity:.5;}
+        }
+
+        /* 📱 responsive adjustment */
+        @media (max-width: 768px) {
+            .menu-icon {
+                transform: translateX(-120px);
+            }
         }
     </style>
 </head>
