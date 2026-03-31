@@ -16,10 +16,18 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,700" rel="stylesheet">
 
     <style>
+        /* RESET EVERYTHING THAT CAN CAUSE SHADOW LINES */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            box-shadow: none !important;   /* 🔥 remove ALL shadows */
+        }
+
+        *::before,
+        *::after {
+            box-shadow: none !important;
+            border: none !important;
         }
 
         html, body {
@@ -29,7 +37,7 @@
             background: #313131;
         }
 
-        /* NAV (no blocking, no visual line) */
+        /* NAV */
         nav {
             position: fixed;
             top: 0;
@@ -65,14 +73,15 @@
             background: #fff !important;
         }
 
-        /* 🔥 MAP TRUE FULLSCREEN (NO GAPS EVER) */
+        /* MAP (force no seam, no shadow) */
         .map-section {
             position: fixed;
-            top: -1px;              /* 🔥 kills 1px gap */
+            top: 0;
             left: 0;
             width: 100vw;
-            height: calc(100vh + 2px); /* 🔥 overlap fix */
+            height: 100vh;
             z-index: 1;
+            background: #313131;
         }
 
         .map-wrapper {
@@ -82,10 +91,10 @@
 
         .map-iframe {
             position: absolute;
-            top: 0;
+            top: -2px; /* 🔥 overlap to kill shadow seam */
             left: 0;
             width: 100vw;
-            height: 100%;
+            height: calc(100% + 4px);
             border: none;
             display: block;
         }
@@ -102,7 +111,7 @@
             color: #fff;
         }
 
-        /* overlay menu */
+        /* OVERLAY MENU */
         .overlay-menu {
             z-index: 9000 !important;
         }
@@ -124,6 +133,8 @@
 </nav>
 
 <section class="map-section">
+    <h2 class="map-title">Interactive Map</h2>
+
     <div class="map-wrapper">
         <iframe 
             src="https://edelarrow.github.io/ddo-map-viewer-normal-channels"
@@ -132,54 +143,22 @@
     </div>
 </section>
 
-<!-- MENU + SERVER STATUS -->
-  <section class="overlay-menu">
+<section class="overlay-menu">
     <div class="container">
-      <div class="main-menu">
-        <ul>
-          <li><a href="https://dogmarising.netlify.app/">Home</a></li>
-           <li><a href='https://dogmarising.netlify.app/about'>About Us</a></li>
-          <li><a href='https://dogmarising.netlify.app/news'>Latest info</a></li>
-          <li><a href="/" class="no-click" >Interactive map (soon™)</a></li>
-        </ul>
+        <div class="main-menu">
+            <ul>
+                <li><a href="https://dogmarising.netlify.app/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
 
-        <!-- SERVER STATUS -->
-        <div style="display:flex;justify-content:center;align-items:center;padding:20px">
-          <div style="background:rgba(20,20,25,.98);padding:18px;border-radius:11px;box-shadow:0 7px 18px rgba(0,0,0,.5);text-align:left;width:310px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;font-size:1rem">
-
-            <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
-              <div style="width:11px;height:11px;background:#4CAF50;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 9px rgba(76,175,80,.4)"></div>
-              <h2 style="font-size:1.45rem;font-weight:800;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.9px">
-                Server Status
-              </h2>
+            <div style="padding:20px;text-align:center;color:#fff;">
+                Server: <span style="color:#4CAF50;">Online</span>
             </div>
-
-            <div style="margin-bottom:7px">
-              <strong>Lobby IP:</strong> dogmarising.org | <strong>Port:</strong> 52100
-            </div>
-
-            <div style="margin-bottom:14px">
-              <strong>DL IP:</strong> dogmarising.org | <strong>Port:</strong> 52099
-            </div>
-
-            <div>
-              Condition:
-              <span style="color:#4CAF50;font-weight:800">Online</span>
-            </div>
-
-          </div>
         </div>
-
-        <style>
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-          }
-        </style>
-
-      </div>
     </div>
-  </section>
+</section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
