@@ -22,15 +22,6 @@
     .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
 
-    
-    
-    
-    
-    
-    
-    
-    
-
     .content-section{padding:40px 24px 60px;flex:1}
 
     .contact-card{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.12);padding:48px;position:relative;overflow:hidden}
@@ -57,7 +48,7 @@
 
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
     .no-click{pointer-events:none;cursor:default;text-decoration:underline;color:blue}
-  
+
     .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
     .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
     .page-header h1 em{color:var(--gold);font-style:normal}
@@ -77,6 +68,15 @@
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
+
+    /* ELEGANT ANIMATED CLOSE BUTTON */
+    .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+    .menu-close::before,
+    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before{transform:rotate(45deg)}
+    .menu-close::after{transform:rotate(-45deg)}
+    .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
+    .menu-close:active{transform:rotate(90deg) scale(0.95)}
     
     /* MOBILE FORM FIX */
     @media(max-width:768px){
@@ -93,7 +93,7 @@
 
 <nav>
   <a href="https://play.dogmarising.org/" class="nav-logo">Dogma<span>Rising</span></a>
-    <ul class="nav-links">
+  <ul class="nav-links">
     <li><a href="https://play.dogmarising.org/about">About</a></li>
     <li><a href="https://play.dogmarising.org/news">News</a></li>
     <li><a href="https://play.dogmarising.org/howtoplay">How To Play</a></li>
@@ -102,10 +102,12 @@
 
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
+
 <div class="mobile-menu" id="mobileMenu">
-    <a href="https://play.dogmarising.org/about">About</a>
-    <a href="https://play.dogmarising.org/news">News</a>
-    <a href="https://play.dogmarising.org/howtoplay">How To Play</a>
+  <div class="menu-close" id="menuClose"></div>
+  <a href="https://play.dogmarising.org/about">About</a>
+  <a href="https://play.dogmarising.org/news">News</a>
+  <a href="https://play.dogmarising.org/howtoplay">How To Play</a>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="mobile-discord">Join Discord</a>
 </div>
 
@@ -116,28 +118,28 @@
 
 <div class="content-section">
   <div class="wide-wrap">
-        <div class="contact-card">
-          <h2>Stay in Touch</h2>
-          <p class="subtitle">Send us a message and we'll get back to you</p>
-          <form method="post" name="contact">
-            <input type="hidden" name="form-name" value="contact">
-            <div class="form-group">
-              <label class="form-label">Your Name</label>
-              <input name="name" type="text" class="form-control" placeholder="Enter your name..." required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input name="email" type="email" class="form-control" placeholder="Enter your email..." required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea name="message" class="form-control" placeholder="Write your message here..." required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-          </form>
-          <div class="discord-alt">
-            Prefer a faster response? Join our <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">Discord Server</a> for direct support.
-          </div>
+    <div class="contact-card">
+      <h2>Stay in Touch</h2>
+      <p class="subtitle">Send us a message and we'll get back to you</p>
+      <form method="post" name="contact">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input name="name" type="text" class="form-control" placeholder="Enter your name..." required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input name="email" type="email" class="form-control" placeholder="Enter your email..." required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+      <div class="discord-alt">
+        Prefer a faster response? Join our <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank">Discord Server</a> for direct support.
+      </div>
     </div>
   </div>
 </div>
@@ -147,8 +149,6 @@
   <div class="footer-copy">© 2026 Dogma Rising | All rights reserved.</div>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
 </footer>
-
-
 
 <script>
 async function fetchStatus(){
@@ -173,21 +173,28 @@ fetchStatus();setInterval(fetchStatus,60000);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/main.js"></script>
 
-  <script>
-    const ham = document.getElementById('hamburger');
-    const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-    });
-    mob.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        ham.classList.remove('open');
-        mob.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  </script>
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('menuClose');
+  
+  function closeMenu() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  
+  closeBtn.addEventListener('click', closeMenu);
+  
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+</script>
 </body>
 </html>

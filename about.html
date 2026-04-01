@@ -23,15 +23,6 @@
     .nav-discord:hover{background:var(--ember);color:#fff}
 
     /* HERO BANNER */
-    
-    
-    
-    
-    
-    
-    
-    
-
     /* CONTENT */
     .content-section{padding:40px 24px 60px;flex:1}
     .about-card{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.12);border-radius:4px;padding:48px;margin:0 auto 30px;position:relative;overflow:hidden;max-width:100%}
@@ -73,7 +64,7 @@
 
     /* OVERLAY MENU */
     .overlay-menu .main-menu ul li a{font-family:'Cinzel',serif}
-  
+
     .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
     .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
     .page-header h1 em{color:var(--gold);font-style:normal}
@@ -109,6 +100,16 @@
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
+
+    /* ELEGANT ANIMATED CLOSE BUTTON */
+    .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+    .menu-close::before,
+    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before{transform:rotate(45deg)}
+    .menu-close::after{transform:rotate(-45deg)}
+    .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
+    .menu-close:active{transform:rotate(90deg) scale(0.95)}
+
     @media(max-width:768px){
       nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
@@ -120,7 +121,7 @@
 
 <nav>
   <a href="https://play.dogmarising.org/" class="nav-logo">Dogma<span>Rising</span></a>
-      <ul class="nav-links">
+  <ul class="nav-links">
     <li><a href="https://play.dogmarising.org/news">News</a></li>
     <li><a href="https://play.dogmarising.org/contact">Contact</a></li>
     <li><a href="https://play.dogmarising.org/howtoplay">How To Play</a></li>
@@ -129,10 +130,12 @@
 
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
+
 <div class="mobile-menu" id="mobileMenu">
-    <a href="https://play.dogmarising.org/news">News</a>
-    <a href="https://play.dogmarising.org/contact">Contact</a>
-    <a href="https://play.dogmarising.org/howtoplay">How To Play</a>
+  <div class="menu-close" id="menuClose"></div>
+  <a href="https://play.dogmarising.org/news">News</a>
+  <a href="https://play.dogmarising.org/contact">Contact</a>
+  <a href="https://play.dogmarising.org/howtoplay">How To Play</a>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="mobile-discord">Join Discord</a>
 </div>
 
@@ -143,33 +146,32 @@
 
 <div class="content-section">
   <div class="wide-wrap">
-        <div class="about-card">
-          <h2>Discover Dogma Rising</h2>
-          <p style="text-align:center;margin-bottom:40px;">Dogma Rising is a community-run private server for Dragon's Dogma Online (DDON), a Capcom MMORPG that officially shut down in 2019. As of March 2026, it is actively maintained and remains one of the most popular ways to experience the game with modern English translations and gameplay improvements.</p>
+    <div class="about-card">
+      <h2>Discover Dogma Rising</h2>
+      <p style="text-align:center;margin-bottom:40px;">Dogma Rising is a community-run private server for Dragon's Dogma Online (DDON), a Capcom MMORPG that officially shut down in 2019. As of March 2026, it is actively maintained and remains one of the most popular ways to experience the game with modern English translations and gameplay improvements.</p>
 
-          <h3>Key Server Features</h3>
-          <p style="margin-bottom:20px;">Designed to feel more like a traditional single-player Dragon's Dogma experience rather than a grindy MMO.</p>
-          <div class="features-grid" id="featuresGrid">
-            <div class="feature-item"><strong>Rebalanced Crafting Recipes</strong></div>
-            <div class="feature-item"><strong>Elite Enemies!</strong></div>
-            <div class="feature-item"><strong>Additional random loot and gear in chests</strong></div>
-            <div class="feature-item"><strong>Balanced EXP Progression</strong>Goblin gives less exp than an Orc</div>
-            <div class="feature-item"><strong>Constant BO Progression</strong>Just by exploring, no dungeon farming</div>
-            <div class="feature-item hidden-feature"><strong>Working Exp-Ring</strong>Rewarded for doing the first MSQs</div>
-            <div class="feature-item hidden-feature"><strong>Exp Rings are easy to get</strong>So your Pawns can level too!</div>
-            <div class="feature-item hidden-feature"><strong>Exp Ring Catchup Feature</strong>Max one vocation for 50% more EXP</div>
-            <div class="feature-item hidden-feature"><strong>PostGame Channel (Lv82+)</strong>Farm extra mats for Cosmetics</div>
-            <div class="feature-item hidden-feature"><strong>Rewarding Bitterblack Maze!</strong></div>
-            <div class="feature-item hidden-feature"><strong>Kinoza Hotsprings Cosmetics Shop!</strong></div>
-            <div class="feature-item hidden-feature"><strong>Ophelia's Adventure-Pass Shop</strong>Spend your Rift-Crystals!</div>
-            <div class="feature-item hidden-feature"><strong>Endgame Cosmetics Grind!</strong></div>
-            <div class="feature-item hidden-feature"><strong>Toggleable Autoloot</strong></div>
-            <div class="feature-item hidden-feature"><strong>Player to Player Trading!</strong></div>
-            <div class="feature-item hidden-feature"><strong>HARDCORE MODE</strong>With Roguelike elements</div>
-          </div>
-          <button class="show-more-btn" id="showMoreBtn" onclick="toggleFeatures()">Show More Features ↓</button>
-
-          </div>
+      <h3>Key Server Features</h3>
+      <p style="margin-bottom:20px;">Designed to feel more like a traditional single-player Dragon's Dogma experience rather than a grindy MMO.</p>
+      <div class="features-grid" id="featuresGrid">
+        <div class="feature-item"><strong>Rebalanced Crafting Recipes</strong></div>
+        <div class="feature-item"><strong>Elite Enemies!</strong></div>
+        <div class="feature-item"><strong>Additional random loot and gear in chests</strong></div>
+        <div class="feature-item"><strong>Balanced EXP Progression</strong>Goblin gives less exp than an Orc</div>
+        <div class="feature-item"><strong>Constant BO Progression</strong>Just by exploring, no dungeon farming</div>
+        <div class="feature-item hidden-feature"><strong>Working Exp-Ring</strong>Rewarded for doing the first MSQs</div>
+        <div class="feature-item hidden-feature"><strong>Exp Rings are easy to get</strong>So your Pawns can level too!</div>
+        <div class="feature-item hidden-feature"><strong>Exp Ring Catchup Feature</strong>Max one vocation for 50% more EXP</div>
+        <div class="feature-item hidden-feature"><strong>PostGame Channel (Lv82+)</strong>Farm extra mats for Cosmetics</div>
+        <div class="feature-item hidden-feature"><strong>Rewarding Bitterblack Maze!</strong></div>
+        <div class="feature-item hidden-feature"><strong>Kinoza Hotsprings Cosmetics Shop!</strong></div>
+        <div class="feature-item hidden-feature"><strong>Ophelia's Adventure-Pass Shop</strong>Spend your Rift-Crystals!</div>
+        <div class="feature-item hidden-feature"><strong>Endgame Cosmetics Grind!</strong></div>
+        <div class="feature-item hidden-feature"><strong>Toggleable Autoloot</strong></div>
+        <div class="feature-item hidden-feature"><strong>Player to Player Trading!</strong></div>
+        <div class="feature-item hidden-feature"><strong>HARDCORE MODE</strong>With Roguelike elements</div>
+      </div>
+      <button class="show-more-btn" id="showMoreBtn" onclick="toggleFeatures()">Show More Features ↓</button>
+    </div>
   </div>
 </div>
 
@@ -178,8 +180,6 @@
   <div class="footer-copy">© 2026 Dogma Rising | All rights reserved.</div>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
 </footer>
-
-
 
 <script>
 function toggleFeatures() {
@@ -211,21 +211,28 @@ fetchStatus(); setInterval(fetchStatus, 60000);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/main.js"></script>
 
-  <script>
-    const ham = document.getElementById('hamburger');
-    const mob = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-    });
-    mob.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        ham.classList.remove('open');
-        mob.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  </script>
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('menuClose');
+  
+  function closeMenu() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  
+  closeBtn.addEventListener('click', closeMenu);
+  
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+</script>
 </body>
 </html>

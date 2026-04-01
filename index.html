@@ -117,6 +117,15 @@
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
+
+    /* ELEGANT ANIMATED CLOSE BUTTON */
+    .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+    .menu-close::before,
+    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before{transform:rotate(45deg)}
+    .menu-close::after{transform:rotate(-45deg)}
+    .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
+    .menu-close:active{transform:rotate(90deg) scale(0.95)}
     @media(max-width:768px){
       nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
@@ -137,16 +146,18 @@
     </ul>
     <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
   
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="menu-close" id="menuClose"></div>
     <a href="https://play.dogmarising.org/about">About</a>
     <a href="https://play.dogmarising.org/news">News</a>
     <a href="https://play.dogmarising.org/contact">Contact</a>
     <a href="https://play.dogmarising.org/howtoplay">How To Play</a>
-  <a href="https://play.dogmarising.org/web-map">Interactive Map</a>
-  <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="mobile-discord">Join Discord</a>
-</div>
+    <a href="https://play.dogmarising.org/web-map">Interactive Map</a>
+    <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="mobile-discord">Join Discord</a>
+  </div>
 
   <section class="hero">
     <video autoplay loop muted playsinline>
@@ -267,17 +278,24 @@
   <script>
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('menuClose');
+    
+    function closeMenu() {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
     ham.addEventListener('click', () => {
       ham.classList.toggle('open');
       mob.classList.toggle('open');
       document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
     });
+    
+    closeBtn.addEventListener('click', closeMenu);
+    
     mob.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        ham.classList.remove('open');
-        mob.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', closeMenu);
     });
   </script>
 </body>
