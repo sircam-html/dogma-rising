@@ -14,7 +14,8 @@
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
 
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
-    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold) !important;text-decoration:none !important;text-shadow:0 0 30px rgba(201,168,76,.4)}.nav-logo:hover{color:var(--gold) !important;text-decoration:none !important}
+    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold) !important;text-decoration:none !important;text-shadow:0 0 30px rgba(201,168,76,.4)}
+    .nav-logo:hover{color:var(--gold) !important;text-decoration:none !important}
     .nav-logo span{color:var(--ash);font-weight:400}
     .nav-links{display:flex;gap:36px;list-style:none}
     .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
@@ -22,49 +23,61 @@
     .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
 
-    .content-section{padding:40px 24px 60px;flex:1}
+    .content-section{padding:40px 48px 80px;flex:1}
+    .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
+
     .news-header{text-align:center;margin-bottom:48px}
     .news-header h2{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:600;color:var(--parchment);margin-bottom:8px;letter-spacing:2px}
     .news-header p{color:var(--ash);font-size:1rem;letter-spacing:1px}
 
-    .news-post{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.1);padding:28px 32px;margin-bottom:16px;transition:all .3s;position:relative;overflow:hidden}
+    .news-post{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.1);padding:32px 40px;margin-bottom:20px;transition:all .3s;position:relative;overflow:hidden}
     .news-post::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .3s}
     .news-post:hover{border-color:rgba(201,168,76,.3);transform:translateY(-2px)}
     .news-post:hover::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
     .news-post.important{border-color:rgba(201,168,76,.25)}
     .news-post.important::before{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 
-    .news-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+    .news-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
     .news-date{font-family:'Cinzel',serif;font-size:.75rem;color:var(--ash);letter-spacing:1px;text-transform:uppercase}
     .news-author{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold)}
     .news-badge{font-size:.7rem;padding:2px 10px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-family:'Cinzel',serif;letter-spacing:1px;text-transform:uppercase}
 
-    .news-post h3{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;color:var(--parchment);margin:0 0 14px;line-height:1.3;letter-spacing:1px}
-    .news-content{max-height:100px;overflow:hidden;transition:max-height .4s ease;color:var(--ash);font-size:1rem;line-height:1.7}
-    .news-content.expanded{max-height:3000px}
+    .news-post h3{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:600;color:var(--parchment);margin:0 0 16px;line-height:1.3;letter-spacing:1px}
+    .news-content{max-height:110px;overflow:hidden;transition:max-height .4s ease;color:var(--ash);font-size:1.05rem;line-height:1.75}
+    .news-content.expanded{max-height:4000px}
     .news-content strong{color:var(--parchment)}
-    .news-content h4{color:var(--gold);font-family:'Cinzel',serif;font-size:.9rem;margin:12px 0 6px}
-    .news-content h2{color:var(--ember);font-family:'Cinzel',serif;font-size:1.1rem;margin:16px 0 8px}
+    .news-content h4{color:var(--gold);font-family:'Cinzel',serif;font-size:.95rem;margin:14px 0 8px}
+    .news-content h2{color:var(--ember);font-family:'Cinzel',serif;font-size:1.15rem;margin:18px 0 10px}
 
-    .read-more-btn{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--gold);cursor:pointer;font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
+    .read-more-btn{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--gold);cursor:pointer;font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
     .read-more-btn:hover{color:var(--ember)}
 
-    .load-more-wrap{text-align:center;margin-top:35px}
-    #loadMoreBtn{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);padding:12px 40px;font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+    .load-more-wrap{text-align:center;margin-top:50px}
+    #loadMoreBtn{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);padding:14px 50px;font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s}
     #loadMoreBtn:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
 
-    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
     .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
 
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-    .no-click{pointer-events:none;cursor:default;text-decoration:underline;color:blue}
-
-    .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
-    .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
+    .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 48px 40px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
+    .page-header h1{font-family:'Cinzel',serif;font-size:clamp(22px,3vw,38px);font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
     .page-header h1 em{color:var(--gold);font-style:normal}
-    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
-    .container{max-width:100% !important;padding:0 48px !important;}
-    .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 48px;}
+    .hero-divider{width:100px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0}
+
+    /* ====================== MOBILE EXPANSION ONLY ====================== */
+    @media(max-width: 992px) {
+      nav{padding:20px 5%;}
+      .content-section{padding:40px 5% 80px;}
+      .page-header{padding:90px 5% 40px;}
+      footer{padding:28px 5%;}
+      .wide-wrap{max-width:100%; padding:0 4%;}
+      .news-post{padding:28px 6%;}
+    }
+
+    @media(max-width: 768px) {
+      .news-post{padding:24px 6%;}
+      .wide-wrap{padding:0 3%;}
+    }
 
     /* MOBILE NAV */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
@@ -79,24 +92,20 @@
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
 
-    /* ELEGANT ANIMATED CLOSE BUTTON */
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
-    .menu-close::before,
-    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before,.menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
     .menu-close::before{transform:rotate(45deg)}
     .menu-close::after{transform:rotate(-45deg)}
     .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
     .menu-close:active{transform:rotate(90deg) scale(0.95)}
 
     @media(max-width:768px){
-      nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
       .hamburger{display:flex}
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="https://play.dogmarising.org/" class="nav-logo">Dogma<span>Rising</span></a>
   <ul class="nav-links">
@@ -105,7 +114,6 @@
     <li><a href="https://play.dogmarising.org/howtoplay">How To Play</a></li>
   </ul>
   <a href="https://discord.com/invite/sU8D6DMPAD" target="_blank" class="nav-discord">Join Discord</a>
-
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
@@ -138,18 +146,20 @@
       </div>
       <h3>Dogma Rising Screenshot Contest!</h3>
       <div class="news-content">
-        <p>Hello everyone! Ahead of maintenance, I have an announcement!<br><br>We have 2 categories, modded and unmodded, with their respective channels.</p>
-        <h4>PLEASE ONLY POST IMAGES IN THE SUBMISSIONS CHANNEL.</h4>
-        <h2>Rules and Info:</h2>
-        <p>• One entry per person. If you choose to change your entry, simply delete your previous message.<br><br>
-        • The contest will run until the end of April. Submissions will be organized thereafter, then a poll will be made lasting two weeks.<br><br>
-        • For the UNMODDED category: no ReShade, Photoshop, HD Mod, or any mod that changes game fidelity. Only the EXE for chat limit/frame rate is allowed.<br><br>
-        • For the MODDED category: ReShade, HD mod, or any mod that changes visual fidelity INSIDE THE GAME only. No photoshop or outside modifications.<br><br>
-        • You may post any screenshot you've taken!</p>
+        <p>Hello everyone! Ahead of the upcoming maintenance, we have an exciting community event to announce!</p>
+        <p>We are launching the <strong>Dogma Rising Screenshot Contest</strong> with two separate categories: <strong>Modded</strong> and <strong>Unmodded</strong>. Each category has its own dedicated submission channel in our Discord server.</p>
+        
+        <h4>IMPORTANT: Please only post your entries in the designated Submissions channels.</h4>
+        
+        <h2>Rules and Information:</h2>
+        <p>• One entry per person. You may replace your entry at any time by simply deleting your previous submission.<br><br>
+        • The contest runs until the end of April 2026. After submissions close, we will organize the entries and open a community poll that will last two weeks.<br><br>
+        • <strong>Unmodded Category:</strong> No ReShade, Photoshop, HD Mod, or any visual-altering modifications allowed. Only the EXE for chat limit / frame rate is permitted.<br><br>
+        • <strong>Modded Category:</strong> ReShade, HD mods, and any in-game visual enhancements are allowed. External editing (Photoshop, etc.) is strictly prohibited.<br><br>
+        • You may submit any screenshot you've taken in Dogma Rising — landscapes, epic battles, character creations, or unique moments are all welcome!</p>
+
         <h2>Rewards:</h2>
-        <p>6 winners total — 3 modded, 3 unmodded. Special Discord role + in-game item.<br>
-        Roles: 1st, 2nd, or 3rd place Pawntographer.<br>
-        Items: Victor's Crowns (Item ID 13831, 13832, 13833).</p>
+        <p>6 winners total (3 modded + 3 unmodded). Winners will receive a special Discord role <strong>"Pawntographer"</strong> (1st, 2nd, or 3rd place) and exclusive in-game items: <strong>Victor's Crowns</strong> (Item IDs 13831, 13832, 13833).</p>
       </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
@@ -157,23 +167,28 @@
     <div class="news-post">
       <div class="news-meta"><span class="news-date">March 29, 2026</span><span class="news-author">LostMyLeg</span><span class="news-badge">✅ Online</span></div>
       <h3>Server is ONLINE again!</h3>
-      <div class="news-content"><p>• Fixed a bug where dying in Hardcore in PP mode didn't allow switching back to exp mode. On death it will now automatically reset to exp mode! If you're stuck in PP mode right now just die and it's fixed 🙂<br><br>Have a great day!</p></div>
-      <span class="read-more-btn" style="display:none;"></span>
+      <div class="news-content">
+        <p>Great news, adventurers! The server is back online and fully stable.</p>
+        <p>• Fixed a critical bug where dying in Hardcore mode while in PP (Perma-Death) would prevent switching back to normal experience mode. The system now automatically resets to exp mode upon death.<br><br>
+        If you're currently stuck in PP mode, simply die once and the issue will be resolved.</p>
+        <p>Thank you for your patience during the downtime. Have a great day exploring Arisen!</p>
+      </div>
+      <span class="read-more-btn">Read more ↓</span>
     </div>
 
     <div class="news-post">
       <div class="news-meta"><span class="news-date">March 28, 2026</span><span class="news-author">LostMyLeg</span><span class="news-badge">🔧 Maintenance</span></div>
       <h3>Scheduled Maintenance Announcement</h3>
       <div class="news-content">
-        <p>Maintenance on Sunday, March 29, at 7:00 AM — up to 15 minutes downtime.<br><br>
-        <strong>Party fixes:</strong><br><br>
-        • Fixed inviter being kicked from own party when invite timed out<br><br>
-        • Fixed re-inviting after disconnect failing with pending invite error<br><br>
-        • Fixed party invite slot stuck permanently if inviter disconnected<br><br>
-        • Fixed two players inviting each other simultaneously causing broken party state<br><br>
-        • Fixed ghost member showing when joining while invite was pending<br><br>
-        • Fixed player pawns remaining in party UI after leaving<br><br>
-        Thank you for your understanding!</p>
+        <p>Maintenance is scheduled for <strong>Sunday, March 29 at 7:00 AM AST</strong> and should last no longer than 15 minutes.</p>
+        <p><strong>Party System Improvements:</strong></p>
+        <p>• Fixed inviter being kicked from their own party when an invite timed out<br>
+        • Fixed re-inviting after disconnect failing with "pending invite" error<br>
+        • Fixed party invite slot becoming permanently stuck<br>
+        • Fixed simultaneous mutual invites breaking party state<br>
+        • Fixed ghost members appearing in party UI<br>
+        • Fixed pawns remaining in party interface after leaving</p>
+        <p>Thank you for your continued support and understanding.</p>
       </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
@@ -181,36 +196,57 @@
     <div class="news-post">
       <div class="news-meta"><span class="news-date">March 28, 2026</span><span class="news-author">Jared</span><span class="news-badge">⚡ Hotfix</span></div>
       <h3>Surprise! Leg applied a hotfix.</h3>
-      <div class="news-content"><p>No restart required, just reload the area.<br><br>• Reworked all Bloodbane Isle Dungeons according to the area lists spot info<br><br>That's all! Have a good day!</p></div>
-      <span class="read-more-btn" style="display:none;"></span>
+      <div class="news-content">
+        <p>No server restart needed — simply reload your current area to receive the update.</p>
+        <p>• Completely reworked all Bloodbane Isle Dungeons to better match the official area lists and spot information.</p>
+        <p>Enjoy the improved dungeon experience! Have a wonderful day.</p>
+      </div>
+      <span class="read-more-btn">Read more ↓</span>
     </div>
 
     <div class="news-post">
       <div class="news-meta"><span class="news-date">March 25, 2026</span><span class="news-author">LostMyLeg</span><span class="news-badge">📅 Schedule</span></div>
       <h3>Scheduled Server-Restart every Friday!</h3>
-      <div class="news-content"><p>• No more surprise restarts (except technical issues)<br>• A fixed restart day and time once a week<br><br>That's it 🙂</p></div>
+      <div class="news-content">
+        <p>After listening to community feedback, we are implementing a regular maintenance schedule.</p>
+        <p>• No more surprise restarts (except for emergency technical issues)<br>
+        • Fixed weekly restart every Friday at the usual maintenance time</p>
+        <p>This change will help players better plan their gaming sessions.</p>
+      </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
 
     <div class="news-post" style="display:none;">
       <div class="news-meta"><span class="news-date">March 20, 2026</span><span class="news-author">LostMyLeg</span></div>
       <h3>Small change regarding the HC-Reward</h3>
-      <div class="news-content"><p>• The HC Overlord reward is now account-wide<br>• Reward will be sent via Item-Post<br><br>That's it 🙂</p></div>
-      <span class="read-more-btn" style="display:none;"></span>
+      <div class="news-content">
+        <p>• The Hardcore Overlord reward is now account-wide instead of character-specific.<br>
+        • The reward will be delivered via the Item-Post system for easier access.</p>
+        <p>This change makes the prestigious reward more flexible for players with multiple characters.</p>
+      </div>
+      <span class="read-more-btn">Read more ↓</span>
     </div>
 
     <div class="news-post" style="display:none;">
       <div class="news-meta"><span class="news-date">March 15, 2026</span><span class="news-author">LostMyLeg</span></div>
-      <h3>Optimizations</h3>
-      <div class="news-content"><p>• Readded the High Difficulty Clan Quests!<br>• The Rookies ring is rewarded again<br><br>Have a great one</p></div>
-      <span class="read-more-btn" style="display:none;"></span>
+      <h3>Optimizations &amp; Content Return</h3>
+      <div class="news-content">
+        <p>• Re-added the High Difficulty Clan Quests that were previously removed.<br>
+        • The Rookies Ring reward is once again available for new players.</p>
+        <p>These changes bring back valuable progression content for both veterans and newcomers.</p>
+      </div>
+      <span class="read-more-btn">Read more ↓</span>
     </div>
 
     <div class="news-post" style="display:none;">
       <div class="news-meta"><span class="news-date">March 15, 2026</span><span class="news-author">Jared</span></div>
       <h3>Hey gamers! Short changelog today.</h3>
-      <div class="news-content"><p>Added gold sink weapon shop in Megadosys Residential District S3 Final City. COSMETIC ONLY.<br>Small issue fixed next restart — costs are correct but the game didn't know where to look for gold.<br><br>Thanks for playing!</p></div>
-      <span class="read-more-btn" style="display:none;"></span>
+      <div class="news-content">
+        <p>• Added a new gold sink cosmetic weapon shop in Megadosys Residential District S3 Final City.<br>
+        • Fixed a small issue where the shop costs displayed correctly but the game was looking in the wrong location for gold deduction.</p>
+        <p>Thanks for playing and supporting the server!</p>
+      </div>
+      <span class="read-more-btn">Read more ↓</span>
     </div>
 
     <div class="load-more-wrap"><button id="loadMoreBtn">Load More</button></div>
@@ -226,45 +262,39 @@
 <script>
 const posts = document.querySelectorAll('.news-post');
 const loadBtn = document.getElementById('loadMoreBtn');
-const VISIBLE=5,LOAD=3;
-let hidden=[],loaded=0;
-posts.forEach((post,i)=>{
-  const content=post.querySelector('.news-content');
-  const btn=post.querySelector('.read-more-btn');
-  if(btn){
-    if(content.scrollHeight<=105){btn.style.display='none';}
-    btn.addEventListener('click',function(){
+const VISIBLE=5, LOAD=3;
+let hidden=[], loaded=0;
+
+posts.forEach((post, i) => {
+  const content = post.querySelector('.news-content');
+  const btn = post.querySelector('.read-more-btn');
+  
+  if (btn) {
+    if (content.scrollHeight <= 120) btn.style.display = 'none';
+    btn.addEventListener('click', function() {
       content.classList.toggle('expanded');
-      this.textContent=content.classList.contains('expanded')?'Show less ↑':'Read more ↓';
+      this.textContent = content.classList.contains('expanded') ? 'Show less ↑' : 'Read more ↓';
     });
   }
-  if(i>=VISIBLE&&!post.classList.contains('important')){post.style.display='none';hidden.push(post);}
-});
-loadBtn.addEventListener('click',()=>{
-  for(let i=0;i<LOAD;i++){if(hidden[loaded]){hidden[loaded].style.display='block';loaded++;}}
-  if(loaded>=hidden.length)loadBtn.style.display='none';
-});
-if(hidden.length===0)loadBtn.style.display='none';
 
-async function fetchStatus(){
-  try{
-    const res=await fetch('http://45.84.199.149:8080/status');
-    if(!res.ok)throw new Error();
-    const data=await res.json();
-    const dot=document.getElementById('status-dot');
-    dot.style.background='#4CAF50';dot.style.boxShadow='0 0 9px rgba(76,175,80,.4)';dot.style.animation='pulse 2s infinite';
-    document.getElementById('status-text').style.color='#4CAF50';
-    document.getElementById('status-text').textContent='Online';
-    document.getElementById('player-count').textContent=data.online;
-  }catch(e){
-    document.getElementById('status-dot').style.background='#8b1a1a';
-    document.getElementById('status-text').style.color='#8b1a1a';
-    document.getElementById('status-text').textContent='Offline';
-    document.getElementById('player-count').textContent='—';
+  if (i >= VISIBLE && !post.classList.contains('important')) {
+    post.style.display = 'none';
+    hidden.push(post);
   }
-}
-fetchStatus();setInterval(fetchStatus,60000);
+});
+
+loadBtn.addEventListener('click', () => {
+  for (let i = 0; i < LOAD; i++) {
+    if (hidden[loaded]) {
+      hidden[loaded].style.display = 'block';
+      loaded++;
+    }
+  }
+  if (loaded >= hidden.length) loadBtn.style.display = 'none';
+});
+if (hidden.length === 0) loadBtn.style.display = 'none';
 </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/main.js"></script>
 
@@ -272,24 +302,21 @@ fetchStatus();setInterval(fetchStatus,60000);
   const ham = document.getElementById('hamburger');
   const mob = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('menuClose');
-  
+ 
   function closeMenu() {
     ham.classList.remove('open');
     mob.classList.remove('open');
     document.body.style.overflow = '';
   }
-  
+ 
   ham.addEventListener('click', () => {
     ham.classList.toggle('open');
     mob.classList.toggle('open');
     document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
   });
-  
+ 
   closeBtn.addEventListener('click', closeMenu);
-  
-  mob.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeMenu);
-  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
 </body>
 </html>
