@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maps selection</title>
+  <title>Maps Selection | Dogma Rising</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
@@ -12,7 +12,7 @@
     html,body{height:100%}
     body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;font-size:18px;overflow-x:hidden;display:flex;flex-direction:column}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
-  
+
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
     .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold) !important;text-decoration:none !important;text-shadow:0 0 30px rgba(201,168,76,.4)}
     .nav-logo:hover{color:var(--gold) !important}
@@ -23,18 +23,19 @@
     .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
 
-    .content-section{padding:40px 24px 60px;flex:1}
-    
-    /* FIXED PAGE HEADER */
+    .content-section{padding:40px 48px 80px;flex:1}
+    .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
+
+    /* Page Header - Original smaller size */
     .page-header {
       background: linear-gradient(to bottom, rgba(8,6,8,1), rgba(14,10,14,.95));
-      padding: 90px 24px 40px;
+      padding: 90px 48px 40px;
       text-align: center;
       border-bottom: 1px solid rgba(201,168,76,.1);
     }
     .page-header h1 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(20px, 2.5vw, 32px);
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -42,10 +43,7 @@
       text-shadow: 0 2px 20px rgba(0,0,0,.8);
       margin: 0;
     }
-    .page-header h1 em {
-      color: var(--gold);
-      font-style: normal;
-    }
+    .page-header h1 em { color: var(--gold); font-style: normal; }
     .hero-divider {
       width: 80px;
       height: 2px;
@@ -126,7 +124,6 @@
       opacity: 0.75;
       margin-left: 8px;
     }
-
     .map-image {
       width: 100%;
       height: 420px;
@@ -138,23 +135,6 @@
       transform: scale(1.03);
     }
 
-    .discord-alt {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(201,168,76,.1);
-      color: var(--ash);
-      font-size: 1rem;
-    }
-    .discord-alt a {
-      color: var(--gold);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .discord-alt a:hover {
-      color: var(--ember);
-    }
-
     footer {
       background: rgba(8,6,8,.95);
       border-top: 1px solid rgba(201,168,76,.08);
@@ -164,13 +144,31 @@
       justify-content: space-between;
       margin-top: auto;
     }
-    .footer-copy {
-      font-size: 13px;
-      color: #3a3030;
-      font-style: italic;
+    .footer-copy { font-size: 13px; color: #3a3030; font-style: italic; }
+
+    /* ====================== MOBILE EXPANSION FOR MAPS AREA ====================== */
+    @media(max-width: 992px) {
+      .content-section { padding: 40px 5% 80px; }
+      .page-header { padding: 90px 5% 40px; }
+      footer { padding: 24px 5%; }
+      .wide-wrap { max-width: 100%; padding: 0 4%; }
+      .contact-card { padding: 40px 6%; }
+      .maps-container { gap: 20px; }
     }
 
-    /* MOBILE NAV */
+    @media(max-width: 768px) {
+      .maps-container { 
+        flex-direction: column; 
+        gap: 24px; 
+      }
+      .map-image { 
+        height: 340px; 
+      }
+      .contact-card { padding: 32px 6%; }
+      nav { padding: 16px 5%; }
+    }
+
+    /* MOBILE NAV - Fully Restored */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
     .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -184,22 +182,15 @@
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
 
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
-    .menu-close::before,
-    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before, .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
     .menu-close::before{transform:rotate(45deg)}
     .menu-close::after{transform:rotate(-45deg)}
     .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
+    .menu-close:active{transform:rotate(90deg) scale(0.95)}
 
     @media(max-width:768px){
-      .maps-container { flex-direction: column; gap: 20px; }
-      .map-image { height: 320px; }
-      nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
       .hamburger{display:flex}
-      .content-section{padding:40px 16px 60px}
-      .wide-wrap{padding:0 16px !important}
-      .contact-card{padding:32px 24px}
-      .page-header { padding: 70px 16px 30px; }
     }
   </style>
 </head>
@@ -216,7 +207,7 @@
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu - Fully Restored -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="menu-close" id="menuClose"></div>
   <a href="https://play.dogmarising.org/">Home</a>
@@ -237,28 +228,18 @@
     <div class="contact-card">
       <h2>Dogma Rising Interactive Maps</h2>
       <p class="subtitle">Click on the map name to open the full interactive version</p>
-   
       <div class="maps-container">
         <div class="map-wrapper">
           <h3>
-            <a href="/map-normal.html" target="_blank">
-              Open Rising Map Normal <span>↗</span>
-            </a>
+            <a href="/map-normal.html" target="_blank">Open Rising Map Normal <span>↗</span></a>
           </h3>
-          <img src="img/map-img-n-871x423.webp"
-               alt="Dogma Rising Normal Map Preview"
-               class="map-image">
+          <img src="img/map-img-n-871x423.webp" alt="Dogma Rising Normal Map Preview" class="map-image">
         </div>
-     
         <div class="map-wrapper">
           <h3>
-            <a href="/map-endgame.html" target="_blank">
-              Open Rising Map Endgame <span>↗</span>
-            </a>
+            <a href="/map-endgame.html" target="_blank">Open Rising Map Endgame <span>↗</span></a>
           </h3>
-          <img src="img/map-e-img-871x423.webp"
-               alt="Dogma Rising EndGame Map Preview"
-               class="map-image">
+          <img src="img/map-e-img-871x423.webp" alt="Dogma Rising EndGame Map Preview" class="map-image">
         </div>
       </div>
     </div>
@@ -272,28 +253,25 @@
 </footer>
 
 <script>
-  // Mobile Menu Functionality
+  // Mobile Menu Functionality - Fully Restored
   const ham = document.getElementById('hamburger');
   const mob = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('menuClose');
- 
+
   function closeMenu() {
     ham.classList.remove('open');
     mob.classList.remove('open');
     document.body.style.overflow = '';
   }
- 
+
   ham.addEventListener('click', () => {
     ham.classList.toggle('open');
     mob.classList.toggle('open');
     document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
   });
- 
+
   closeBtn.addEventListener('click', closeMenu);
- 
-  mob.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeMenu);
-  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
 </body>
 </html>
