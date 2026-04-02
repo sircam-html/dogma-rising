@@ -168,29 +168,36 @@
       nav { padding: 16px 5%; }
     }
 
-    /* MOBILE NAV - Fully Restored */
+    /* MOBILE NAV */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
     .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
     .mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,6,8,.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:32px}
     .mobile-menu.open{display:flex}
     .mobile-menu a{font-family:'Cinzel',serif;font-size:20px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
+    .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
 
+    /* ELEGANT ANIMATED CLOSE BUTTON */
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
-    .menu-close::before, .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before,
+    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
     .menu-close::before{transform:rotate(45deg)}
     .menu-close::after{transform:rotate(-45deg)}
     .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
     .menu-close:active{transform:rotate(90deg) scale(0.95)}
-
+    
+    /* MOBILE FORM FIX */
     @media(max-width:768px){
+      nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
       .hamburger{display:flex}
+      .content-section{padding:40px 16px 60px}
+      .wide-wrap{padding:0 16px !important}
+      .contact-card{padding:32px 24px}
     }
   </style>
 </head>
