@@ -5,7 +5,7 @@
 
 This project is a non‑commercial fan community initiative for *Dragon’s Dogma Online* and is **not affiliated with, endorsed by, or sponsored by** Capcom.
 
-- The repository provides information about the private server only; it does **not** host or distribute the full *Dragon’s Dogma Online* client. Users are responsible for obtaining their own legitimate copy of the game.
+- The repository provides information about the private server only; it does **not** host or distribute the full *Dragon’s Dogma Online* client. 
 - Concept art and other official assets are the property of Capcom and are used for informational, non‑commercial, fan‑site purposes only. They are **not** licensed under the MIT License and may not be redistributed without permission from Capcom.
 - This project is provided “as is” for entertainment only. The maintainers are not liable for any legal or technical consequences arising from its use.
 
