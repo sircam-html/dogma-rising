@@ -12,7 +12,6 @@
     html,body{height:100%}
     body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;font-size:18px;overflow-x:hidden;display:flex;flex-direction:column}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
-
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
     .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold) !important;text-decoration:none !important;text-shadow:0 0 30px rgba(201,168,76,.4)}
     .nav-logo:hover{color:var(--gold) !important}
@@ -22,10 +21,8 @@
     .nav-links a:hover{color:var(--gold)}
     .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
-
     .content-section{padding:40px 48px 80px;flex:1}
     .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}
-
     /* Page Header - Original smaller size */
     .page-header {
       background: linear-gradient(to bottom, rgba(8,6,8,1), rgba(14,10,14,.95));
@@ -50,7 +47,6 @@
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
       margin: 16px auto 0;
     }
-
     .contact-card {
       background: rgba(14,10,14,.92);
       border: 1px solid rgba(201,168,76,.2);
@@ -85,7 +81,6 @@
       margin-bottom: 35px;
       letter-spacing: 1px;
     }
-
     /* Maps Section */
     .maps-container {
       display: flex;
@@ -134,7 +129,6 @@
     .map-wrapper:hover .map-image {
       transform: scale(1.03);
     }
-
     footer {
       background: rgba(8,6,8,.95);
       border-top: 1px solid rgba(201,168,76,.08);
@@ -145,7 +139,6 @@
       margin-top: auto;
     }
     .footer-copy { font-size: 13px; color: #3a3030; font-style: italic; }
-
     /* ====================== MOBILE EXPANSION FOR MAPS AREA ====================== */
     @media(max-width: 992px) {
       .content-section { padding: 40px 5% 80px; }
@@ -155,19 +148,17 @@
       .contact-card { padding: 40px 6%; }
       .maps-container { gap: 20px; }
     }
-
     @media(max-width: 768px) {
-      .maps-container { 
-        flex-direction: column; 
-        gap: 24px; 
+      .maps-container {
+        flex-direction: column;
+        gap: 24px;
       }
-      .map-image { 
-        height: 340px; 
+      .map-image {
+        height: 340px;
       }
       .contact-card { padding: 32px 6%; }
       nav { padding: 16px 5%; }
     }
-
     /* MOBILE NAV */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
     .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
@@ -180,7 +171,6 @@
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
-
     /* ELEGANT ANIMATED CLOSE BUTTON */
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
     .menu-close::before,
@@ -189,7 +179,7 @@
     .menu-close::after{transform:rotate(-45deg)}
     .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
     .menu-close:active{transform:rotate(90deg) scale(0.95)}
-    
+   
     /* MOBILE FORM FIX */
     @media(max-width:768px){
       nav{padding:16px 24px}
@@ -198,6 +188,45 @@
       .content-section{padding:40px 16px 60px}
       .wide-wrap{padding:0 16px !important}
       .contact-card{padding:32px 24px}
+    }
+
+    /* Map Info Section - Beautifully formatted */
+    .map-info {
+      margin-top: 48px;
+      background: rgba(14,10,14,.92);
+      border: 1px solid rgba(201,168,76,.2);
+      padding: 40px 48px;
+      border-radius: 4px;
+      position: relative;
+    }
+    .map-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .map-info h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .map-info p {
+      line-height: 1.75;
+      margin-bottom: 18px;
+      color: var(--parchment);
+    }
+    .map-info p:last-child {
+      margin-bottom: 0;
+    }
+    .map-info strong {
+      color: var(--gold);
+      font-weight: 600;
     }
   </style>
 </head>
@@ -213,7 +242,6 @@
   <a href="https://discord.gg/dogmarising" target="_blank" class="nav-discord">Join Discord</a>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
-
 <!-- Mobile Menu - Fully Restored -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="menu-close" id="menuClose"></div>
@@ -224,12 +252,10 @@
   <a href="/howtoplay">How To Play</a>
   <a href="https://discord.gg/dogmarising" target="_blank" class="mobile-discord">Join Discord</a>
 </div>
-
 <div class="page-header">
   <h1>Map <em>Selection</em></h1>
   <div class="hero-divider"></div>
 </div>
-
 <div class="content-section">
   <div class="wide-wrap">
     <div class="contact-card">
@@ -249,34 +275,37 @@
           <img src="img/map-e-img-871x423.webp" alt="Dogma Rising EndGame Map Preview" class="map-image">
         </div>
       </div>
+
+      <!-- Added Map Info Section -->
+      <div class="map-info">
+        <h2>HERE'S SOME INFO ON THE MAP</h2>
+        <p><strong>READ IT.</strong></p>
+        <p>This map is for the <strong>Enemy Spawns, Gathering Nodes, Shops, and Exchanges ONLY</strong>. This does not include any rewards or drops from quests, world quests, caution spots, random caution spot dungeons (Erte Deenan), or chests that are handled by the gathering script. Some specific chests may ping that it has the drop but not show drop rate. This is okay.</p>
+        <p>To use the map, search for any stage on the left hand side. To search for specific drops, click the on the right side. You can sort by current stage or by all stages there.</p>
+      </div>
     </div>
   </div>
 </div>
-
 <footer>
   <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash);">Dogma Rising</div>
   <div class="footer-copy">© 2026 Dogma Rising | All rights reserved.</div>
   <a href="https://discord.gg/dogmarising" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
 </footer>
-
 <script>
   // Mobile Menu Functionality - Fully Restored
   const ham = document.getElementById('hamburger');
   const mob = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('menuClose');
-
   function closeMenu() {
     ham.classList.remove('open');
     mob.classList.remove('open');
     document.body.style.overflow = '';
   }
-
   ham.addEventListener('click', () => {
     ham.classList.toggle('open');
     mob.classList.toggle('open');
     document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
   });
-
   closeBtn.addEventListener('click', closeMenu);
   mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
