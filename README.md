@@ -3,7 +3,7 @@
 
 ## IMPORTANT
 
-This is a non‑commercial informational fan site for *Dragon’s Dogma Online* and is **not affiliated with, endorsed by, or sponsored by** Capcom.  
+This is a non‑commercial informational fan site for *Dragon’s Dogma Online* and is **not affiliated with, endorsed by, or sponsored by** Capcom. 
 The site provides only information, documentation, and community resources.  
 
 Concept art and other official assets are the property of Capcom and are used for informational, non‑commercial, fan‑site purposes only.
