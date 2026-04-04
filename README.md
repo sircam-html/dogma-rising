@@ -5,4 +5,4 @@
 
 This project is a non‑commercial fan community initiative for *Dragon’s Dogma Online* and is **not affiliated with, endorsed by, or sponsored by** Capcom.
 
-- Concept art and other official assets are the property of Capcom and are used for informational, non‑commercial, fan‑site purposes only. They are **not** licensed under the MIT License and may not be redistributed without permission from Capcom.
+- Concept art and other official assets are the property of Capcom and are used for informational, non‑commercial, fan‑site purposes only.
