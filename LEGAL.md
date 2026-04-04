@@ -5,7 +5,7 @@ This project is a non‑commercial fan community initiative for the game *Dragon
 ## Game Code and Assets
 
 - This repository does **not** host or distribute the full *Dragon’s Dogma Online* client or server software.
-- The project provides server tools, configurations, and related resources only; users are responsible for obtaining legitimate copies of the game on their own.
+- The repository provides information about the private server only; users are responsible for obtaining legitimate copies of the game on their own.
 - Distributing, rehosting, or re‑uploading Capcom’s copyrighted game files (including the full client) may violate copyright law and the game’s terms of service.
 
 ## Concept Art and Official Assets
