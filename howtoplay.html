@@ -212,9 +212,14 @@
 
 <footer>
   <div class="footer-logo" style="color: #c9a84c; font-weight: bold; font-size: 14px;">Dogma Rising</div>
-  <div style="color: #B0A090;">© 2026 Dogma Rising · All rights reserved.</div>
+  <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
   <a href="https://discord.gg/dogmarising" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
 </footer>
+
+<script>
+   // Dynamic year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>  
 
 <script>
   const ham = document.getElementById('hamburger');
