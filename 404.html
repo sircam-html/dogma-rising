@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - Page Not Found | Dogma Rising</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blood:#8b1a1a;
+      --ember:#c9622f;
+      --gold:#c9a84c;
+      --ash:#b0a090;
+      --void:#080608;
+      --parchment:#e8dcc8;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;margin:0}
+    body{
+      background:var(--void);
+      color:var(--parchment);
+      font-family:'Crimson Text',Georgia,serif;
+      font-size:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events:none;
+      z-index:9999;
+      opacity:.35;
+    }
+
+    /* Floating Embers */
+    .ember{
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:var(--ember);
+      border-radius:50%;
+      box-shadow:0 0 12px var(--ember);
+      animation:drift linear infinite;
+      opacity:0.6;
+    }
+
+    @keyframes drift{
+      0%{transform:translateY(100vh) rotate(0deg);opacity:0.6}
+      100%{transform:translateY(-100px) rotate(360deg);opacity:0}
+    }
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:20px 48px;
+      background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8));
+    }
+    .nav-logo{
+      font-family:'Cinzel',serif;
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:4px;
+      color:var(--gold);
+      text-decoration:none;
+      text-shadow:0 0 30px rgba(201,168,76,.4);
+    }
+    .nav-logo span{color:var(--ash);font-weight:400}
+
+    .error-container{
+      text-align:center;
+      z-index:10;
+      max-width:820px;
+      padding:0 20px;
+    }
+
+    .error-code{
+      font-family:'Cinzel',serif;
+      font-size:clamp(120px,18vw,280px);
+      font-weight:900;
+      line-height:0.8;
+      letter-spacing:-12px;
+      color:var(--gold);
+      text-shadow: 
+        0 0 40px rgba(201,168,76,.6),
+        0 0 80px rgba(201,168,76,.3);
+      margin-bottom:10px;
+      user-select:none;
+    }
+
+    .error-title{
+      font-family:'Cinzel',serif;
+      font-size:clamp(28px,5vw,52px);
+      font-weight:600;
+      letter-spacing:6px;
+      text-transform:uppercase;
+      color:var(--parchment);
+      margin-bottom:16px;
+      text-shadow:0 4px 20px rgba(0,0,0,.8);
+    }
+
+    .error-subtitle{
+      font-size:1.35rem;
+      color:var(--ash);
+      max-width:620px;
+      margin:0 auto 50px;
+      line-height:1.5;
+    }
+
+    .fun-text{
+      font-family:'Cinzel',serif;
+      font-size:1.6rem;
+      color:var(--gold);
+      margin:30px 0 40px;
+      letter-spacing:2px;
+      animation:pulse 4s infinite ease-in-out;
+    }
+
+    .back-btn{
+      display:inline-block;
+      font-family:'Cinzel',serif;
+      font-size:1.05rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:var(--void);
+      background:linear-gradient(135deg,var(--gold),var(--ember));
+      padding:18px 42px;
+      text-decoration:none;
+      border:none;
+      box-shadow:0 6px 30px rgba(201,168,76,.3);
+      transition:all .4s cubic-bezier(0.23,1,0.32,1);
+    }
+
+    .back-btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 12px 40px rgba(201,168,76,.5);
+      color:#fff;
+    }
+
+    .back-btn:active{
+      transform:scale(0.97);
+    }
+
+    .footer{
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:24px 48px;
+      background:rgba(8,6,8,.95);
+      border-top:1px solid rgba(201,168,76,.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:13px;
+      color:#3a3030;
+      z-index:10;
+    }
+
+    .footer span{
+      font-family:'Cinzel',serif;
+      color:var(--ash);
+      letter-spacing:2px;
+    }
+
+    @keyframes pulse{
+      0%,100%{opacity:1}
+      50%{opacity:0.7}
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      nav{padding:16px 24px}
+      .error-container{padding:0 16px}
+      .fun-text{font-size:1.35rem}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://play.dogmarising.org/" class="nav-logo">Dogma<span>Rising</span></a>
+</nav>
+
+<!-- Floating Embers -->
+<div id="embers"></div>
+
+<div class="error-container">
+  <div class="error-code">404</div>
+  <div class="error-title">Lost in the Void</div>
+  
+  <div class="fun-text">
+    The ancient scrolls you seek have crumbled to dust...
+  </div>
+  
+  <p class="error-subtitle">
+    Even the greatest heroes sometimes take a wrong turn in the fog-shrouded ruins. 
+    Fear not — the path back to Dogma Rising still burns bright.
+  </p>
+
+  <a href="https://play.dogmarising.org/" class="back-btn">Return to the Stronghold</a>
+</div>
+
+<footer class="footer">
+  <div>© 2026 Dogma Rising | All rights reserved.</div>
+  <span>Dogma Rising</span>
+  <a href="https://discord.gg/dogmarising" target="_blank" style="color:var(--gold);text-decoration:none;font-family:'Cinzel',serif;letter-spacing:2px;">Join the Legion →</a>
+</footer>
+
+<script>
+  // Create floating ember particles
+  function createEmbers() {
+    const container = document.getElementById('embers');
+    for (let i = 0; i < 35; i++) {
+      const ember = document.createElement('div');
+      ember.classList.add('ember');
+      
+      const size = Math.random() * 7 + 4;
+      ember.style.width = `${size}px`;
+      ember.style.height = `${size}px`;
+      ember.style.left = `${Math.random() * 100}vw`;
+      ember.style.animationDuration = `${Math.random() * 12 + 14}s`;
+      ember.style.animationDelay = `-${Math.random() * 25}s`;
+      ember.style.opacity = Math.random() * 0.5 + 0.4;
+      
+      container.appendChild(ember);
+      
+      // Remove and recreate for endless effect
+      setTimeout(() => {
+        ember.remove();
+      }, 30000);
+    }
+  }
+
+  // Initialize embers
+  window.addEventListener('load', () => {
+    createEmbers();
+    // Regenerate embers periodically
+    setInterval(() => {
+      createEmbers();
+    }, 8000);
+  });
+
+  // Optional: Keyboard shortcut to return home
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.location.href = 'https://play.dogmarising.org/';
+    }
+  });
+</script>
+
+</body>
+</html>
