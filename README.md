@@ -5,4 +5,4 @@
 
 This is a non‑commercial informational fan site for *Dragon’s Dogma Online* and is **not affiliated with, endorsed by, or sponsored by** Capcom. 
 
-Concept art and other official assets are the property of Capcom and are used for informational, non‑commercial, fan‑site purposes only.
+Concept art and other official assets are the property of Capcom and are used for informational, non-commercial purposes under fair use. No copyright infringement is intended
