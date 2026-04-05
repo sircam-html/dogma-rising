@@ -244,9 +244,14 @@
 
   <footer>
     <div class="footer-logo" style="color: #c9a84c; font-weight: bold; font-size: 14px;">Dogma Rising</div>
-    <div style="color: #B0A090;">© 2026 Dogma Rising · All rights reserved.</div>
+    <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
     <a href="https://discord.gg/dogmarising" target="_blank" class="footer-discord">Discord</a>
   </footer>
+
+   <script>
+   // Dynamic year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
   <script>
     // Live status
