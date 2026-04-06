@@ -47,12 +47,28 @@
     .load-more-wrap{text-align:center;margin-top:50px}
     #loadMoreBtn{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);padding:14px 50px;font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s}
     #loadMoreBtn:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
-    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
     .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 48px 40px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
     .page-header h1{font-family:'Cinzel',serif;font-size:clamp(22px,3vw,38px);font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
     .page-header h1 em{color:var(--gold);font-style:normal}
     .hero-divider{width:100px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0}
+
+    /* Clean Footer */
+    footer{
+      background:rgba(8,6,8,.95);
+      border-top:1px solid rgba(201,168,76,.08);
+      padding:28px 48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:auto;
+    }
+    .footer-copy{
+      font-size:13px;
+      color:#3a3030;
+      font-style:italic;
+      margin:0;
+    }
+
     /* ====================== MOBILE EXPANSION ONLY ====================== */
     @media(max-width: 992px) {
       nav{padding:20px 5%;}
@@ -67,12 +83,6 @@
       .wide-wrap{padding:0 3%;}
     }
 
-     footer{border-top:1px solid rgba(201,168,76,.08);padding:32px 48px;display:flex;align-items:center;justify-content:space-between}
-    .footer-logo{font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash)}
-    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
-    .footer-discord{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;transition:all .3s}
-    .footer-discord:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
-    
     /* MOBILE NAV */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
     .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
@@ -127,7 +137,7 @@
       <h2>Updates, News & Events</h2>
       <p>Stay informed with the latest changes, announcements and server updates</p>
     </div>
-    
+   
     <!-- Only the first 3 news posts are shown by default -->
     <div class="news-post important">
       <div class="news-meta">
@@ -145,7 +155,6 @@
       </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
-
     <div class="news-post important">
       <div class="news-meta">
         <span class="news-date">April 1, 2026</span>
@@ -165,7 +174,6 @@
       </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
-
     <div class="news-post important">
       <div class="news-meta">
         <span class="news-date">March 29, 2026</span>
@@ -176,9 +184,9 @@
       <div class="news-content">
         <p>Hello everyone! Ahead of the upcoming maintenance, we have an exciting community event to announce!</p>
         <p>We are launching the <strong>Dogma Rising Screenshot Contest</strong> with two separate categories: <strong>Modded</strong> and <strong>Unmodded</strong>. Each category has its own dedicated submission channel in our Discord server.</p>
-      
+     
         <h4>IMPORTANT: Please only post your entries in the designated Submissions channels.</h4>
-      
+     
         <h2>Rules and Information:</h2>
         <p>• One entry per person. You may replace your entry at any time by simply deleting your previous submission.<br><br>
         • The contest runs until the end of April 2026. After submissions close, we will organize the entries and open a community poll that will last two weeks.<br><br>
@@ -190,7 +198,6 @@
       </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
-
     <!-- All remaining posts are hidden -->
     <div class="news-post" style="display:none;">
       <div class="news-meta"><span class="news-date">March 29, 2026</span><span class="news-author">LostMyLeg</span><span class="news-badge">✅ Online</span></div>
@@ -270,32 +277,28 @@
       </div>
       <span class="read-more-btn">Read more ↓</span>
     </div>
-
     <div class="load-more-wrap"><button id="loadMoreBtn">Load More</button></div>
   </div>
 </div>
+
 <footer>
-  <div class="footer-logo" style="color: #c9a84c; font-weight: bold; font-size: 12px;">Dogma Rising</div>
-  <p style="color: #B0A090; font-size: 14px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
-  <a href="https://discord.gg/dogmarising" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 12px;">Discord</a>
+  <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
 </footer>
 
 <script>
    // Dynamic year footer
     document.getElementById('year').textContent = new Date().getFullYear();
-</script>  
-
+</script>
 <script>
 const posts = document.querySelectorAll('.news-post');
 const loadBtn = document.getElementById('loadMoreBtn');
-const VISIBLE = 3;   // Changed to show only 3 news by default
+const VISIBLE = 3; // Changed to show only 3 news by default
 const LOAD = 3;
 let hidden = [], loaded = 0;
-
 posts.forEach((post, i) => {
   const content = post.querySelector('.news-content');
   const btn = post.querySelector('.read-more-btn');
-  
+ 
   if (btn) {
     if (content.scrollHeight <= 120) btn.style.display = 'none';
     btn.addEventListener('click', function() {
@@ -303,14 +306,12 @@ posts.forEach((post, i) => {
       this.textContent = content.classList.contains('expanded') ? 'Show less ↑' : 'Read more ↓';
     });
   }
-
   // Hide posts after the first 3
   if (i >= VISIBLE) {
     post.style.display = 'none';
     hidden.push(post);
   }
 });
-
 loadBtn.addEventListener('click', () => {
   for (let i = 0; i < LOAD; i++) {
     if (hidden[loaded]) {
@@ -320,10 +321,8 @@ loadBtn.addEventListener('click', () => {
   }
   if (loaded >= hidden.length) loadBtn.style.display = 'none';
 });
-
 if (hidden.length === 0) loadBtn.style.display = 'none';
 </script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script>
