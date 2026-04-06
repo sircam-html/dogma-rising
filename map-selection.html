@@ -129,16 +129,22 @@
     .map-wrapper:hover .map-image {
       transform: scale(1.03);
     }
+    /* Clean Footer */
     footer {
       background: rgba(8,6,8,.95);
       border-top: 1px solid rgba(201,168,76,.08);
       padding: 24px 48px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       margin-top: auto;
     }
-    .footer-copy { font-size: 13px; color: #3a3030; font-style: italic; }
+    .footer-copy { 
+      font-size: 13px; 
+      color: #3a3030; 
+      font-style: italic; 
+      margin: 0;
+    }
     /* ====================== MOBILE EXPANSION FOR MAPS AREA ====================== */
     @media(max-width: 992px) {
       .content-section { padding: 40px 5% 80px; }
@@ -171,13 +177,6 @@
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
-
-     footer{border-top:1px solid rgba(201,168,76,.08);padding:32px 48px;display:flex;align-items:center;justify-content:space-between}
-    .footer-logo{font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash)}
-    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
-    .footer-discord{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;transition:all .3s}
-    .footer-discord:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
-    
     /* ELEGANT ANIMATED CLOSE BUTTON */
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
     .menu-close::before,
@@ -186,7 +185,7 @@
     .menu-close::after{transform:rotate(-45deg)}
     .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
     .menu-close:active{transform:rotate(90deg) scale(0.95)}
-   
+  
     /* MOBILE FORM FIX */
     @media(max-width:768px){
       nav{padding:16px 24px}
@@ -196,7 +195,6 @@
       .wide-wrap{padding:0 16px !important}
       .contact-card{padding:32px 24px}
     }
-
     /* Map Info Section - Beautifully formatted */
     .map-info {
       margin-top: 48px;
@@ -282,7 +280,6 @@
           <img src="img/map-e-img-871x423.webp" alt="Dogma Rising EndGame Map Preview" class="map-image">
         </div>
       </div>
-
       <!-- Added Map Info Section -->
       <div class="map-info">
         <h2>HERE'S SOME INFO ON THE MAP</h2>
@@ -293,17 +290,16 @@
     </div>
   </div>
 </div>
+
 <footer>
-  <div class="footer-logo" style="color: #c9a84c; font-weight: bold; font-size: 12px;">Dogma Rising</div>
-  <p style="color: #B0A090; font-size: 14px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
-  <a href="https://discord.gg/dogmarising" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 12px;">Discord</a>
+  <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
 </footer>
 
 <script>
    // Dynamic year footer
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-  
+ 
 <script>
   // Mobile Menu Functionality - Fully Restored
   const ham = document.getElementById('hamburger');
