@@ -49,8 +49,24 @@
     .step-content strong{color:var(--parchment);font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:1px;display:block;margin-bottom:8px}
     .step-content p{color:var(--ash);font-size:1rem;line-height:1.7;margin:0}
     .step-content code{background:rgba(0,0,0,.5);color:var(--gold);padding:2px 7px;font-size:.9rem}
-    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-    .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
+    
+    /* Clean Footer */
+    footer{
+      background:rgba(8,6,8,.95);
+      border-top:1px solid rgba(201,168,76,.08);
+      padding:24px 48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:auto;
+    }
+    .footer-copy{
+      font-size:13px;
+      color:#3a3030;
+      font-style:italic;
+      margin:0;
+    }
+
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
     .no-click{pointer-events:none;cursor:default;text-decoration:underline;color:blue}
     /* OVERLAY MENU */
@@ -61,7 +77,7 @@
     .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
     .container{max-width:100% !important;padding:0 24px !important;}
     .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
-   
+  
     /* MOBILE RESPONSIVE CENTER CONTENT */
     @media (max-width: 768px) {
       .content-section { padding: 40px 16px 60px; }
@@ -157,17 +173,16 @@
     </div>
   </div>
 </div>
+
 <footer>
-  <div class="nav-logo" style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash);">Dogma Rising</div>
   <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
-  <a href="https://discord.gg/dogmarising" target="_blank" style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;">Discord</a>
 </footer>
 
 <script>
    // Dynamic year footer
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-  
+ 
 <script>
 function toggleFeatures() {
   const hidden = document.querySelectorAll('.hidden-feature');
@@ -201,21 +216,17 @@ fetchStatus(); setInterval(fetchStatus, 60000);
   const ham = document.getElementById('hamburger');
   const mob = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('menuClose');
- 
   function closeMenu() {
     ham.classList.remove('open');
     mob.classList.remove('open');
     document.body.style.overflow = '';
   }
- 
   ham.addEventListener('click', () => {
     ham.classList.toggle('open');
     mob.classList.toggle('open');
     document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
   });
- 
   closeBtn.addEventListener('click', closeMenu);
- 
   mob.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', closeMenu);
   });
