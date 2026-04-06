@@ -131,6 +131,23 @@
       .nav-links,.nav-discord{display:none}
       .hamburger{display:flex}
     }
+
+    /* FOOTER ALIGN COPYRIGHT */
+    .footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:24px 48px;
+  background:rgba(8,6,8,.95);
+  border-top:1px solid rgba(201,168,76,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;   /* ← This is the line that centers the copyright */
+  font-size:13px;
+  color:#3a3030;
+  z-index:10;
+}
   </style>
 </head>
 <body>
@@ -242,10 +259,8 @@
     </a>
   </section>
 
-  <footer>
-    <div class="footer-logo" style="color: #c9a84c; font-weight: bold; font-size: 14px;">Dogma Rising</div>
-    <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
-    <a href="https://discord.gg/dogmarising" target="_blank" class="footer-discord">Discord</a>
+  <footer class="footer">
+  <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
   </footer>
 
    <script>
