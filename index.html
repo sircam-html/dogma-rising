@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dogma Rising | Private Server</title>
-  <meta name="description" content="Dogma Rising is a private server for Dragon's Dogma Online">  
+  <meta name="description" content="Dogma Rising is a private server for Dragon's Dogma Online">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <style>
     :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;overflow-x:hidden}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
-
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.9) 0%,transparent 100%)}
     .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 30px rgba(201,168,76,.4)}
     .nav-logo span{color:var(--ash);font-weight:400}
@@ -23,7 +22,6 @@
     .nav-links a:hover{color:var(--gold)}
     .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
     .nav-discord:hover{background:var(--ember);color:#fff}
-
     /* HERO */
     .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.35) saturate(.7)}
@@ -50,7 +48,6 @@
     .scroll-hint span{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);white-space:nowrap}
     .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--ash),transparent);animation:scrollPulse 2s infinite;display:block;margin:0 auto}
     @keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
     /* FEATURE CARDS */
     .features-section{display:flex;flex-direction:row}
     .feature-card{position:relative;flex:1;height:480px;overflow:hidden;cursor:default}
@@ -65,13 +62,11 @@
     .feature-card-text{font-size:17px;color:var(--ash);line-height:1.6;opacity:0;transform:translateY(10px);transition:opacity .4s .05s,transform .4s .05s}
     .feature-card:hover .feature-card-text{opacity:1;transform:translateY(0)}
     .feature-divider{width:40px;height:1px;background:var(--gold);opacity:.5;margin-bottom:12px}
-
     /* Scroll reveal */
     .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .reveal-delay-1{transition-delay:.1s}
     .reveal-delay-2{transition-delay:.2s}
-
     /* CONNECT SECTION */
     .connect-section{padding:80px 24px;text-align:center;border-top:1px solid rgba(201,168,76,.08)}
     .section-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--ember);margin-bottom:16px}
@@ -81,20 +76,14 @@
     .connect-cell-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:8px}
     .connect-cell-value{font-size:20px;color:var(--parchment)}
     .connect-cell-value span{color:var(--ash);font-size:15px;margin-left:8px}
-
     /* DOWNLOAD */
     .download-section{position:relative;padding:120px 24px;text-align:center}
     .download-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(139,26,26,.12) 0%,transparent 70%)}
     .download-btn{display:inline-flex;flex-direction:column;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);border:1px solid rgba(201,168,76,.3);padding:32px 64px;text-decoration:none;transition:all .4s;position:relative}
     .download-btn .btn-big{font-size:22px;letter-spacing:8px;color:var(--gold)}
     .download-btn:hover{border-color:var(--gold);background:rgba(201,168,76,.05);box-shadow:0 0 60px rgba(201,168,76,.15)}
-
-    footer{border-top:1px solid rgba(201,168,76,.08);padding:32px 48px;display:flex;align-items:center;justify-content:space-between}
-    .footer-logo{font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--ash)}
+    footer{border-top:1px solid rgba(201,168,76,.08);padding:32px 48px;display:flex;align-items:center;justify-content:center}
     .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
-    .footer-discord{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.2);padding:10px 20px;transition:all .3s}
-    .footer-discord:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
-
     @media(max-width:768px){
       nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
@@ -104,7 +93,7 @@
       .connect-grid{grid-template-columns:1fr}
       footer{flex-direction:column;gap:16px;text-align:center}
     }
-  
+ 
     /* MOBILE NAV */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
     .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
@@ -117,7 +106,6 @@
     .mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
     .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
-
     /* ELEGANT ANIMATED CLOSE BUTTON */
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
     .menu-close::before,
@@ -134,7 +122,6 @@
   </style>
 </head>
 <body>
-
   <nav>
     <a href="/" class="nav-logo">Dogma<span>Rising</span></a>
     <ul class="nav-links">
@@ -145,10 +132,9 @@
       <li><a href="/map-selection">Interactive Maps</a></li>
     </ul>
     <a href="https://discord.gg/dogmarising" target="_blank" class="nav-discord">Join Discord</a>
-  
+ 
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
-
   <div class="mobile-menu" id="mobileMenu">
     <div class="menu-close" id="menuClose"></div>
     <a href="https://play.dogmarising.org/about">About</a>
@@ -158,7 +144,6 @@
     <a href="https://play.dogmarising.org/map-selection">Interactive Maps</a>
     <a href="https://discord.gg/dogmarising" target="_blank" class="mobile-discord">Join Discord</a>
   </div>
-
   <section class="hero">
     <video autoplay loop muted playsinline>
       <source src="https://cdn.jsdelivr.net/gh/sircam-html/dogma-rising@main/videos/intro-frontpage.webm" type="video/webm">
@@ -183,7 +168,6 @@
       <div class="scroll-line"></div>
     </div>
   </section>
-
   <!-- FEATURE CARDS -->
   <section class="features-section">
     <div class="feature-card reveal">
@@ -217,7 +201,6 @@
       </div>
     </div>
   </section>
-
   <section class="connect-section reveal">
     <div class="section-eyebrow">Enter Lestania</div>
     <div class="section-title">Connection Details</div>
@@ -232,7 +215,6 @@
       </div>
     </div>
   </section>
-
   <section class="download-section reveal">
     <div class="section-eyebrow">Ready to Rise</div>
     <div class="section-title">Join the Adventure</div>
@@ -241,18 +223,14 @@
       <span>Free to play</span>
     </a>
   </section>
-
   <footer>
-    <div class="footer-logo" style="color: #c9a84c; font-weight: bold; font-size: 14px;">Dogma Rising</div>
-    <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
-    <a href="https://discord.gg/dogmarising" target="_blank" class="footer-discord">Discord</a>
+    <p style="color: #B0A090; font-size: 17px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
   </footer>
 
-   <script>
+  <script>
    // Dynamic year footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
   <script>
     // Live status
     const API_URL = '/.netlify/functions/status';
@@ -272,33 +250,31 @@
     }
     fetchStatus();
     setInterval(fetchStatus, 60000);
-
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-
   <script>
     const ham = document.getElementById('hamburger');
     const mob = document.getElementById('mobileMenu');
     const closeBtn = document.getElementById('menuClose');
-    
+   
     function closeMenu() {
       ham.classList.remove('open');
       mob.classList.remove('open');
       document.body.style.overflow = '';
     }
-    
+   
     ham.addEventListener('click', () => {
       ham.classList.toggle('open');
       mob.classList.toggle('open');
       document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
     });
-    
+   
     closeBtn.addEventListener('click', closeMenu);
-    
+   
     mob.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', closeMenu);
     });
