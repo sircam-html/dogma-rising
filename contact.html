@@ -155,8 +155,7 @@
 <script>
    // Dynamic year footer
     document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<script>
+
 async function fetchStatus(){
   try{
     const res=await fetch('/.netlify/functions/status');
