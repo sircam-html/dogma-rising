@@ -148,7 +148,27 @@
   <div class="wide-wrap">
     <div class="about-card">
       <h2>Discover Dogma Rising</h2>
-      <p style="text-align:center;margin-bottom:40px;">Dogma Rising is a community-run private server for Dragon's Dogma Online (DDON), a Capcom MMORPG that officially shut down in 2019. As of April 2026, it is actively maintained and remains one of the most popular ways to experience the game with modern English translations and gameplay improvements.</p>
+
+<p style="text-align:center;margin-bottom:40px;">
+  Dogma Rising is a community‑run private server for Dragon's Dogma Online (DDON), a Capcom MMORPG that officially shut down in 2019.
+  <span id="updateDate">As of April 2026</span>,
+  it is actively maintained and remains one of the most popular ways to experience the game with modern English translations and gameplay improvements.
+</p>
+
+    <script>
+       const months = [
+        "January", "February", "March", "April", "May", "June",
+         "July", "August", "September", "October", "November", "December"
+       ];
+
+       const now = new Date();
+       const monthName = months[now.getMonth()];
+       const year = now.getFullYear();
+
+      document.getElementById("updateDate").textContent =
+      `As of ${monthName} ${year}`;
+    </script>
+
       <h3>Key Server Features</h3>
       <p style="margin-bottom:20px;">Designed to feel more like a traditional single-player Dragon's Dogma experience rather than a grindy MMO.</p>
       <div class="features-grid" id="featuresGrid">
