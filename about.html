@@ -155,20 +155,6 @@
   it is actively maintained and remains one of the most popular ways to experience the game with modern English translations and gameplay improvements.
 </p>
 
-    <script>
-       const months = [
-        "January", "February", "March", "April", "May", "June",
-         "July", "August", "September", "October", "November", "December"
-       ];
-
-       const now = new Date();
-       const monthName = months[now.getMonth()];
-       const year = now.getFullYear();
-
-      document.getElementById("updateDate").textContent =
-      `As of ${monthName} ${year}`;
-    </script>
-
       <h3>Key Server Features</h3>
       <p style="margin-bottom:20px;">Designed to feel more like a traditional single-player Dragon's Dogma experience rather than a grindy MMO.</p>
       <div class="features-grid" id="featuresGrid">
@@ -198,8 +184,22 @@
   <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
 </footer>
 
-<script>
-   // Dynamic year footer
+
+ <script>
+     // About Page dynamic month/year text auto-update
+     const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+      ];
+
+    const now = new Date();
+    const monthName = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    document.getElementById("updateDate").textContent =
+   `As of ${monthName} ${year}`;
+
+   // Dynamic footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
 function toggleFeatures() {
