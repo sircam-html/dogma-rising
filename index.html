@@ -254,7 +254,7 @@
 
     // Gate hero animation on fonts being ready so the fadeUp always runs
     // on final web-font metrics — eliminates the "text pop" from fallback swap.
-    // A 3s safety timeout ensures the page never stays invisible if fonts stall.
+    // A 1.5s safety timeout ensures the page never stays invisible if fonts stall.
     (function() {
       var hero = document.querySelector('.hero-content');
       var hint = document.querySelector('.scroll-hint');
