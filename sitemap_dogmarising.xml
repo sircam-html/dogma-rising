@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemap>
+  <site name="Dogma Rising" url="https://play.dogmarising.org">
+
+    <page name="Home" url="https://play.dogmarising.org/" type="root">
+      <description>Dragon's Dogma Online private server homepage. Displays server features, connection details, and call to action.</description>
+    </page>
+
+    <page name="About" url="https://play.dogmarising.org/about" type="main-nav">
+      <description>Server features overview. Highlights rebalanced crafting, EXP progression, endgame content, hardcore mode, and more.</description>
+    </page>
+
+    <page name="News" url="https://play.dogmarising.org/news" type="main-nav">
+      <description>Latest updates, patch notes, server announcements, and community events.</description>
+    </page>
+
+    <page name="How To Play" url="https://play.dogmarising.org/howtoplay" type="main-nav">
+      <description>7-step setup guide covering game download, extraction, launcher configuration, account creation, English patch, and first play.</description>
+      <children>
+        <page name="Game Download — Mirror 1" url="https://drive.google.com/file/d/1dLFKgqctS-oaKMWTh2lgLdvz7VD_BoWF" type="external-download">
+          <description>Full game client (15 GB) hosted on Google Drive.</description>
+        </page>
+        <page name="Game Download — Mirror 2" url="https://drive.google.com/file/d/1_f_x-SB7cHAO6vsRAz9NN1Q_6LvVNdA5" type="external-download">
+          <description>Full game client (15 GB) hosted on Google Drive — backup mirror.</description>
+        </page>
+        <page name="Game Download — Mirror 3" url="https://drive.google.com/file/d/1P7-eZD6YfYjFQKwkUpeciGH4N2kUmo9G" type="external-download">
+          <description>Full game client (15 GB) hosted on Google Drive — backup mirror.</description>
+        </page>
+        <page name="Game Download — Mirror 4" url="https://drive.google.com/file/d/1haBdYygyVHmXDt2L6sAUJKJS0isK_7At" type="external-download">
+          <description>Full game client (15 GB) hosted on Google Drive — backup mirror.</description>
+        </page>
+        <page name="Launcher" url="https://github.com/D00MK1D/DDON-Launcher/releases" type="external-download">
+          <description>Community DDON launcher available on GitHub releases.</description>
+        </page>
+      </children>
+    </page>
+
+    <page name="Interactive Maps" url="https://play.dogmarising.org/map-selection" type="main-nav">
+      <description>Hub page for selecting interactive game maps covering enemy spawns, gathering nodes, shops, and exchanges.</description>
+      <children>
+        <page name="Normal Map" url="https://play.dogmarising.org/map-normal" type="sub-page">
+          <description>Interactive map for normal-mode stages. Shows enemy spawns, gathering nodes, and shops.</description>
+        </page>
+        <page name="Endgame Map" url="https://play.dogmarising.org/map-endgame" type="sub-page">
+          <description>Interactive map for endgame stages. Shows enemy spawns, gathering nodes, and shops.</description>
+        </page>
+      </children>
+    </page>
+
+    <page name="Contact" url="https://play.dogmarising.org/contact" type="main-nav">
+      <description>Contact form with fields for name, email, and message. Includes a link to the Discord server for faster support.</description>
+    </page>
+
+    <page name="Discord" url="https://discord.gg/dogmarising" type="external">
+      <description>Official Dogma Rising Discord community. Linked from every page header for community support.</description>
+    </page>
+
+  </site>
+</sitemap>
