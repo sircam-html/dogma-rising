@@ -242,15 +242,6 @@
     <p style="color: #B0A090; font-size: 17px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
   </footer>
 
-   <script>
-// Microsoft Clarity (self‑hosted)
-(function(c,l,a,r,i,t,y){
-  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-  t=l.createElement(r);t.async=1;t.src="/js/clarity.js";  // ← changed
-  y=l.getElementsByTagName(r);y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "w95dbspscj");
-    </script>
-
   <script>    
    // Dynamic footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -319,5 +310,20 @@
       a.addEventListener('click', closeMenu);
     });
   </script>
+
+   <!-- Microsoft Clarity (self‑hosted) -->
+  <script>
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="/js/clarity.js";
+      y=l.getElementsByTagName(r)[0];
+      if (y && y.parentNode) {
+        y.parentNode.insertBefore(t,y);
+      } else {
+        // fallback: añadir al final del body
+        l.body.appendChild(t);
+      }
+    })(window, document, "clarity", "script", "w95dbspscj");
+  </script>  
 </body>
 </html>
