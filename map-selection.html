@@ -176,6 +176,21 @@
     .divider-line:last-child {
       background: linear-gradient(90deg, rgba(201,168,76,.35), transparent);
     }
+    .map-open-info-footer {
+      display: flex;
+      margin-top: 28px;
+    }
+    .footer-line-left {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(201,168,76,.8), transparent);
+    }
+    .footer-line-right {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,.8));
+      margin-left: auto;
+    }
     .map-open-info-lead {
       color: var(--gold);
       font-size: 1.2rem;
@@ -308,6 +323,10 @@
       <p class="map-open-info-lead">READ IT.</p>
       <p>These maps are for the <strong>Enemy Spawns, Gathering Nodes, Shops, and Exchanges ONLY</strong>. This does not include any rewards or drops from quests, world quests, caution spots, random caution spot dungeons (Erte Deenan), or chests that are handled by the gathering script. Some specific chests may ping that it has the drop but not show drop rate. This is okay.</p>
       <p>To use the map, search for any stage on the left hand side. To search for specific drops, click the &#128269; on the right side. You can sort by current stage or by all stages there.</p>
+      <div class="map-open-info-footer">
+        <div class="footer-line-left"></div>
+        <div class="footer-line-right"></div>
+      </div>
     </div>
   </div>
 </div>
