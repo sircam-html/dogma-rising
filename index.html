@@ -242,73 +242,82 @@
     <p style="color: #B0A090; font-size: 17px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
   </footer>
 
-  <script>    
-   // Dynamic footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-   // Gate hero animation on fonts being ready so the fadeUp always runs
-   // on final web-font metrics — eliminates the "text pop" from fallback swap.
-   // A 1s safety timeout ensures the page never stays invisible if fonts stall.
-    (function() {
-      var hero = document.querySelector('.hero-content');
-      var hint = document.querySelector('.scroll-hint');
-      function reveal() {
-        hero.classList.add('animate');
-        hint.classList.add('animate');
-      }
-      var timer = setTimeout(reveal, 1000);
-      document.fonts.ready.then(function() {
-        clearTimeout(timer);
-        reveal();
-      });
-    })();
+<script>
+  // Dynamic footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Live status
-    const API_URL = '/.netlify/functions/status';
-    async function fetchStatus() {
-      try {
-        const res = await fetch(API_URL);
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        const count = document.getElementById('player-count');
-        count.textContent = data.online;
-        count.classList.remove('loading');
-        document.getElementById('status-dot').className = 'hero-status-dot online';
-      } catch(e) {
-        document.getElementById('player-count').textContent = '?';
-        document.getElementById('status-dot').className = 'hero-status-dot offline';
-      }
+  // Gate hero animation on fonts being ready
+  (function () {
+    const hero = document.querySelector('.hero-content');
+    const hint = document.querySelector('.scroll-hint');
+
+    function reveal() {
+      hero.classList.add('animate');
+      hint.classList.add('animate');
     }
-    fetchStatus();
-    setInterval(fetchStatus, 60000);
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-  <script>
-    const ham = document.getElementById('hamburger');
-    const mob = document.getElementById('mobileMenu');
-    const closeBtn = document.getElementById('menuClose');
-   
-    function closeMenu() {
-      ham.classList.remove('open');
-      mob.classList.remove('open');
-      document.body.style.overflow = '';
+
+    const timer = setTimeout(reveal, 1000);
+    document.fonts.ready.then(() => {
+      clearTimeout(timer);
+      reveal();
+    });
+  })();
+
+  // Live status
+  const API_URL = '/.netlify/functions/status';
+  async function fetchStatus() {
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      const count = document.getElementById('player-count');
+      count.textContent = data.online;
+      count.classList.remove('loading');
+      document.getElementById('status-dot').className = 'hero-status-dot online';
+    } catch {
+      document.getElementById('player-count').textContent = '?';
+      document.getElementById('status-dot').className = 'hero-status-dot offline';
     }
-   
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-    });
-   
-    closeBtn.addEventListener('click', closeMenu);
-   
-    mob.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', closeMenu);
-    });
-  </script>  
+  }
+
+  fetchStatus();
+  setInterval(fetchStatus, 60000);
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('menuClose');
+
+  function closeMenu() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+</script>
 </body>
 </html>
