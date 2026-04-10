@@ -309,10 +309,8 @@
     mob.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', closeMenu);
     });
-  </script>
-
-   <!-- Microsoft Clarity (self‑hosted) -->
-  <script>
+  
+    // Microsoft Clarity (self‑hosted)
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="/js/clarity.js";
@@ -320,7 +318,7 @@
       if (y && y.parentNode) {
         y.parentNode.insertBefore(t,y);
       } else {
-        // fallback: añadir al final del body
+        // fallback: end of body tag
         l.body.appendChild(t);
       }
     })(window, document, "clarity", "script", "w95dbspscj");
