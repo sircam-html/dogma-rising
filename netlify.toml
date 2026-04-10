@@ -4,10 +4,9 @@
 [[headers]]
 for = "/video/*"
 [headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
-Netlify-CDN-Cache-Control = "public, s-maxage=31536000, durable, must-revalidate"
+Cache-Control = "public, max-age=2147483647, immutable"
 
 [[headers]]
 for = "/js/clarity.js"
 [headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
+Cache-Control = "public, max-age=2147483647, immutable"
