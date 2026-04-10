@@ -165,6 +165,19 @@
       white-space: nowrap;
       margin: 0;
       font-weight: 600;
+      flex-shrink: 0;
+    }
+    @media(max-width: 768px) {
+      .map-open-info-divider {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .map-open-info-divider h2 {
+        order: -1;
+        width: 100%;
+        text-align: center;
+      }
     }
     .divider-line {
       flex: 1;
