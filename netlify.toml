@@ -5,8 +5,3 @@
 for = "/video/*"
 [headers.values]
 Cache-Control = "public, max-age=2147483647, immutable"
-
-[[headers]]
-for = "/js/clarity.js"
-[headers.values]
-Cache-Control = "public, max-age=2147483647, immutable"
