@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/static/fonts/cinzel.woff2') format('woff2');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('/static/fonts/crimson-text.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: italic, normal;
+  font-display: swap;
+}
