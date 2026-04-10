@@ -145,6 +145,57 @@
       font-style: italic; 
       margin: 0;
     }
+    /* Map Info - Open style, no box */
+    .map-open-info {
+      margin-top: 52px;
+      padding: 0 4px;
+    }
+    .map-open-info-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .map-open-info-divider h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin: 0;
+      font-weight: 600;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+    }
+    .divider-line:first-child {
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,.35));
+    }
+    .divider-line:last-child {
+      background: linear-gradient(90deg, rgba(201,168,76,.35), transparent);
+    }
+    .map-open-info-lead {
+      color: var(--gold);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .map-open-info p {
+      line-height: 1.9;
+      margin-bottom: 20px;
+      color: var(--parchment);
+      font-size: 1.15rem;
+    }
+    .map-open-info p:last-child {
+      margin-bottom: 0;
+    }
+    .map-open-info strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
     /* ====================== MOBILE EXPANSION FOR MAPS AREA ====================== */
     @media(max-width: 992px) {
       .content-section { padding: 40px 5% 80px; }
@@ -164,6 +215,10 @@
       }
       .contact-card { padding: 32px 6%; }
       nav { padding: 16px 5%; }
+      .map-open-info {
+        margin-top: 40px;
+        padding: 0 2px;
+      }
     }
     /* MOBILE NAV */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
@@ -194,44 +249,6 @@
       .content-section{padding:40px 16px 60px}
       .wide-wrap{padding:0 16px !important}
       .contact-card{padding:32px 24px}
-    }
-    /* Map Info Section - Beautifully formatted */
-    .map-info {
-      margin-top: 48px;
-      background: rgba(14,10,14,.92);
-      border: 1px solid rgba(201,168,76,.2);
-      padding: 40px 48px;
-      border-radius: 4px;
-      position: relative;
-    }
-    .map-info::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .map-info h2 {
-      font-family: 'Cinzel', serif;
-      color: var(--gold);
-      font-size: 1.75rem;
-      letter-spacing: 2px;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    .map-info p {
-      line-height: 1.75;
-      margin-bottom: 18px;
-      color: var(--parchment);
-    }
-    .map-info p:last-child {
-      margin-bottom: 0;
-    }
-    .map-info strong {
-      color: var(--gold);
-      font-weight: 600;
     }
   </style>
 </head>
@@ -280,13 +297,17 @@
           <img src="img/map-e-img-871x423.webp" alt="Dogma Rising EndGame Map Preview" class="map-image">
         </div>
       </div>
-      <!-- Added Map Info Section -->
-      <div class="map-info">
-        <h2>HERE'S SOME INFO ON THE MAP</h2>
-        <p><strong>READ IT.</strong></p>
-        <p>These maps are for the <strong>Enemy Spawns, Gathering Nodes, Shops, and Exchanges ONLY</strong>. This does not include any rewards or drops from quests, world quests, caution spots, random caution spot dungeons (Erte Deenan), or chests that are handled by the gathering script. Some specific chests may ping that it has the drop but not show drop rate. This is okay.</p>
-        <p>To use the map, search for any stage on the left hand side. To search for specific drops, click the &#128269; on the right side. You can sort by current stage or by all stages there.</p>
+    </div>
+
+    <div class="map-open-info">
+      <div class="map-open-info-divider">
+        <div class="divider-line"></div>
+        <h2>Here's Some Info On The Map</h2>
+        <div class="divider-line"></div>
       </div>
+      <p class="map-open-info-lead">READ IT.</p>
+      <p>These maps are for the <strong>Enemy Spawns, Gathering Nodes, Shops, and Exchanges ONLY</strong>. This does not include any rewards or drops from quests, world quests, caution spots, random caution spot dungeons (Erte Deenan), or chests that are handled by the gathering script. Some specific chests may ping that it has the drop but not show drop rate. This is okay.</p>
+      <p>To use the map, search for any stage on the left hand side. To search for specific drops, click the &#128269; on the right side. You can sort by current stage or by all stages there.</p>
     </div>
   </div>
 </div>
