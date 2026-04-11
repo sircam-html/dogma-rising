@@ -12,9 +12,8 @@ exports.handler = async () => {
     };
   }
   
-  lastCall = now;
-  
-  // Tu código original (solo ejecuta cada 30 min)
+  lastCall = now;  
+ 
   return new Promise((resolve) => {
     http.get('http://45.84.199.149/status', (res) => {
       let data = '';
