@@ -269,7 +269,7 @@ const API_URL = '/.netlify/functions/status';
 async function fetchStatus() {
   try {
     const res = await fetch(API_URL, { 
-      cache: 'default',  // Use Cache-Control: max-age=30 del backend
+      cache: 'default',  // Use Cache-Control: max-age=30 from backend
       headers: { 'Cache-Control': 'max-age=30' }
     });
     
