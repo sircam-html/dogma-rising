@@ -262,26 +262,34 @@
       reveal();
     });
   })();
+  
+// Live status - Optimized
+const API_URL = '/.netlify/functions/status';
 
-  // Live status
-  const API_URL = '/.netlify/functions/status';
-  async function fetchStatus() {
-    try {
-      const res = await fetch(API_URL);
-      if (!res.ok) throw new Error();
-      const data = await res.json();
-      const count = document.getElementById('player-count');
-      count.textContent = data.online;
-      count.classList.remove('loading');
-      document.getElementById('status-dot').className = 'hero-status-dot online';
-    } catch {
-      document.getElementById('player-count').textContent = '?';
-      document.getElementById('status-dot').className = 'hero-status-dot offline';
-    }
+async function fetchStatus() {
+  try {
+    const res = await fetch(API_URL, { 
+      cache: 'default',  // Use Cache-Control: max-age=30 del backend
+      headers: { 'Cache-Control': 'max-age=30' }
+    });
+    
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    
+    const count = document.getElementById('player-count');
+    count.textContent = data.online || '?';
+    count.classList.remove('loading');
+    document.getElementById('status-dot').className = 'hero-status-dot online';
+    
+  } catch(e) {
+    document.getElementById('player-count').textContent = '?';
+    document.getElementById('status-dot').className = 'hero-status-dot offline';
   }
+}
 
-  fetchStatus();
-  setInterval(fetchStatus, 60000);
+// Poll every 5s (ultra responsive) + browser cache 30s
+fetchStatus();
+setInterval(fetchStatus, 5000);  // 5s = instant feel
 
   // Scroll reveal
   const observer = new IntersectionObserver(
