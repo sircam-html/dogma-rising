@@ -1,19 +1,6 @@
 const http = require('http');
-let lastCall = 0;  
 
 exports.handler = async () => {
-  const now = Date.now();  
-
-  if (now - lastCall < 1800000) {
-    return {
-      statusCode: 200,
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ status: 'ok', cached: true })
-    };
-  }
-  
-  lastCall = now;  
- 
   return new Promise((resolve) => {
     http.get('http://45.84.199.149/status', (res) => {
       let data = '';
@@ -23,9 +10,6 @@ exports.handler = async () => {
         headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
         body: data
       }));
-    }).on('error', () => resolve({
-      statusCode: 500, 
-      body: JSON.stringify({ error: 'unreachable' })
-    }));
+    }).on('error', () => resolve({ statusCode: 500, body: '{"error":"unreachable"}' }));
   });
 };
