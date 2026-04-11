@@ -1,10 +1,9 @@
 const http = require('http');
-let lastCall = 0;  // Variable global (persiste entre invocaciones)
+let lastCall = 0;  
 
 exports.handler = async () => {
-  const now = Date.now();
-  
-  // ✅ RATE LIMIT: 1 llamada real cada 30 min (1800 segundos)
+  const now = Date.now();  
+
   if (now - lastCall < 1800000) {
     return {
       statusCode: 200,
