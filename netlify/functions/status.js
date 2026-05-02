@@ -1,7 +1,7 @@
 const http = require('http');
 let lastPlayersData = null;
 let lastFetchTime = 0;
-const CACHE_DURATION = 30000;  // ← 30 SECONDS
+const CACHE_DURATION = 60000;  // ← 60 SECONDS
 
 exports.handler = async () => {
   const now = Date.now();  
@@ -12,7 +12,7 @@ exports.handler = async () => {
       headers: { 
         'Access-Control-Allow-Origin': '*', 
         'Content-Type': 'application/json',
-        'Cache-Control': 'max-age=30'  // ← 30 SECONDS 
+        'Cache-Control': 'max-age=60'  // ← 60 SECONDS 
       },
       body: lastPlayersData
     };
@@ -30,7 +30,7 @@ exports.handler = async () => {
           headers: { 
             'Access-Control-Allow-Origin': '*', 
             'Content-Type': 'application/json',
-            'Cache-Control': 'max-age=30'  // ← 30 SECONDS
+            'Cache-Control': 'max-age=60'  // ← 60 SECONDS
           },
           body: data
         });
