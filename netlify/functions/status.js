@@ -12,7 +12,7 @@ exports.handler = async () => {
       headers: { 
         'Access-Control-Allow-Origin': '*', 
         'Content-Type': 'application/json',
-        'Cache-Control': 'max-age=320'  // ← 
+        'Cache-Control': 'max-age=300'  // ← 
       },
       body: lastPlayersData
     };
