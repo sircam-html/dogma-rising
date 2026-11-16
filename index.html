@@ -97,6 +97,27 @@
     .download-btn{display:inline-flex;flex-direction:column;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);border:1px solid rgba(201,168,76,.3);padding:32px 64px;text-decoration:none;transition:all .4s;position:relative}
     .download-btn .btn-big{font-size:22px;letter-spacing:8px;color:var(--gold)}
     .download-btn:hover{border-color:var(--gold);background:rgba(201,168,76,.05);box-shadow:0 0 60px rgba(201,168,76,.15)}
+    /* ACCOUNT RECOVERY */
+    .recover-section{padding:80px 24px 96px;text-align:center;border-top:1px solid rgba(201,168,76,.08)}
+    .recover-section .section-title{margin-bottom:20px}
+    .recover-text{font-size:19px;color:var(--ash);max-width:560px;margin:0 auto 32px;line-height:1.6}
+    .recover-form{max-width:560px;margin:0 auto;text-align:left;background:rgba(8,6,8,.95);border:1px solid rgba(201,168,76,.1);padding:32px}
+    .recover-label{display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:10px}
+    .recover-row{display:flex;gap:12px}
+    .recover-field{display:block;width:100%;margin-bottom:18px}
+    .recover-hint a{color:var(--gold);text-decoration:none}
+    .recover-hint a:hover{color:var(--ember)}
+    .recover-input{flex:1;min-width:0;font-family:'Crimson Text',Georgia,serif;font-size:19px;color:var(--parchment);background:rgba(232,220,200,.04);border:1px solid rgba(201,168,76,.25);border-radius:0;padding:12px 16px;outline:none;transition:border-color .3s}
+    .recover-input::placeholder{color:#6f6458}
+    .recover-input:focus{border-color:var(--gold)}
+    .recover-btn{font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--void);background:linear-gradient(135deg,var(--gold),var(--ember));border:0;padding:0 24px;cursor:pointer;transition:box-shadow .2s,color .2s}
+    .recover-btn:hover{box-shadow:0 0 30px rgba(201,168,76,.35);color:#fff}
+    .recover-btn:disabled{opacity:.5;cursor:default;box-shadow:none;color:var(--void)}
+    .recover-status{min-height:1.6em;margin-top:14px;font-size:17px;line-height:1.5;color:var(--ash)}
+    .recover-status.ok{color:#9fc48a}
+    .recover-status.error{color:#e0866a}
+    .recover-hint{font-size:16px;color:var(--ash);margin:20px auto 0;max-width:560px;font-style:italic;line-height:1.6}
+    .recover-hint code{font-family:Consolas,'Courier New',monospace;font-style:normal;font-size:15px;color:var(--gold)}
     footer{border-top:1px solid rgba(201,168,76,.08);padding:32px 48px;display:flex;align-items:center;justify-content:center}
     .footer-copy{font-size:13px;color:#3a3030;font-style:italic}
     @media(max-width:768px){
@@ -106,6 +127,9 @@
       .feature-card{height:320px}
       .feature-card-text{opacity:1;transform:none}
       .connect-grid{grid-template-columns:1fr}
+      .recover-form{padding:24px}
+      .recover-row{flex-direction:column}
+      .recover-btn{padding:14px 24px}
       footer{flex-direction:column;gap:16px;text-align:center}
     }
  
@@ -238,6 +262,38 @@
       <span>Free to play</span>
     </a>
   </section>
+  <section class="recover-section reveal" id="forgot-password">
+    <div class="section-eyebrow">Account Recovery</div>
+    <div class="section-title">Forgot Your Password?</div>
+    <p class="recover-text">Enter the e-mail address of your Dogma Rising account. We send you a link where you choose a new password.</p>
+    <form class="recover-form" id="recover-form" novalidate>
+      <label class="recover-label" for="recover-email">E-mail</label>
+      <div class="recover-row">
+        <input class="recover-input" id="recover-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="recover-btn" id="recover-submit" type="submit">Send Reset Link</button>
+      </div>
+      <p class="recover-status" id="recover-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="recover-hint">No e-mail after a few minutes? Look in your spam folder. Wrong or old address on your account? <a href="#change-email">Change it below.</a></p>
+  </section>
+  <section class="recover-section reveal" id="change-email">
+    <div class="section-eyebrow">Account</div>
+    <div class="section-title">Change Your E-mail</div>
+    <p class="recover-text">Password reset links go to the e-mail address of your account. Enter your account name and password to set a new one.</p>
+    <form class="recover-form" id="change-form" novalidate>
+      <label class="recover-label" for="change-account">Account name</label>
+      <input class="recover-input recover-field" id="change-account" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      <label class="recover-label" for="change-password">Password</label>
+      <input class="recover-input recover-field" id="change-password" name="password" type="password" autocomplete="current-password" required>
+      <label class="recover-label" for="change-new-email">New e-mail</label>
+      <div class="recover-row">
+        <input class="recover-input" id="change-new-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="recover-btn" id="change-submit" type="submit">Change E-mail</button>
+      </div>
+      <p class="recover-status" id="change-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="recover-hint">Your old address gets a short notice about the change.</p>
+  </section>
   <footer>
     <p style="color: #B0A090; font-size: 17px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
   </footer>
@@ -302,6 +358,96 @@ setInterval(fetchStatus, 5000);  // 5s = instant feel
   );
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Forgot password: netlify/functions/forgot-password.js asks the game server to mail a reset link
+  (function () {
+    // A link to /#forgot-password or /#change-email lands on the form even when the web fonts arrive late and move the page.
+    if (location.hash === '#forgot-password' || location.hash === '#change-email') {
+      document.fonts.ready.then(() => document.querySelector(location.hash).scrollIntoView());
+    }
+    const form = document.getElementById('recover-form');
+    const input = document.getElementById('recover-email');
+    const button = document.getElementById('recover-submit');
+    const status = document.getElementById('recover-status');
+
+    function show(text, kind) {
+      status.textContent = text;
+      status.className = 'recover-status' + (kind ? ' ' + kind : '');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = input.value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        show('Please enter a valid e-mail address.', 'error');
+        return;
+      }
+      button.disabled = true;
+      show('Sending…');
+      try {
+        const res = await fetch('/.netlify/functions/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok) show(data.message, 'ok');
+        else show(data.error || 'Something went wrong. Try again later or ask on Discord.', 'error');
+      } catch (err) {
+        show('The server could not be reached. Try again later.', 'error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  })();
+
+  // Change e-mail: netlify/functions/change-email.js asks the game server, which checks the password like the launcher login
+  (function () {
+    const form = document.getElementById('change-form');
+    const account = document.getElementById('change-account');
+    const password = document.getElementById('change-password');
+    const email = document.getElementById('change-new-email');
+    const button = document.getElementById('change-submit');
+    const status = document.getElementById('change-status');
+
+    function show(text, kind) {
+      status.textContent = text;
+      status.className = 'recover-status' + (kind ? ' ' + kind : '');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = { account: account.value.trim(), password: password.value, email: email.value.trim() };
+      if (!body.account || !body.password) {
+        show('Please enter your account name and password.', 'error');
+        return;
+      }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(body.email)) {
+        show('Please enter a valid e-mail address.', 'error');
+        return;
+      }
+      button.disabled = true;
+      show('Saving…');
+      try {
+        const res = await fetch('/.netlify/functions/change-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok) {
+          show(data.message, 'ok');
+          password.value = '';
+        } else {
+          show(data.error || 'Something went wrong. Try again later or ask on Discord.', 'error');
+        }
+      } catch (err) {
+        show('The server could not be reached. Try again later.', 'error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  })();
 </script>
 
 <script>
