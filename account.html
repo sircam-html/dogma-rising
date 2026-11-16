@@ -28,6 +28,10 @@
     .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
     .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 48px}
 
+    .account-intro{max-width:760px;margin:0 auto 32px;text-align:center;color:var(--ash);font-size:1.05rem;line-height:1.6}
+    .account-intro a{color:var(--gold);font-weight:600;text-decoration:none;white-space:nowrap}
+    .account-intro a:hover{color:var(--ember)}
+
     /* ACCOUNT CARDS: "Forgot Your Password?" and "Change Your E-mail" side by side, stacked on phones */
     .account-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
     .account-card{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.12);padding:48px;position:relative;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:96px}
@@ -125,6 +129,7 @@
 </div>
 <div class="content-section">
   <div class="wide-wrap">
+    <p class="account-intro">No account yet? Create one in the launcher (see <a href="/howtoplay">How To Play</a>) and give it an e-mail address you can reach: that is where your password reset links go.</p>
     <div class="account-grid">
       <section class="account-card" id="forgot-password">
         <h2>Forgot Your Password?</h2>
@@ -137,7 +142,7 @@
           <button class="submit-btn" id="recover-submit" type="submit">Send Reset Link</button>
           <p class="form-status" id="recover-status" role="status" aria-live="polite"></p>
           <ol class="steps">
-            <li>Open the link in the e-mail. Nothing after a few minutes? Look in your spam folder.</li>
+            <li>Open the link in the e-mail. Not in your inbox? Look in your spam folder and mark it as "Not spam".</li>
             <li>Type your account name and your new password.</li>
             <li>Log in with the new password in the launcher.</li>
           </ol>
