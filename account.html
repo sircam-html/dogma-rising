@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account | Dogma Rising</title>
+  <meta name="description" content="Forgot your Dogma Rising password? Get a reset link by e-mail, or change the e-mail address of your account.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;font-size:18px;overflow-x:hidden;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
+    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold) !important;text-decoration:none !important;text-shadow:0 0 30px rgba(201,168,76,.4)}.nav-logo:hover{color:var(--gold) !important;text-decoration:none !important}
+    .nav-logo span{color:var(--ash);font-weight:400}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord:hover{background:var(--ember);color:#fff}
+    .content-section{padding:40px 24px 60px;flex:1}
+    .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
+    .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
+    .page-header h1 em{color:var(--gold);font-style:normal}
+    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
+    .wide-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 48px}
+
+    /* ACCOUNT CARDS: "Forgot Your Password?" and "Change Your E-mail" side by side, stacked on phones */
+    .account-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+    .account-card{background:rgba(14,10,14,.8);border:1px solid rgba(201,168,76,.12);padding:48px;position:relative;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:96px}
+    .account-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+    .account-card h2{font-family:'Cinzel',serif;color:var(--gold);font-size:1.6rem;font-weight:600;text-align:center;margin-bottom:8px;letter-spacing:2px}
+    .account-card .subtitle{text-align:center;color:var(--ash);font-size:1rem;margin-bottom:32px;letter-spacing:.5px;line-height:1.5}
+    .account-card form{margin-bottom:28px}
+    .form-group{margin-bottom:20px}
+    .form-label{display:block;font-family:'Cinzel',serif;color:var(--ash);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+    .form-control{background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.2);color:var(--parchment);padding:14px 18px;width:100%;font-size:1.05rem;font-family:'Crimson Text',serif;transition:all .3s;border-radius:0}
+    .form-control::placeholder{color:#4a4040}
+    .form-control:focus{background:rgba(0,0,0,.6);border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,168,76,.1);color:var(--parchment);outline:none}
+    .submit-btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold),var(--ember));color:var(--void);border:none;padding:16px;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:10px;box-shadow:0 4px 20px rgba(201,168,76,.2)}
+    .submit-btn:hover{box-shadow:0 8px 30px rgba(201,168,76,.35);transform:translateY(-2px);color:#fff}
+    .submit-btn:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none;color:var(--void)}
+    .form-status{min-height:1.5em;margin-top:16px;font-size:1.05rem;line-height:1.5;color:var(--ash);text-align:center}
+    .form-status.ok{color:#9fc48a}
+    .form-status.error{color:#e0866a}
+    .steps{list-style:none;counter-reset:step;color:var(--ash);font-size:1rem;line-height:1.5}
+    .steps li{counter-increment:step;display:flex;align-items:flex-start;gap:14px;margin-top:12px}
+    .steps li::before{content:counter(step);flex:none;width:26px;height:26px;border:1px solid rgba(201,168,76,.35);color:var(--gold);font-family:'Cinzel',serif;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+    .card-note{margin-top:auto;padding-top:22px;border-top:1px solid rgba(201,168,76,.1);color:var(--ash);font-size:1rem;text-align:center;font-style:italic;line-height:1.5}
+    .card-note a{color:var(--gold);font-weight:600;text-decoration:none;white-space:nowrap}
+    .card-note a:hover{color:var(--ember)}
+
+    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:24px 48px;display:flex;align-items:center;justify-content:center;margin-top:auto}
+
+    /* MOBILE NAV */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,6,8,.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Cinzel',serif;font-size:20px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
+    .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
+    .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+    .menu-close::before,
+    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before{transform:rotate(45deg)}
+    .menu-close::after{transform:rotate(-45deg)}
+    .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
+    .menu-close:active{transform:rotate(90deg) scale(0.95)}
+
+    @media(max-width:1330px){.nav-links{gap:22px}.nav-links a{font-size:14px;letter-spacing:2px}} /* room for the Account link */
+    @media(max-width:1185px){
+      nav{padding:16px 24px}
+      .nav-links,.nav-discord{display:none}
+      .hamburger{display:flex}
+      .content-section{padding:40px 16px 60px}
+      .wide-wrap{padding:0 16px}
+      .account-card{padding:32px 24px}
+      footer{padding:24px 16px}
+    }
+    @media(max-width:900px){
+      .account-grid{grid-template-columns:1fr;gap:24px}
+    }
+    @media(max-width:480px){
+      .content-section{padding:24px 12px 48px}
+      .wide-wrap{padding:0}
+      .account-card{padding:28px 18px}
+      .account-card h2{font-size:1.35rem;letter-spacing:1px}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Dogma<span>Rising</span></a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/discord-live-news">News</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/howtoplay">How To Play</a></li>
+    <li><a href="/map-selection">Interactive Map</a></li>
+  </ul>
+  <a href="https://discord.gg/dogmarising" target="_blank" class="nav-discord">Join Discord</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="menu-close" id="menuClose"></div>
+  <a href="/index">Home</a>
+  <a href="/about">About</a>
+  <a href="/discord-live-news">News</a>
+  <a href="/contact">Contact</a>
+  <a href="/howtoplay">How To Play</a>
+  <a href="/map-selection">Interactive Map</a>
+  <a href="https://discord.gg/dogmarising" target="_blank" class="mobile-discord">Join Discord</a>
+</div>
+<div class="page-header">
+  <h1>Your <em>Account</em></h1>
+  <div class="hero-divider"></div>
+</div>
+<div class="content-section">
+  <div class="wide-wrap">
+    <div class="account-grid">
+      <section class="account-card" id="forgot-password">
+        <h2>Forgot Your Password?</h2>
+        <p class="subtitle">Enter the e-mail address of your account. We send you a link where you choose a new password.</p>
+        <form id="recover-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="recover-email">E-mail</label>
+            <input class="form-control" id="recover-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
+          <button class="submit-btn" id="recover-submit" type="submit">Send Reset Link</button>
+          <p class="form-status" id="recover-status" role="status" aria-live="polite"></p>
+          <ol class="steps">
+            <li>Open the link in the e-mail. Nothing after a few minutes? Look in your spam folder.</li>
+            <li>Type your account name and your new password.</li>
+            <li>Log in with the new password in the launcher.</li>
+          </ol>
+        </form>
+        <p class="card-note">Old or wrong address on your account? <a href="#change-email">Change your e-mail</a> first.</p>
+      </section>
+      <section class="account-card" id="change-email">
+        <h2>Change Your E-mail</h2>
+        <p class="subtitle">Reset links go to the e-mail address of your account. Enter your account name and password to set a new one.</p>
+        <form id="change-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="change-account">Account name</label>
+            <input class="form-control" id="change-account" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="change-password">Password</label>
+            <input class="form-control" id="change-password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="change-new-email">New e-mail</label>
+            <input class="form-control" id="change-new-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
+          <button class="submit-btn" id="change-submit" type="submit">Change E-mail</button>
+          <p class="form-status" id="change-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="card-note">Your old address gets a short notice about the change.</p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p style="color: #B0A090; font-size: 18px;">&copy; <span id="year"></span> Dogma Rising · All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // A link to /account#forgot-password or /account#change-email lands on its card even when the web fonts arrive late.
+  if (location.hash === '#forgot-password' || location.hash === '#change-email') {
+    document.fonts.ready.then(() => document.querySelector(location.hash).scrollIntoView());
+  }
+
+  const MAIL_FORMAT = /^[^@\s]+@[^@\s]+\.[^@\s]+$/; // the game server's own sign-up check
+
+  function statusOf(id) {
+    const el = document.getElementById(id);
+    return (text, kind) => {
+      el.textContent = text;
+      el.className = 'form-status' + (kind ? ' ' + kind : '');
+    };
+  }
+
+  async function callFunction(name, body) {
+    const res = await fetch('/.netlify/functions/' + name, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const data = await res.json().catch(() => ({}));
+    return { ok: res.ok && data.ok, data };
+  }
+
+  // Forgot password: netlify/functions/forgot-password.js asks the game server to mail a reset link
+  (function () {
+    const form = document.getElementById('recover-form');
+    const input = document.getElementById('recover-email');
+    const button = document.getElementById('recover-submit');
+    const show = statusOf('recover-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = input.value.trim();
+      if (!MAIL_FORMAT.test(email)) {
+        show('Please enter a valid e-mail address.', 'error');
+        return;
+      }
+      button.disabled = true;
+      show('Sending…');
+      try {
+        const r = await callFunction('forgot-password', { email });
+        if (r.ok) show(r.data.message, 'ok');
+        else show(r.data.error || 'Something went wrong. Try again later or ask on Discord.', 'error');
+      } catch (err) {
+        show('The server could not be reached. Try again later.', 'error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  })();
+
+  // Change e-mail: netlify/functions/change-email.js asks the game server, which checks the password like the launcher login
+  (function () {
+    const form = document.getElementById('change-form');
+    const account = document.getElementById('change-account');
+    const password = document.getElementById('change-password');
+    const email = document.getElementById('change-new-email');
+    const button = document.getElementById('change-submit');
+    const show = statusOf('change-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const body = { account: account.value.trim(), password: password.value, email: email.value.trim() };
+      if (!body.account || !body.password) {
+        show('Please enter your account name and password.', 'error');
+        return;
+      }
+      if (!MAIL_FORMAT.test(body.email)) {
+        show('Please enter a valid e-mail address.', 'error');
+        return;
+      }
+      button.disabled = true;
+      show('Saving…');
+      try {
+        const r = await callFunction('change-email', body);
+        if (r.ok) {
+          show(r.data.message, 'ok');
+          password.value = '';
+        } else {
+          show(r.data.error || 'Something went wrong. Try again later or ask on Discord.', 'error');
+        }
+      } catch (err) {
+        show('The server could not be reached. Try again later.', 'error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  })();
+</script>
+
+<script>
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('menuClose');
+
+  function closeMenu() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+</script>
+</body>
+</html>
