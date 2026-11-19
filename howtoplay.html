@@ -19,14 +19,8 @@
     .nav-links{display:flex;gap:36px;list-style:none}
     .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
     .nav-links a:hover{color:var(--gold)}
-    @media(min-width:1186px){nav{display:grid;grid-template-columns:1fr auto 1fr;column-gap:20px}.nav-logo{justify-self:start}.nav-links{justify-self:center}.nav-discord{justify-self:end}} /* menu on the page's center line */
-    /* Join Discord: the game's hexagon button with a metal edge and a sheen on hover (same as the homepage buttons) */
-    .nav-discord,.mobile-menu .mobile-discord{--cut:11px;--cut-in:10.2px;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 22px;font-family:'Cinzel',serif;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:#fbeacb;background:none;text-shadow:0 1px 2px rgba(0,0,0,.7);filter:drop-shadow(0 6px 14px rgba(0,0,0,.5));transition:filter .35s,color .35s,transform .35s}
-    .nav-discord::before,.nav-discord::after,.mobile-menu .mobile-discord::before,.mobile-menu .mobile-discord::after{content:'';position:absolute;z-index:-1}
-    .nav-discord::before,.mobile-menu .mobile-discord::before{inset:0;background:linear-gradient(180deg,#f6e2a2 0%,#c9a84c 46%,#7d5f24 100%);clip-path:polygon(var(--cut) 0,calc(100% - var(--cut)) 0,100% 50%,calc(100% - var(--cut)) 100%,var(--cut) 100%,0 50%)}
-    .nav-discord::after,.mobile-menu .mobile-discord::after{inset:1.5px;clip-path:polygon(var(--cut-in) 0,calc(100% - var(--cut-in)) 0,100% 50%,calc(100% - var(--cut-in)) 100%,var(--cut-in) 100%,0 50%);background:linear-gradient(105deg,transparent 38%,rgba(255,236,190,.38) 50%,transparent 62%) -160% 0/240% 100% no-repeat,linear-gradient(180deg,rgba(255,255,255,.13),transparent 46%) 0 0/100% 100% no-repeat,linear-gradient(180deg,#a32a1e 0%,#7d1716 50%,#560e10 100%);transition:background-position 1s cubic-bezier(.2,.7,.2,1)}
-    .nav-discord:hover,.mobile-menu .mobile-discord:hover{color:#fff;background:none;transform:translateY(-1px);filter:drop-shadow(0 0 18px rgba(214,90,46,.55)) drop-shadow(0 6px 14px rgba(0,0,0,.5))}
-    .nav-discord:hover::after,.mobile-menu .mobile-discord:hover::after{background-position:260% 0,0 0,0 0}
+    .nav-discord{font-family:'Cinzel',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--void);background:var(--gold);padding:10px 20px;text-decoration:none;transition:background .3s}
+    .nav-discord:hover{background:var(--ember);color:#fff}
     .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
     .page-header h1{font-family:'Cinzel',serif;font-size:clamp(22px,3vw,38px);font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
     .page-header h1 em{color:var(--gold);font-style:normal}
@@ -46,11 +40,6 @@
     /* DOWNLOAD BUTTON */
     .dl-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:12px 28px;text-decoration:none;transition:all .3s;margin-top:12px;margin-right:12px}
     .dl-btn:hover{background:rgba(201,168,76,.1);border-color:var(--gold);color:var(--gold)}
-    /* OPTIONAL DOWNLOAD (the launcher on its own) */
-    .dl-optional{position:relative;margin-top:30px;padding:24px 24px 18px;border:1px dashed rgba(201,168,76,.3);background:rgba(201,168,76,.03)}
-    .dl-optional p{margin-bottom:4px}
-    .dl-tag{position:absolute;top:-11px;left:20px;padding:3px 12px 2px;font-family:'Cinzel',serif;font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:#0e0a0e;border:1px solid rgba(201,168,76,.45)}
-    .dl-meta{margin-top:8px;font-size:.95rem;color:var(--ash);opacity:.85}
     /* WARNING */
     .warning-box{background:rgba(139,26,26,.15);border:1px solid rgba(139,26,26,.4);padding:16px 24px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
     .warning-box .warn-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
@@ -88,7 +77,8 @@
     .mobile-menu.open{display:flex}
     .mobile-menu a{font-family:'Cinzel',serif;font-size:20px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
     .mobile-menu a:hover{color:var(--gold)}
-    .mobile-menu .mobile-discord{--cut:16px;--cut-in:15px;min-height:56px;padding:0 40px;margin-top:8px;font-size:18px;letter-spacing:3px}
+    .mobile-menu .mobile-discord{color:var(--void);background:var(--gold);padding:14px 32px;margin-top:8px}
+    .mobile-menu .mobile-discord:hover{background:var(--ember);color:#fff}
     /* ELEGANT ANIMATED CLOSE BUTTON */
     .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
     .menu-close::before,
@@ -149,12 +139,8 @@
         <a href="https://drive.google.com/file/d/1ckujV2UVTaeRGSqoxtMu-ET1buR5Hqv1" target="_blank" class="dl-btn">⚔ Mirror 3 — Google Drive</a>
         <a href="https://drive.google.com/file/d/1Y-gUIdJlTXAriEusF68vb_Z6-YXI72lr" target="_blank" class="dl-btn">⚔ Mirror 4 — Google Drive</a>
       </div>
-      <div class="dl-optional">
-        <span class="dl-tag">Optional</span>
-        <p><strong>Launcher Only</strong> — Get the official Dogma Rising launcher separately, for example if you already have the client.</p>
-        <a href="https://github.com/sircam-html/dogma-rising/releases/latest/download/DogmaRisingLauncher.exe" class="dl-btn">⚔ Download the launcher</a>
-        <div class="dl-meta">DogmaRisingLauncher.exe · 72 MB</div>
-      </div>
+      <p style="margin-top:20px;"><strong>Launcher Only</strong> — Download the community launcher separately.</p>
+      <a href="https://github.com/D00MK1D/DDON-Launcher-WPF/releases/tag/v1.3.0" target="_blank" class="dl-btn">⚔ Github Download</a>
     </div>
   </div>
   <!-- STEP 2 -->
