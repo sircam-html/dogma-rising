@@ -53,7 +53,7 @@
     .nav-links a:hover{color:var(--gold)}
     /* Menu bar in three columns: the two outer ones share the width equally, so the menu sits on the page's center line
        (above the logo) as long as both sides fit; on narrow screens the wider side takes what it needs. */
-    @media(min-width:1186px){
+    @media(min-width:1220px){
       nav{display:grid;grid-template-columns:1fr auto 1fr;column-gap:20px}
       .nav-logo{justify-self:start}
       .nav-links{justify-self:center}
@@ -267,31 +267,21 @@
     .menu-close:active{transform:rotate(90deg) scale(0.95)}
 
     /* RESPONSIVE */
-    @media(max-width:1330px){.nav-links{gap:22px}.nav-links a{font-size:14px;letter-spacing:2px}} /* room for the Account link */
-    /* The menu bar of this page also carries "Arisen Online", so it gets tighter step by step as the window narrows, each
-       step chosen so that the menu still sits on the center line; below 1186 px the phone menu takes over. */
-    @media(max-width:1759px){
-      .nav-logo img{display:none}
-      .ll-long{display:none}
-      .nav-right{gap:22px}
-    }
-    @media(max-width:1599px){
-      .nav-links{gap:24px}.nav-links a{font-size:14px;letter-spacing:2px}
-    }
+    /* Menu sizes, the same steps on every page (seven links since 2026-11-20); the phone menu below 1220 px */
+    .nav-links{gap:24px}.nav-links a{font-size:14px;letter-spacing:2px}
+    @media(max-width:1499px){nav{padding-left:36px;padding-right:36px}.nav-logo{font-size:20px;letter-spacing:3px}.nav-links{gap:18px}.nav-links a{font-size:13px;letter-spacing:1.6px}.nav-discord{font-size:13.5px;padding:0 19px}}
+    @media(max-width:1359px){nav{padding-left:28px;padding-right:28px}.nav-logo{font-size:18px;letter-spacing:2.5px}.nav-links{gap:14px}.nav-links a{font-size:12px;letter-spacing:1.2px}.nav-discord{font-size:12.5px;padding:0 16px}}
+    /* This page's bar also carries "Arisen Online" and the DR icon: they shorten first, so the menu stays on the center line */
+    @media(max-width:1759px){.nav-logo img{display:none}.ll-long{display:none}.nav-right{gap:22px}}
+    @media(max-width:1619px){.live-label{display:none}}
     @media(max-width:1499px){
+      .nav-right{gap:18px}
       .rm-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 26px;max-width:1020px;padding-top:0}
       .rm-track::before,.rm-track::after{display:none}
       .rm-node{top:-8px}
     }
-    @media(max-width:1459px){
-      nav{padding-left:36px;padding-right:36px}
-      .nav-logo{font-size:20px;letter-spacing:3px}
-      .nav-links{gap:18px}.nav-links a{font-size:13px;letter-spacing:1.6px}
-      .nav-right{gap:18px}
-      .nav-discord{font-size:13.5px;padding:0 19px}
-    }
-    @media(max-width:1299px){.live-label{display:none}}
-    @media(max-width:1185px){
+    @media(max-width:1359px){.nav-right{gap:14px}}
+    @media(max-width:1219px){
       nav{padding:16px 24px}
       nav.scrolled{padding-top:12px;padding-bottom:12px}
       .nav-links,.nav-discord{display:none}
@@ -335,6 +325,7 @@
       .chip-label{padding:6px 7px}
       .hero-eyebrow{font-size:12px;letter-spacing:5px;padding-left:5px;line-height:1.9}
       .hero-actions{flex-direction:column;align-items:stretch;max-width:340px;margin:0 auto}
+      .hero-actions .btn{padding:0 24px;gap:12px;font-size:12px;letter-spacing:.18em}
       .hero-status{padding:8px 18px}
       .hero-status-text{font-size:13px;letter-spacing:2px}
       .plaque{grid-template-columns:1fr;padding:26px 24px}
@@ -356,6 +347,7 @@
       <li><a href="/discord-live-news">News</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="/howtoplay">How To Play</a></li>
+      <li><a href="/screenshots">Screenshots</a></li>
       <li><a href="/map-selection">Interactive Map</a></li>
       <li><a href="/account">Account</a></li>
     </ul>
@@ -376,6 +368,7 @@
     <a href="/discord-live-news">News</a>
     <a href="/contact">Contact</a>
     <a href="/howtoplay">How To Play</a>
+    <a href="/screenshots">Screenshots</a>
     <a href="/map-selection">Interactive Map</a>
     <a href="/account">Account</a>
     <a href="https://discord.gg/dogmarising" target="_blank" rel="noopener" class="mobile-discord">Join Discord</a>

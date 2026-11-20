@@ -19,7 +19,7 @@
     .nav-links{display:flex;gap:36px;list-style:none}
     .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
     .nav-links a:hover{color:var(--gold)}
-    @media(min-width:1186px){nav{display:grid;grid-template-columns:1fr auto 1fr;column-gap:20px}.nav-logo{justify-self:start}.nav-links{justify-self:center}.nav-discord{justify-self:end}} /* menu on the page's center line */
+    @media(min-width:1220px){nav{display:grid;grid-template-columns:1fr auto 1fr;column-gap:20px}.nav-logo{justify-self:start}.nav-links{justify-self:center}.nav-discord{justify-self:end}} /* menu on the page's center line */
     /* Join Discord: the game's hexagon button with a metal edge and a sheen on hover (same as the homepage buttons) */
     .nav-discord,.mobile-menu .mobile-discord{--cut:11px;--cut-in:10.2px;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 22px;font-family:'Cinzel',serif;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:#fbeacb;background:none;text-shadow:0 1px 2px rgba(0,0,0,.7);filter:drop-shadow(0 6px 14px rgba(0,0,0,.5));transition:filter .35s,color .35s,transform .35s}
     .nav-discord::before,.nav-discord::after,.mobile-menu .mobile-discord::before,.mobile-menu .mobile-discord::after{content:'';position:absolute;z-index:-1}
@@ -97,8 +97,12 @@
     .menu-close::after{transform:rotate(-45deg)}
     .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
     .menu-close:active{transform:rotate(90deg) scale(0.95)}
-    @media(max-width:1330px){.nav-links{gap:22px}.nav-links a{font-size:14px;letter-spacing:2px}} /* room for the Account link */
-    @media(max-width:1185px){
+    /* Menu sizes, the same steps on every page (seven links since 2026-11-20); the phone menu below 1220 px */
+    .nav-links{gap:24px}.nav-links a{font-size:14px;letter-spacing:2px}
+    @media(max-width:1499px){nav{padding-left:36px;padding-right:36px}.nav-logo{font-size:20px;letter-spacing:3px}.nav-links{gap:18px}.nav-links a{font-size:13px;letter-spacing:1.6px}.nav-discord{font-size:13.5px;padding:0 19px}}
+    @media(max-width:1359px){nav{padding-left:28px;padding-right:28px}.nav-logo{font-size:18px;letter-spacing:2.5px}.nav-links{gap:14px}.nav-links a{font-size:12px;letter-spacing:1.2px}.nav-discord{font-size:12.5px;padding:0 16px}}
+    @media(max-width:1219px){
+      .nav-logo{font-size:22px;letter-spacing:4px}
       nav{padding:16px 24px}
       .nav-links,.nav-discord{display:none}
       .hamburger{display:flex}
@@ -114,6 +118,7 @@
     <li><a href="https://play.dogmarising.org/about">About</a></li>
     <li><a href="https://play.dogmarising.org/discord-live-news">News</a></li>
     <li><a href="https://play.dogmarising.org/contact">Contact</a></li>
+    <li><a href="https://play.dogmarising.org/screenshots">Screenshots</a></li>
     <li><a href="https://play.dogmarising.org/map-selection">Interactive Map</a></li>
     <li><a href="https://play.dogmarising.org/account">Account</a></li>
   </ul>
@@ -126,6 +131,7 @@
   <a href="https://play.dogmarising.org/about">About</a>
   <a href="https://play.dogmarising.org/discord-live-news">News</a>
   <a href="https://play.dogmarising.org/contact">Contact</a>
+  <a href="https://play.dogmarising.org/screenshots">Screenshots</a>
   <a href="https://play.dogmarising.org/map-selection">Interactive Map</a>
   <a href="https://play.dogmarising.org/account">Account</a>
   <a href="https://discord.gg/dogmarising" target="_blank" class="mobile-discord">Join Discord</a>
@@ -152,8 +158,8 @@
       <div class="dl-optional">
         <span class="dl-tag">Optional</span>
         <p><strong>Launcher Only</strong> — Get the official Dogma Rising launcher separately, for example if you already have the client.</p>
-        <a href="https://drive.google.com/file/d/1qVaQ6VSe3eABgSfjnwpvyo2NLQCvMDA8/view?usp=sharing?ex=6aff37bd&is=6afde63d&hm=9604c7e923001e43f6941edb724444f849689697015b35231024849fda8c6dbc&" target="_blank" class="dl-btn">⚔ Download the launcher</a>
-        <div class="dl-meta">DogmaRisingLauncher.exe · 72 MB</div>
+        <a href="https://drive.google.com/file/d/1qVaQ6VSe3eABgSfjnwpvyo2NLQCvMDA8/view?usp=sharing" target="_blank" class="dl-btn">⚔ Download the launcher</a>
+        <div class="dl-meta">Google Drive · 72 MB</div>
       </div>
     </div>
   </div>

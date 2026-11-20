@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screenshots | Dogma Rising</title>
+  <meta name="description" content="Screenshots of Dragon's Dogma Online: parties out in the open world and battles with the monsters of Lestania.">
+  <meta name="theme-color" content="#080608">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="img/brand/dr-icon-64.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--blood:#8b1a1a;--ember:#c9622f;--gold:#c9a84c;--gold-hi:#e9cf87;--ash:#b0a090;--void:#080608;--parchment:#e8dcc8;--line:rgba(201,168,76,.16)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{background:var(--void);color:var(--parchment);font-family:'Crimson Text',Georgia,serif;font-size:18px;overflow-x:hidden;display:flex;flex-direction:column}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
+    :focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(to bottom,rgba(8,6,8,.95),rgba(8,6,8,.8))}
+    .nav-logo{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 30px rgba(201,168,76,.4)}
+    .nav-logo span{color:var(--ash);font-weight:400}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-family:'Cinzel',serif;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .nav-links a:hover{color:var(--gold)}
+    @media(min-width:1220px){nav{display:grid;grid-template-columns:1fr auto 1fr;column-gap:20px}.nav-logo{justify-self:start}.nav-links{justify-self:center}.nav-discord{justify-self:end}} /* menu on the page's center line */
+    /* Join Discord: the game's hexagon button with a metal edge and a sheen on hover (same as the homepage buttons) */
+    .nav-discord,.mobile-menu .mobile-discord{--cut:11px;--cut-in:10.2px;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 22px;font-family:'Cinzel',serif;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:#fbeacb;background:none;text-shadow:0 1px 2px rgba(0,0,0,.7);filter:drop-shadow(0 6px 14px rgba(0,0,0,.5));transition:filter .35s,color .35s,transform .35s}
+    .nav-discord::before,.nav-discord::after,.mobile-menu .mobile-discord::before,.mobile-menu .mobile-discord::after{content:'';position:absolute;z-index:-1}
+    .nav-discord::before,.mobile-menu .mobile-discord::before{inset:0;background:linear-gradient(180deg,#f6e2a2 0%,#c9a84c 46%,#7d5f24 100%);clip-path:polygon(var(--cut) 0,calc(100% - var(--cut)) 0,100% 50%,calc(100% - var(--cut)) 100%,var(--cut) 100%,0 50%)}
+    .nav-discord::after,.mobile-menu .mobile-discord::after{inset:1.5px;clip-path:polygon(var(--cut-in) 0,calc(100% - var(--cut-in)) 0,100% 50%,calc(100% - var(--cut-in)) 100%,var(--cut-in) 100%,0 50%);background:linear-gradient(105deg,transparent 38%,rgba(255,236,190,.38) 50%,transparent 62%) -160% 0/240% 100% no-repeat,linear-gradient(180deg,rgba(255,255,255,.13),transparent 46%) 0 0/100% 100% no-repeat,linear-gradient(180deg,#a32a1e 0%,#7d1716 50%,#560e10 100%);transition:background-position 1s cubic-bezier(.2,.7,.2,1)}
+    .nav-discord:hover,.mobile-menu .mobile-discord:hover{color:#fff;background:none;transform:translateY(-1px);filter:drop-shadow(0 0 18px rgba(214,90,46,.55)) drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+    .nav-discord:hover::after,.mobile-menu .mobile-discord:hover::after{background-position:260% 0,0 0,0 0}
+    .page-header{background:linear-gradient(to bottom,rgba(8,6,8,1),rgba(14,10,14,.95));padding:90px 24px 30px;text-align:center;border-bottom:1px solid rgba(201,168,76,.1)}
+    .page-header h1{font-family:'Cinzel',serif;font-size:clamp(22px,3vw,38px);font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--parchment);text-shadow:0 2px 20px rgba(0,0,0,.8);margin:0}
+    .page-header h1 em{color:var(--gold);font-style:normal}
+    .hero-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto 0}
+    .page-sub{margin-top:14px;font-size:19px;font-style:italic;color:var(--ash);text-wrap:balance}
+
+    /* SCREENSHOTS */
+    .gallery{flex:1;width:100%;max-width:1360px;margin:0 auto;padding:44px 48px 64px}
+    .shot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .shot{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;margin:0;overflow:hidden;isolation:isolate;cursor:zoom-in;border:1px solid var(--line);background:#0c0a0a;font:inherit;color:inherit;
+      opacity:0;transform:translateY(24px);animation:shotIn .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--n) * 60ms)}
+    @keyframes shotIn{to{opacity:1;transform:none}}
+    .shot img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(.95);transform:scale(1.01);transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s}
+    .shot::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(8,6,8,.55))}
+    .shot::after{--b:linear-gradient(var(--gold),var(--gold));content:'';position:absolute;inset:9px;z-index:2;pointer-events:none;opacity:0;transition:opacity .45s,inset .45s;
+      background:var(--b) top left/16px 1px no-repeat,var(--b) top left/1px 16px no-repeat,var(--b) top right/16px 1px no-repeat,var(--b) top right/1px 16px no-repeat,
+                 var(--b) bottom left/16px 1px no-repeat,var(--b) bottom left/1px 16px no-repeat,var(--b) bottom right/16px 1px no-repeat,var(--b) bottom right/1px 16px no-repeat}
+    .shot:hover img,.shot:focus-visible img{transform:scale(1.06);filter:brightness(1) saturate(1.05)}
+    .shot:hover::after,.shot:focus-visible::after{opacity:1;inset:7px}
+    .shots-note{margin-top:26px;text-align:center;font-size:15px;font-style:italic;color:#8d8073}
+
+    /* full-screen viewer */
+    .lb{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:70px 90px 60px;background:rgba(5,4,5,.95);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
+    .lb[hidden]{display:none}
+    .lb.open{opacity:1}
+    .lb-stage{margin:0;display:flex;flex-direction:column;align-items:center;max-width:1280px}
+    .lb-img{display:block;max-width:100%;max-height:calc(100vh - 170px);max-height:calc(100svh - 170px);width:auto;height:auto;border:1px solid rgba(201,168,76,.35);box-shadow:0 30px 80px rgba(0,0,0,.8);transition:opacity .25s}
+    .lb-img.loading{opacity:.25}
+    .lb-count{margin-top:16px;font-family:'Cinzel',serif;font-size:12px;font-weight:600;letter-spacing:.32em;color:var(--ash)}
+    .lb-btn{position:absolute;display:flex;align-items:center;justify-content:center;width:52px;height:52px;padding:0;cursor:pointer;color:var(--gold-hi);background:rgba(8,6,8,.6);border:1px solid rgba(201,168,76,.5);border-radius:50%;transition:background .25s,border-color .25s,color .25s,transform .25s}
+    .lb-btn:hover{background:rgba(201,168,76,.14);border-color:var(--gold);color:#fff}
+    .lb-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .lb-prev{left:22px;top:50%;margin-top:-26px}
+    .lb-next{right:22px;top:50%;margin-top:-26px}
+    .lb-close{top:18px;right:22px;width:44px;height:44px}
+    .lb-close:hover{transform:rotate(90deg)}
+
+    /* Clean Footer */
+    footer{background:rgba(8,6,8,.95);border-top:1px solid rgba(201,168,76,.08);padding:24px 48px;display:flex;align-items:center;justify-content:center;margin-top:auto}
+
+    /* MOBILE NAV */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:200}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,6,8,.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Cinzel',serif;font-size:20px;letter-spacing:4px;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .3s}
+    .mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu .mobile-discord{--cut:16px;--cut-in:15px;min-height:56px;padding:0 40px;margin-top:8px;font-size:18px;letter-spacing:3px}
+    /* ELEGANT ANIMATED CLOSE BUTTON */
+    .menu-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ember));cursor:pointer;z-index:160;display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+    .menu-close::before,
+    .menu-close::after{content:'';position:absolute;width:18px;height:2px;background:var(--void);border-radius:2px;transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);transform-origin:center}
+    .menu-close::before{transform:rotate(45deg)}
+    .menu-close::after{transform:rotate(-45deg)}
+    .menu-close:hover{transform:rotate(90deg) scale(1.1);box-shadow:0 8px 30px rgba(201,168,76,.5)}
+    .menu-close:active{transform:rotate(90deg) scale(0.95)}
+    /* Menu sizes, the same steps on every page (seven links since 2026-11-20); the phone menu below 1220 px */
+    .nav-links{gap:24px}.nav-links a{font-size:14px;letter-spacing:2px}
+    @media(max-width:1499px){nav{padding-left:36px;padding-right:36px}.nav-logo{font-size:20px;letter-spacing:3px}.nav-links{gap:18px}.nav-links a{font-size:13px;letter-spacing:1.6px}.nav-discord{font-size:13.5px;padding:0 19px}}
+    @media(max-width:1359px){nav{padding-left:28px;padding-right:28px}.nav-logo{font-size:18px;letter-spacing:2.5px}.nav-links{gap:14px}.nav-links a{font-size:12px;letter-spacing:1.2px}.nav-discord{font-size:12.5px;padding:0 16px}}
+    @media(max-width:1219px){
+      .nav-logo{font-size:22px;letter-spacing:4px}
+      nav{padding:16px 24px}
+      .nav-links,.nav-discord{display:none}
+      .hamburger{display:flex}
+      .gallery{padding-left:16px;padding-right:16px}
+      footer{padding:24px 16px}
+    }
+    @media(max-width:1099px){.shot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+    @media(max-width:700px){
+      .gallery{padding-top:28px}
+      .lb{padding:56px 12px 96px}
+      .lb-img{max-height:calc(100vh - 180px);max-height:calc(100svh - 180px)}
+      .lb-prev,.lb-next{top:auto;bottom:24px;margin-top:0}
+      .lb-prev{left:calc(50% - 118px)}
+      .lb-next{right:calc(50% - 118px)}
+      .lb-count{position:absolute;bottom:42px;left:0;right:0;text-align:center;margin:0}
+      .lb-close{top:10px;right:10px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .shot{animation:none;opacity:1;transform:none}
+      .shot img,.lb,.lb-img{transition:none}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Dogma<span>Rising</span></a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/discord-live-news">News</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/howtoplay">How To Play</a></li>
+    <li><a href="/map-selection">Interactive Map</a></li>
+    <li><a href="/account">Account</a></li>
+  </ul>
+  <a href="https://discord.gg/dogmarising" target="_blank" rel="noopener" class="nav-discord">Join Discord</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="menu-close" id="menuClose"></div>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/discord-live-news">News</a>
+  <a href="/contact">Contact</a>
+  <a href="/howtoplay">How To Play</a>
+  <a href="/map-selection">Interactive Map</a>
+  <a href="/account">Account</a>
+  <a href="https://discord.gg/dogmarising" target="_blank" rel="noopener" class="mobile-discord">Join Discord</a>
+</div>
+<div class="page-header">
+  <h1><em>Screenshots</em></h1>
+  <div class="hero-divider"></div>
+  <p class="page-sub">Glimpses of Lestania. Click a picture to see it full size.</p>
+</div>
+
+<main class="gallery">
+  <div class="shot-grid">
+    <button type="button" class="shot" style="--n:0" data-full="img/gallery/shot-01.webp"><img src="img/gallery/shot-01-sm.webp" srcset="img/gallery/shot-01-sm.webp 640w, img/gallery/shot-01.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A party fighting a chimera on the grassland" decoding="async"></button>
+    <button type="button" class="shot" style="--n:1" data-full="img/gallery/shot-02.webp"><img src="img/gallery/shot-02-sm.webp" srcset="img/gallery/shot-02-sm.webp 640w, img/gallery/shot-02.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="Arisen battling a lightning-wreathed beast by the sea" decoding="async"></button>
+    <button type="button" class="shot" style="--n:2" data-full="img/gallery/shot-03.webp"><img src="img/gallery/shot-03-sm.webp" srcset="img/gallery/shot-03-sm.webp 640w, img/gallery/shot-03.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A party crossing an open field towards the mountains" decoding="async"></button>
+    <button type="button" class="shot" style="--n:3" data-full="img/gallery/shot-04.webp"><img src="img/gallery/shot-04-sm.webp" srcset="img/gallery/shot-04-sm.webp 640w, img/gallery/shot-04.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A hulking brute charging at a party" decoding="async"></button>
+    <button type="button" class="shot" style="--n:4" data-full="img/gallery/shot-05.webp"><img src="img/gallery/shot-05-sm.webp" srcset="img/gallery/shot-05-sm.webp 640w, img/gallery/shot-05.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A party on a sunlit beach beside a boat" decoding="async"></button>
+    <button type="button" class="shot" style="--n:5" data-full="img/gallery/shot-06.webp"><img src="img/gallery/shot-06-sm.webp" srcset="img/gallery/shot-06-sm.webp 640w, img/gallery/shot-06.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="Arisen fighting a giant saurian" decoding="async"></button>
+    <button type="button" class="shot" style="--n:6" data-full="img/gallery/shot-07.webp"><img src="img/gallery/shot-07-sm.webp" srcset="img/gallery/shot-07-sm.webp 640w, img/gallery/shot-07.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A giant swinging its club at a party" loading="lazy" decoding="async"></button>
+    <button type="button" class="shot" style="--n:7" data-full="img/gallery/shot-08.webp"><img src="img/gallery/shot-08-sm.webp" srcset="img/gallery/shot-08-sm.webp 640w, img/gallery/shot-08.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A party in the meadows with a castle on the horizon" loading="lazy" decoding="async"></button>
+    <button type="button" class="shot" style="--n:8" data-full="img/gallery/shot-09.webp"><img src="img/gallery/shot-09-sm.webp" srcset="img/gallery/shot-09-sm.webp 640w, img/gallery/shot-09.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="Undead shambling through a dark dungeon" loading="lazy" decoding="async"></button>
+    <button type="button" class="shot" style="--n:9" data-full="img/gallery/shot-10.webp"><img src="img/gallery/shot-10-sm.webp" srcset="img/gallery/shot-10-sm.webp 640w, img/gallery/shot-10.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A battle in a dark forest" loading="lazy" decoding="async"></button>
+    <button type="button" class="shot" style="--n:10" data-full="img/gallery/shot-11.webp"><img src="img/gallery/shot-11-sm.webp" srcset="img/gallery/shot-11-sm.webp 640w, img/gallery/shot-11.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A fighter's shield strike in the middle of a battle" loading="lazy" decoding="async"></button>
+    <button type="button" class="shot" style="--n:11" data-full="img/gallery/shot-12.webp"><img src="img/gallery/shot-12-sm.webp" srcset="img/gallery/shot-12-sm.webp 640w, img/gallery/shot-12.webp 1280w" sizes="(max-width: 1099px) 50vw, 33vw" width="640" height="360" alt="A sorcerer casting a burst of light" loading="lazy" decoding="async"></button>
+  </div>
+  <p class="shots-note">Official Dragon's Dogma Online screenshots &copy; CAPCOM</p>
+</main>
+
+<footer>
+  <p style="color: #B0A090; font-size: 18px;">© <span id="year">2026</span> Dogma Rising · All rights reserved.</p>
+</footer>
+
+<!-- Full-screen viewer for the screenshots -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <button type="button" class="lb-btn lb-close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure class="lb-stage">
+    <img class="lb-img" alt="">
+    <figcaption class="lb-count"></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-next" aria-label="Next screenshot"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script>
+  // Dynamic year footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Screenshots: a click opens the full-size picture; arrows, swipe and the arrow keys page through, Esc or a click beside it closes
+  (function () {
+    const shots = [...document.querySelectorAll('.shot')];
+    const lb = document.getElementById('lightbox');
+    if (!shots.length || !lb) return;
+    const img = lb.querySelector('.lb-img'), count = lb.querySelector('.lb-count');
+    const buttons = [...lb.querySelectorAll('button')];
+    let at = 0, lastFocus = null, touchX = null, closeTimer = null;
+
+    function show(n) {
+      at = (n + shots.length) % shots.length;
+      const thumb = shots[at].querySelector('img');
+      img.classList.add('loading');
+      img.onload = () => img.classList.remove('loading');
+      img.src = shots[at].dataset.full;
+      img.alt = thumb.alt;
+      count.textContent = (at + 1) + ' / ' + shots.length;
+      [at + 1, at - 1].forEach(k => { new Image().src = shots[(k + shots.length) % shots.length].dataset.full; });
+    }
+    function open(n) {
+      clearTimeout(closeTimer);
+      lastFocus = document.activeElement;
+      lb.hidden = false;
+      requestAnimationFrame(() => lb.classList.add('open'));
+      document.body.style.overflow = 'hidden';
+      show(n);
+      lb.querySelector('.lb-close').focus();
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      closeTimer = setTimeout(() => { lb.hidden = true; img.removeAttribute('src'); }, 300);
+      if (lastFocus) lastFocus.focus();
+    }
+    shots.forEach((s, n) => s.addEventListener('click', () => open(n)));
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    lb.querySelector('.lb-prev').addEventListener('click', () => show(at - 1));
+    lb.querySelector('.lb-next').addEventListener('click', () => show(at + 1));
+    lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-stage')) close(); });
+    document.addEventListener('keydown', e => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') show(at + 1);
+      else if (e.key === 'ArrowLeft') show(at - 1);
+      else if (e.key === 'Tab') {   // keep the keyboard inside the viewer while it is open
+        e.preventDefault();
+        const k = buttons.indexOf(document.activeElement);
+        buttons[(k + (e.shiftKey ? -1 : 1) + buttons.length) % buttons.length].focus();
+      }
+    });
+    lb.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+  })();
+
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('menuClose');
+
+  function closeMenu() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+</script>
+</body>
+</html>
